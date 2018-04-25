@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImporteVehiculos", "ImporteVehiculos\ImporteVehiculos.csproj", "{EE316114-2D9E-4270-B198-481E07F680A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialKeyGenerator", "SerialKeyGenerator\SerialKeyGenerator.csproj", "{F927529D-B5BB-4206-B7E1-5648309C4A23}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoPichardo", "AutoPichardo\AutoPichardo.vdproj", "{25B7BFA4-F247-4D70-937C-50B45191A238}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Debug|x86.ActiveCfg = Debug|x86
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Debug|x86.Build.0 = Debug|x86
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Release|x86.ActiveCfg = Release|x86
+		{EE316114-2D9E-4270-B198-481E07F680A5}.Release|x86.Build.0 = Release|x86
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Debug|x86.ActiveCfg = Debug|x86
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Debug|x86.Build.0 = Debug|x86
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Release|x86.ActiveCfg = Release|x86
+		{F927529D-B5BB-4206-B7E1-5648309C4A23}.Release|x86.Build.0 = Release|x86
+		{25B7BFA4-F247-4D70-937C-50B45191A238}.Debug|Any CPU.ActiveCfg = Debug
+		{25B7BFA4-F247-4D70-937C-50B45191A238}.Debug|x86.ActiveCfg = Debug
+		{25B7BFA4-F247-4D70-937C-50B45191A238}.Release|Any CPU.ActiveCfg = Release
+		{25B7BFA4-F247-4D70-937C-50B45191A238}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

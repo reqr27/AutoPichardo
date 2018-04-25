@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE316114-2D9E-4270-B198-481E07F680A5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImporteVehiculos</RootNamespace>
+    <AssemblyName>ImporteVehiculos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ImporteVehiculos.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>car.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CarsImportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarsImportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ClsParametros.cs" />
+    <Compile Include="Classes\Conexion.cs" />
+    <Compile Include="Classes\GlobalFunctions.cs" />
+    <Compile Include="Classes\Procedimientos.cs" />
+    <Compile Include="Formularios\ActivationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ActivationForm.Designer.cs">
+      <DependentUpon>ActivationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarComponentesGastosVehiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarComponentesGastosVehiculoForm.Designer.cs">
+      <DependentUpon>AgregarComponentesGastosVehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarFabricantesModelosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarFabricantesModelosForm.Designer.cs">
+      <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CiudadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CiudadForm.Designer.cs">
+      <DependentUpon>CiudadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ClienteForm.Designer.cs">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CobrosCuentasCobrarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CobrosCuentasCobrarForm.Designer.cs">
+      <DependentUpon>CobrosCuentasCobrarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ColoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ColoresForm.Designer.cs">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ConfiguracionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ConfiguracionForm.Designer.cs">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CuentasCobrarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CuentasCobrarForm.Designer.cs">
+      <DependentUpon>CuentasCobrarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CuentasPagarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CuentasPagarForm.Designer.cs">
+      <DependentUpon>CuentasPagarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\DetallesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DetallesForm.Designer.cs">
+      <DependentUpon>DetallesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\DolaresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DolaresForm.Designer.cs">
+      <DependentUpon>DolaresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormVentanaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormVentanaPrincipal.Designer.cs">
+      <DependentUpon>FormVentanaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GastosGeneralesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GastosGeneralesForm.Designer.cs">
+      <DependentUpon>GastosGeneralesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ImporteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ImporteForm.Designer.cs">
+      <DependentUpon>ImporteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ModificarVehiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ModificarVehiculoForm.Designer.cs">
+      <DependentUpon>ModificarVehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MostrarImagenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MostrarImagenForm.Designer.cs">
+      <DependentUpon>MostrarImagenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\NuevoVehiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\NuevoVehiculoForm.Designer.cs">
+      <DependentUpon>NuevoVehiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PagosCuentasPagarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PagosCuentasPagarForm.Designer.cs">
+      <DependentUpon>PagosCuentasPagarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PaisesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PaisesForm.Designer.cs">
+      <DependentUpon>PaisesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PiezasRepuestosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PiezasRepuestosForm.Designer.cs">
+      <DependentUpon>PiezasRepuestosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ProcesosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProcesosForm.Designer.cs">
+      <DependentUpon>ProcesosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PropietariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PropietariosForm.Designer.cs">
+      <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReportesForm.Designer.cs">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ReportesVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReportesVentana.Designer.cs">
+      <DependentUpon>ReportesVentana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\SegurosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SegurosForm.Designer.cs">
+      <DependentUpon>SegurosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\SuplidoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SuplidoresForm.Designer.cs">
+      <DependentUpon>SuplidoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TalleresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TalleresForm.Designer.cs">
+      <DependentUpon>TalleresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\UbicacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\UbicacionForm.Designer.cs">
+      <DependentUpon>UbicacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\UsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\UsuariosForm.Designer.cs">
+      <DependentUpon>UsuariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\VenderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VenderForm.Designer.cs">
+      <DependentUpon>VenderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\ActivationForm.resx">
+      <DependentUpon>ActivationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarComponentesGastosVehiculoForm.resx">
+      <DependentUpon>AgregarComponentesGastosVehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarFabricantesModelosForm.resx">
+      <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CiudadForm.resx">
+      <DependentUpon>CiudadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ClienteForm.resx">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CobrosCuentasCobrarForm.resx">
+      <DependentUpon>CobrosCuentasCobrarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ColoresForm.resx">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ConfiguracionForm.resx">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CuentasCobrarForm.resx">
+      <DependentUpon>CuentasCobrarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CuentasPagarForm.resx">
+      <DependentUpon>CuentasPagarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DetallesForm.resx">
+      <DependentUpon>DetallesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DolaresForm.resx">
+      <DependentUpon>DolaresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormVentanaPrincipal.resx">
+      <DependentUpon>FormVentanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GastosGeneralesForm.resx">
+      <DependentUpon>GastosGeneralesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ImporteForm.resx">
+      <DependentUpon>ImporteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ModificarVehiculoForm.resx">
+      <DependentUpon>ModificarVehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MostrarImagenForm.resx">
+      <DependentUpon>MostrarImagenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\NuevoVehiculoForm.resx">
+      <DependentUpon>NuevoVehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PagosCuentasPagarForm.resx">
+      <DependentUpon>PagosCuentasPagarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PaisesForm.resx">
+      <DependentUpon>PaisesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PiezasRepuestosForm.resx">
+      <DependentUpon>PiezasRepuestosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProcesosForm.resx">
+      <DependentUpon>ProcesosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PropietariosForm.resx">
+      <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ReportesForm.resx">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ReportesVentana.resx">
+      <DependentUpon>ReportesVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SegurosForm.resx">
+      <DependentUpon>SegurosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SuplidoresForm.resx">
+      <DependentUpon>SuplidoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TalleresForm.resx">
+      <DependentUpon>TalleresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\UbicacionForm.resx">
+      <DependentUpon>UbicacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\UsuariosForm.resx">
+      <DependentUpon>UsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VenderForm.resx">
+      <DependentUpon>VenderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\Factura.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReciboCobro.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteComprados.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCuentaCobrar.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCuentasPagar.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteEfectivo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteInventario.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteReciboSeguro.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteReciboTraspaso.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteResultadosRD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteResultadoUSD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVehiculoIndividual.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVehiculosProceso.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVehiculosTerminados.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVehiculosVendidos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVendidos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="CarsImportDataSet.xsc">
+      <DependentUpon>CarsImportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CarsImportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarsImportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarsImportDataSet.xss">
+      <DependentUpon>CarsImportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disquete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cruzar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carreras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carreras %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carreras %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shock-absorber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shock-absorber %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas-de-trabajo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taller-mecanico-de-coches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taller-mecanico-de-coches %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servicio-al-cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\efectivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\efectivo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camion-de-reparto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-notas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portapapeles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circulo-de-suma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa-para-buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deshabilitado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprobado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personas-comerciando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sumar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vendido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\efectivo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\efectivo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laptop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laptop %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mundo-en-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mundo-en-red %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\un-par-de-flechas-cambiando-lugares.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapas-y-banderas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deshabilitado1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portapapeles1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-de-lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recepcion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\billete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maquina-de-facturacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proyecto-de-ley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="car.ico" />
+    <None Include="Resources\insurance.png" />
+    <None Include="Resources\browsing.png" />
+    <None Include="Resources\salesman.png" />
+    <None Include="Resources\placeholder.png" />
+    <None Include="Resources\brush.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\bank.png" />
+    <None Include="Resources\minimize %281%291.png" />
+    <None Include="Resources\minimize %281%29.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\worldwide %281%29.png" />
+    <None Include="Resources\close %281%291.png" />
+    <None Include="Resources\close %281%29.png" />
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
