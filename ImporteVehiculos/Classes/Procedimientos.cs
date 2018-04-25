@@ -1004,6 +1004,9 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             lst.Add(new clsParametros("@idCliente", MidCliente));
             lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@nota", Mnota));
+
+
 
             C.EjecutarSP("insertar_factura", ref lst);
 

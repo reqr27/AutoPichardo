@@ -116,6 +116,7 @@
             this.seguros_btn.Text = "SEGUROS";
             this.seguros_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.seguros_btn.UseVisualStyleBackColor = true;
+            this.seguros_btn.Visible = false;
             this.seguros_btn.Click += new System.EventHandler(this.seguros_btn_Click);
             // 
             // suplidores_btn

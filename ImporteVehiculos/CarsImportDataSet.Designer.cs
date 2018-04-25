@@ -4521,6 +4521,8 @@ namespace ImporteVehiculos {
             
             private global::System.Data.DataColumn columnFACTURA;
             
+            private global::System.Data.DataColumn columnNOTAVENTA;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public reporte_factura_vehiculoDataTable() {
@@ -4716,6 +4718,14 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOTAVENTAColumn {
+                get {
+                    return this.columnNOTAVENTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4769,7 +4779,8 @@ namespace ImporteVehiculos {
                         bool VENDIDO, 
                         bool TERMINADO, 
                         string DETALLES, 
-                        string COLOR) {
+                        string COLOR, 
+                        string NOTAVENTA) {
                 reporte_factura_vehiculoRow rowreporte_factura_vehiculoRow = ((reporte_factura_vehiculoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4791,7 +4802,8 @@ namespace ImporteVehiculos {
                         TERMINADO,
                         DETALLES,
                         COLOR,
-                        null};
+                        null,
+                        NOTAVENTA};
                 rowreporte_factura_vehiculoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreporte_factura_vehiculoRow);
                 return rowreporte_factura_vehiculoRow;
@@ -4834,6 +4846,7 @@ namespace ImporteVehiculos {
                 this.columnDETALLES = base.Columns["DETALLES"];
                 this.columnCOLOR = base.Columns["COLOR"];
                 this.columnFACTURA = base.Columns["FACTURA"];
+                this.columnNOTAVENTA = base.Columns["NOTAVENTA"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4879,6 +4892,8 @@ namespace ImporteVehiculos {
                 base.Columns.Add(this.columnCOLOR);
                 this.columnFACTURA = new global::System.Data.DataColumn("FACTURA", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFACTURA);
+                this.columnNOTAVENTA = new global::System.Data.DataColumn("NOTAVENTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOTAVENTA);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
@@ -4907,6 +4922,7 @@ namespace ImporteVehiculos {
                 this.columnFACTURA.AutoIncrement = true;
                 this.columnFACTURA.AllowDBNull = false;
                 this.columnFACTURA.ReadOnly = true;
+                this.columnNOTAVENTA.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12600,6 +12616,22 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOTAVENTA {
+                get {
+                    try {
+                        return ((string)(this[this.tablereporte_factura_vehiculo.NOTAVENTAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOTAVENTA\' in table \'reporte_factura_vehiculo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_factura_vehiculo.NOTAVENTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPRECIORDNull() {
                 return this.IsNull(this.tablereporte_factura_vehiculo.PRECIORDColumn);
             }
@@ -12704,6 +12736,18 @@ namespace ImporteVehiculos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCOLORNull() {
                 this[this.tablereporte_factura_vehiculo.COLORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOTAVENTANull() {
+                return this.IsNull(this.tablereporte_factura_vehiculo.NOTAVENTAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOTAVENTANull() {
+                this[this.tablereporte_factura_vehiculo.NOTAVENTAColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -18392,6 +18436,7 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("DETALLES", "DETALLES");
             tableMapping.ColumnMappings.Add("COLOR", "COLOR");
             tableMapping.ColumnMappings.Add("FACTURA", "FACTURA");
+            tableMapping.ColumnMappings.Add("NOTAVENTA", "NOTAVENTA");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -184,6 +184,8 @@
             this.label34 = new System.Windows.Forms.Label();
             this.notaPagoSeguros_txt = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label41 = new System.Windows.Forms.Label();
+            this.notaVenta_txt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
             this.panel4.SuspendLayout();
@@ -471,6 +473,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage1.Controls.Add(this.notaVenta_txt);
+            this.tabPage1.Controls.Add(this.label41);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.precioEstimadoVentaUSD_txt);
             this.tabPage1.Controls.Add(this.tasa_lbl);
@@ -502,7 +506,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(250, 35);
+            this.label12.Location = new System.Drawing.Point(250, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 14);
             this.label12.TabIndex = 132;
@@ -512,7 +516,7 @@
             // 
             this.precioEstimadoVentaUSD_txt.Enabled = false;
             this.precioEstimadoVentaUSD_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioEstimadoVentaUSD_txt.Location = new System.Drawing.Point(471, 207);
+            this.precioEstimadoVentaUSD_txt.Location = new System.Drawing.Point(471, 183);
             this.precioEstimadoVentaUSD_txt.Name = "precioEstimadoVentaUSD_txt";
             this.precioEstimadoVentaUSD_txt.Size = new System.Drawing.Size(179, 20);
             this.precioEstimadoVentaUSD_txt.TabIndex = 144;
@@ -521,7 +525,7 @@
             // 
             this.tasa_lbl.AutoSize = true;
             this.tasa_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tasa_lbl.Location = new System.Drawing.Point(393, 246);
+            this.tasa_lbl.Location = new System.Drawing.Point(393, 222);
             this.tasa_lbl.Name = "tasa_lbl";
             this.tasa_lbl.Size = new System.Drawing.Size(84, 14);
             this.tasa_lbl.TabIndex = 128;
@@ -532,7 +536,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(253, 210);
+            this.label21.Location = new System.Drawing.Point(253, 186);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(218, 14);
             this.label21.TabIndex = 145;
@@ -543,7 +547,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(256, 368);
+            this.label8.Location = new System.Drawing.Point(256, 344);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 14);
             this.label8.TabIndex = 130;
@@ -553,7 +557,7 @@
             // 
             this.precioEstimadoVentaRD_txt.Enabled = false;
             this.precioEstimadoVentaRD_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioEstimadoVentaRD_txt.Location = new System.Drawing.Point(470, 164);
+            this.precioEstimadoVentaRD_txt.Location = new System.Drawing.Point(470, 140);
             this.precioEstimadoVentaRD_txt.Name = "precioEstimadoVentaRD_txt";
             this.precioEstimadoVentaRD_txt.Size = new System.Drawing.Size(178, 20);
             this.precioEstimadoVentaRD_txt.TabIndex = 142;
@@ -563,7 +567,7 @@
             this.fecha_dtp.CustomFormat = "dd/MM/yyyy";
             this.fecha_dtp.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fecha_dtp.Location = new System.Drawing.Point(379, 365);
+            this.fecha_dtp.Location = new System.Drawing.Point(379, 341);
             this.fecha_dtp.Name = "fecha_dtp";
             this.fecha_dtp.Size = new System.Drawing.Size(97, 20);
             this.fecha_dtp.TabIndex = 129;
@@ -572,7 +576,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(252, 167);
+            this.label22.Location = new System.Drawing.Point(252, 143);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(212, 14);
             this.label22.TabIndex = 143;
@@ -585,7 +589,7 @@
             this.cliente_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cliente_cb.FormattingEnabled = true;
             this.cliente_cb.IntegralHeight = false;
-            this.cliente_cb.Location = new System.Drawing.Point(364, 319);
+            this.cliente_cb.Location = new System.Drawing.Point(364, 295);
             this.cliente_cb.Name = "cliente_cb";
             this.cliente_cb.Size = new System.Drawing.Size(287, 22);
             this.cliente_cb.TabIndex = 126;
@@ -595,7 +599,7 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(256, 318);
+            this.label.Location = new System.Drawing.Point(256, 294);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(64, 14);
             this.label.TabIndex = 127;
@@ -606,7 +610,7 @@
             this.panel2.Controls.Add(this.radioBtnRD_precio);
             this.panel2.Controls.Add(this.radioBtnUSD_precio);
             this.panel2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(256, 241);
+            this.panel2.Location = new System.Drawing.Point(256, 217);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(126, 24);
             this.panel2.TabIndex = 141;
@@ -644,7 +648,7 @@
             this.vehiculos_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehiculos_cb.FormattingEnabled = true;
             this.vehiculos_cb.IntegralHeight = false;
-            this.vehiculos_cb.Location = new System.Drawing.Point(377, 32);
+            this.vehiculos_cb.Location = new System.Drawing.Point(377, 8);
             this.vehiculos_cb.Name = "vehiculos_cb";
             this.vehiculos_cb.Size = new System.Drawing.Size(271, 22);
             this.vehiculos_cb.TabIndex = 131;
@@ -654,7 +658,7 @@
             // 
             this.costoUSD_txt.Enabled = false;
             this.costoUSD_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costoUSD_txt.Location = new System.Drawing.Point(549, 122);
+            this.costoUSD_txt.Location = new System.Drawing.Point(549, 98);
             this.costoUSD_txt.Name = "costoUSD_txt";
             this.costoUSD_txt.Size = new System.Drawing.Size(99, 20);
             this.costoUSD_txt.TabIndex = 139;
@@ -663,7 +667,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(250, 79);
+            this.label13.Location = new System.Drawing.Point(250, 55);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 14);
             this.label13.TabIndex = 133;
@@ -673,7 +677,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(453, 125);
+            this.label20.Location = new System.Drawing.Point(453, 101);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(91, 14);
             this.label20.TabIndex = 140;
@@ -683,7 +687,7 @@
             // 
             this.chasis_txt.Enabled = false;
             this.chasis_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chasis_txt.Location = new System.Drawing.Point(375, 76);
+            this.chasis_txt.Location = new System.Drawing.Point(375, 52);
             this.chasis_txt.Name = "chasis_txt";
             this.chasis_txt.Size = new System.Drawing.Size(271, 20);
             this.chasis_txt.TabIndex = 134;
@@ -692,7 +696,7 @@
             // 
             this.costoRD_txt.Enabled = false;
             this.costoRD_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costoRD_txt.Location = new System.Drawing.Point(343, 122);
+            this.costoRD_txt.Location = new System.Drawing.Point(343, 98);
             this.costoRD_txt.Name = "costoRD_txt";
             this.costoRD_txt.Size = new System.Drawing.Size(99, 20);
             this.costoRD_txt.TabIndex = 137;
@@ -701,7 +705,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(256, 283);
+            this.label17.Location = new System.Drawing.Point(256, 259);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(102, 14);
             this.label17.TabIndex = 136;
@@ -711,7 +715,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(250, 125);
+            this.label19.Location = new System.Drawing.Point(250, 101);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(85, 14);
             this.label19.TabIndex = 138;
@@ -720,7 +724,7 @@
             // precio_txt
             // 
             this.precio_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precio_txt.Location = new System.Drawing.Point(364, 280);
+            this.precio_txt.Location = new System.Drawing.Point(364, 256);
             this.precio_txt.Name = "precio_txt";
             this.precio_txt.Size = new System.Drawing.Size(287, 20);
             this.precio_txt.TabIndex = 135;
@@ -1924,6 +1928,26 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(256, 376);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(90, 14);
+            this.label41.TabIndex = 146;
+            this.label41.Text = "NOTA VENTA:";
+            // 
+            // notaVenta_txt
+            // 
+            this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaVenta_txt.Location = new System.Drawing.Point(259, 393);
+            this.notaVenta_txt.Multiline = true;
+            this.notaVenta_txt.Name = "notaVenta_txt";
+            this.notaVenta_txt.Size = new System.Drawing.Size(409, 68);
+            this.notaVenta_txt.TabIndex = 147;
+            // 
             // VenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2122,5 +2146,7 @@
         private System.Windows.Forms.Label precioSeguroUsd_lbl;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label precioSeguroRd_lbl;
+        private System.Windows.Forms.TextBox notaVenta_txt;
+        private System.Windows.Forms.Label label41;
     }
 }

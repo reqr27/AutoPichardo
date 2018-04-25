@@ -70,17 +70,17 @@ namespace ImporteVehiculos.Formularios
             totalTraspasoRD_lbl.Text = "0.00";
             totalTraspasoRD_lbl.Text = "0.00";
 
-            precioSeguro_txt.Text = "";
-            montoSeguros_txt.Text = "";
-            notaPagoSeguros_txt.Text = "";
-            tipoPagoSeguros_cb.SelectedIndex = 0;
-            precioSeguroRd_lbl.Text = "0.00";
-            precioSeguroUsd_lbl.Text = "0.00";
-            seguros_dtg.Rows.Clear();
-            restanteSeguro_RD_lbl.Text = "0.00";
-            restanteSeguro_USD_lbl.Text = "0.00";
-            totalSeguroRD_lbl.Text = "0.00";
-            totalSeguroRD_lbl.Text = "0.00";
+            //precioSeguro_txt.Text = "";
+            //montoSeguros_txt.Text = "";
+            //notaPagoSeguros_txt.Text = "";
+            //tipoPagoSeguros_cb.SelectedIndex = 0;
+            //precioSeguroRd_lbl.Text = "0.00";
+            //precioSeguroUsd_lbl.Text = "0.00";
+            //seguros_dtg.Rows.Clear();
+            //restanteSeguro_RD_lbl.Text = "0.00";
+            //restanteSeguro_USD_lbl.Text = "0.00";
+            //totalSeguroRD_lbl.Text = "0.00";
+            //totalSeguroRD_lbl.Text = "0.00";
 
 
 
@@ -88,6 +88,9 @@ namespace ImporteVehiculos.Formularios
 
         private void VenderForm_Load(object sender, EventArgs e)
         {
+            notaVenta_txt.MaxLength = 290;
+            tabControl1.TabPages.Remove(tabPage4); // esconder tab seguros
+           
             duracion_seguro.Maximum = Int32.MaxValue;
             duracion_seguro.Value = 365;
             this.openFileDialog1.Filter =
@@ -103,7 +106,7 @@ namespace ImporteVehiculos.Formularios
             FieldStatusSeguro(false);
             CalcularTotal();
             CalcularTotalTraspaso();
-            CalcularTotalSeguros();
+            //CalcularTotalSeguros();
             LlenarDtgClientes();
             tipoPago_cb.SelectedIndex = -1;
             DataTable dt1 = new DataTable();
@@ -118,8 +121,8 @@ namespace ImporteVehiculos.Formularios
             LLenarVehiculosCb();
             LLenarTipoPagoCb();
             LLenarTipoPagoCbTraspaso();
-            LLenarTipoPagoCbSeguros();
-            LLenarSegurosCb();
+           // LLenarTipoPagoCbSeguros();
+           // LLenarSegurosCb();
             Permisos();
         }
         public void Permisos()
@@ -240,9 +243,9 @@ namespace ImporteVehiculos.Formularios
             DialogResult dialogResult = MessageBox.Show("Está seguro que desea realizar esta acción?", Program.Gtitulo, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (pagos_dtg.Rows.Count > 0 && pagosTraspaso_dtg.Rows.Count > 0 && seguros_dtg.Rows.Count > 0)
+                if (pagos_dtg.Rows.Count > 0 && pagosTraspaso_dtg.Rows.Count > 0) //&& seguros_dtg.Rows.Count > 0
                 {
-                    if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0) && (Convert.ToDouble(restanteTraspaso_RD_lbl.Text) == 0 || Convert.ToDouble(restanteTraspaso_USD_lbl.Text) == 0) && (Convert.ToDouble(restanteSeguro_RD_lbl.Text) == 0 || Convert.ToDouble(restanteSeguro_USD_lbl.Text) == 0))
+                    if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0) && (Convert.ToDouble(restanteTraspaso_RD_lbl.Text) == 0 || Convert.ToDouble(restanteTraspaso_USD_lbl.Text) == 0)) //&& (Convert.ToDouble(restanteSeguro_RD_lbl.Text) == 0 || Convert.ToDouble(restanteSeguro_USD_lbl.Text) == 0)
                     {
                         VenderVehiculo();
                     }
@@ -266,7 +269,7 @@ namespace ImporteVehiculos.Formularios
             DataTable dt1 = new DataTable();
             dt1 = P.ObtenerTasaDolarYFecha();
             
-            string[] valores = { cliente_cb.Text, seguro_cb.Text, seguro_cb.Text };
+            string[] valores = { cliente_cb.Text}; //seguro_cb.Text, seguro_cb.Text 
             string msj = GF.ValidarCampoString(valores);
 
             if (msj != "OK")
@@ -285,7 +288,7 @@ namespace ImporteVehiculos.Formularios
                     {
                         if (InsertarDetalleTraspaso())
                         {
-                            if (InsertarDetalleSeguro())
+                            if (true) //InsertarDetalleSeguro()
                             {
                                 if (MarcarVehiculoVendio())
                                 {
@@ -430,6 +433,7 @@ namespace ImporteVehiculos.Formularios
             P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
             P.Fecha = fecha_dtp.Value;
             P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            P.Nota = nota_txt.Text;
             string msj = P.InsertarFactura();
             if(msj == "1")
             {

@@ -174,7 +174,7 @@ namespace ImporteVehiculos.Formularios
             catch (Exception)
             {
 
-                throw;
+                
             }
             
         }
