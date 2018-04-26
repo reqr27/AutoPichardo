@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesForm));
             this.vehiculo_lbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,34 +38,26 @@
             this.eliminarGastoAduana_btn = new System.Windows.Forms.Button();
             this.agregarGastosAduana_btn = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
-            this.gastosAduanales_dtg = new System.Windows.Forms.DataGridView();
+            this.facturas_dtg = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.totalRD_lbl = new System.Windows.Forms.Label();
             this.totalUSD_lbl = new System.Windows.Forms.Label();
-            this.subTotalGastoUSD_lbl = new System.Windows.Forms.Label();
-            this.subTotalGastoRD_lbl = new System.Windows.Forms.Label();
-            this.subTotalCompUSD_lbl = new System.Windows.Forms.Label();
-            this.subTotalCompRD_lbl = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.eliminarGastos_btn = new System.Windows.Forms.Button();
             this.agregarGastos_btn = new System.Windows.Forms.Button();
-            this.eliminarComponente_btn = new System.Windows.Forms.Button();
-            this.agregarComponente_btn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gastos_dtg = new System.Windows.Forms.DataGridView();
-            this.Componentes_dtg = new System.Windows.Forms.DataGridView();
+            this.detalleFactura_dtg = new System.Windows.Forms.DataGridView();
             this.actualizar_btn = new System.Windows.Forms.Button();
             this.pagos_btn = new System.Windows.Forms.Button();
             this.finalizarVenderProceso_btn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.estimadoUSD_lbl = new System.Windows.Forms.Label();
+            this.estimadoRD_lbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.USD_costo_total_lbl = new System.Windows.Forms.Label();
@@ -87,6 +78,7 @@
             this.propietario_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.acto_venta_chbox = new System.Windows.Forms.CheckBox();
             this.matricula_chbox = new System.Windows.Forms.CheckBox();
             this.cedula_chbox = new System.Windows.Forms.CheckBox();
@@ -99,22 +91,14 @@
             this.estado_lbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.estimadoUSD_lbl = new System.Windows.Forms.Label();
-            this.estimadoRD_lbl = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gastosAduanales_dtg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturas_dtg)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gastos_dtg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Componentes_dtg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleFactura_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // vehiculo_lbl
@@ -138,18 +122,18 @@
             this.panel1.Controls.Add(this.eliminarGastoAduana_btn);
             this.panel1.Controls.Add(this.agregarGastosAduana_btn);
             this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.gastosAduanales_dtg);
+            this.panel1.Controls.Add(this.facturas_dtg);
             this.panel1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(11, 128);
+            this.panel1.Location = new System.Drawing.Point(11, 131);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(381, 333);
+            this.panel1.Size = new System.Drawing.Size(682, 333);
             this.panel1.TabIndex = 35;
             // 
             // subTotalAduanaUSD_lbl
             // 
             this.subTotalAduanaUSD_lbl.AutoSize = true;
             this.subTotalAduanaUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalAduanaUSD_lbl.Location = new System.Drawing.Point(265, 308);
+            this.subTotalAduanaUSD_lbl.Location = new System.Drawing.Point(561, 308);
             this.subTotalAduanaUSD_lbl.Name = "subTotalAduanaUSD_lbl";
             this.subTotalAduanaUSD_lbl.Size = new System.Drawing.Size(106, 14);
             this.subTotalAduanaUSD_lbl.TabIndex = 82;
@@ -159,7 +143,7 @@
             // 
             this.subTotalAduanaRD_lbl.AutoSize = true;
             this.subTotalAduanaRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalAduanaRD_lbl.Location = new System.Drawing.Point(266, 287);
+            this.subTotalAduanaRD_lbl.Location = new System.Drawing.Point(562, 287);
             this.subTotalAduanaRD_lbl.Name = "subTotalAduanaRD_lbl";
             this.subTotalAduanaRD_lbl.Size = new System.Drawing.Size(106, 14);
             this.subTotalAduanaRD_lbl.TabIndex = 81;
@@ -169,7 +153,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(150, 308);
+            this.label22.Location = new System.Drawing.Point(446, 308);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(114, 14);
             this.label22.TabIndex = 80;
@@ -179,7 +163,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(150, 287);
+            this.label23.Location = new System.Drawing.Point(446, 287);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(106, 14);
             this.label23.TabIndex = 79;
@@ -198,6 +182,7 @@
             this.eliminarGastoAduana_btn.Text = "Eliminar";
             this.eliminarGastoAduana_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.eliminarGastoAduana_btn.UseVisualStyleBackColor = true;
+            this.eliminarGastoAduana_btn.Visible = false;
             this.eliminarGastoAduana_btn.Click += new System.EventHandler(this.eliminarGastoAduana_btn_Click);
             // 
             // agregarGastosAduana_btn
@@ -213,32 +198,35 @@
             this.agregarGastosAduana_btn.Text = "Agregar";
             this.agregarGastosAduana_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.agregarGastosAduana_btn.UseVisualStyleBackColor = true;
+            this.agregarGastosAduana_btn.Visible = false;
             this.agregarGastosAduana_btn.Click += new System.EventHandler(this.agregarGastosAduana_btn_Click);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(9, 11);
+            this.label24.Location = new System.Drawing.Point(9, 12);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(93, 14);
+            this.label24.Size = new System.Drawing.Size(152, 14);
             this.label24.TabIndex = 76;
-            this.label24.Text = "Otros Gastos";
+            this.label24.Text = "FACTURAS SERVICIOS";
             // 
-            // gastosAduanales_dtg
+            // facturas_dtg
             // 
-            this.gastosAduanales_dtg.AllowUserToAddRows = false;
-            this.gastosAduanales_dtg.AllowUserToDeleteRows = false;
-            this.gastosAduanales_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.gastosAduanales_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.gastosAduanales_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gastosAduanales_dtg.Location = new System.Drawing.Point(12, 39);
-            this.gastosAduanales_dtg.MultiSelect = false;
-            this.gastosAduanales_dtg.Name = "gastosAduanales_dtg";
-            this.gastosAduanales_dtg.ReadOnly = true;
-            this.gastosAduanales_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gastosAduanales_dtg.Size = new System.Drawing.Size(358, 245);
-            this.gastosAduanales_dtg.TabIndex = 75;
+            this.facturas_dtg.AllowUserToAddRows = false;
+            this.facturas_dtg.AllowUserToDeleteRows = false;
+            this.facturas_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.facturas_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.facturas_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.facturas_dtg.Location = new System.Drawing.Point(12, 39);
+            this.facturas_dtg.MultiSelect = false;
+            this.facturas_dtg.Name = "facturas_dtg";
+            this.facturas_dtg.ReadOnly = true;
+            this.facturas_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.facturas_dtg.Size = new System.Drawing.Size(653, 245);
+            this.facturas_dtg.TabIndex = 75;
+            this.facturas_dtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.facturas_dtg_CellClick);
+            this.facturas_dtg.SelectionChanged += new System.EventHandler(this.facturas_dtg_SelectionChanged);
             // 
             // button1
             // 
@@ -310,86 +298,6 @@
             this.totalUSD_lbl.TabIndex = 72;
             this.totalUSD_lbl.Text = "TOTAL($RD):";
             // 
-            // subTotalGastoUSD_lbl
-            // 
-            this.subTotalGastoUSD_lbl.AutoSize = true;
-            this.subTotalGastoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalGastoUSD_lbl.Location = new System.Drawing.Point(263, 309);
-            this.subTotalGastoUSD_lbl.Name = "subTotalGastoUSD_lbl";
-            this.subTotalGastoUSD_lbl.Size = new System.Drawing.Size(106, 14);
-            this.subTotalGastoUSD_lbl.TabIndex = 68;
-            this.subTotalGastoUSD_lbl.Text = "Sub-total($RD):";
-            // 
-            // subTotalGastoRD_lbl
-            // 
-            this.subTotalGastoRD_lbl.AutoSize = true;
-            this.subTotalGastoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalGastoRD_lbl.Location = new System.Drawing.Point(263, 288);
-            this.subTotalGastoRD_lbl.Name = "subTotalGastoRD_lbl";
-            this.subTotalGastoRD_lbl.Size = new System.Drawing.Size(106, 14);
-            this.subTotalGastoRD_lbl.TabIndex = 67;
-            this.subTotalGastoRD_lbl.Text = "Sub-total($RD):";
-            // 
-            // subTotalCompUSD_lbl
-            // 
-            this.subTotalCompUSD_lbl.AutoSize = true;
-            this.subTotalCompUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalCompUSD_lbl.Location = new System.Drawing.Point(269, 309);
-            this.subTotalCompUSD_lbl.Name = "subTotalCompUSD_lbl";
-            this.subTotalCompUSD_lbl.Size = new System.Drawing.Size(106, 14);
-            this.subTotalCompUSD_lbl.TabIndex = 66;
-            this.subTotalCompUSD_lbl.Text = "Sub-total($RD):";
-            // 
-            // subTotalCompRD_lbl
-            // 
-            this.subTotalCompRD_lbl.AutoSize = true;
-            this.subTotalCompRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalCompRD_lbl.Location = new System.Drawing.Point(269, 288);
-            this.subTotalCompRD_lbl.Name = "subTotalCompRD_lbl";
-            this.subTotalCompRD_lbl.Size = new System.Drawing.Size(106, 14);
-            this.subTotalCompRD_lbl.TabIndex = 65;
-            this.subTotalCompRD_lbl.Text = "Sub-total($RD):";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(144, 309);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 14);
-            this.label11.TabIndex = 64;
-            this.label11.Text = "Sub-total($USD):";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(144, 288);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(106, 14);
-            this.label12.TabIndex = 63;
-            this.label12.Text = "Sub-total($RD):";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(144, 309);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 14);
-            this.label10.TabIndex = 62;
-            this.label10.Text = "Sub-total($USD):";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(144, 288);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 14);
-            this.label9.TabIndex = 61;
-            this.label9.Text = "Sub-total($RD):";
-            // 
             // eliminarGastos_btn
             // 
             this.eliminarGastos_btn.FlatAppearance.BorderSize = 0;
@@ -403,6 +311,7 @@
             this.eliminarGastos_btn.Text = "Eliminar";
             this.eliminarGastos_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.eliminarGastos_btn.UseVisualStyleBackColor = true;
+            this.eliminarGastos_btn.Visible = false;
             this.eliminarGastos_btn.Click += new System.EventHandler(this.eliminarGastos_btn_Click);
             // 
             // agregarGastos_btn
@@ -418,37 +327,8 @@
             this.agregarGastos_btn.Text = "Agregar";
             this.agregarGastos_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.agregarGastos_btn.UseVisualStyleBackColor = true;
+            this.agregarGastos_btn.Visible = false;
             this.agregarGastos_btn.Click += new System.EventHandler(this.agregarGastos_btn_Click);
-            // 
-            // eliminarComponente_btn
-            // 
-            this.eliminarComponente_btn.FlatAppearance.BorderSize = 0;
-            this.eliminarComponente_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eliminarComponente_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eliminarComponente_btn.Image = global::ImporteVehiculos.Properties.Resources.borrar;
-            this.eliminarComponente_btn.Location = new System.Drawing.Point(294, 4);
-            this.eliminarComponente_btn.Name = "eliminarComponente_btn";
-            this.eliminarComponente_btn.Size = new System.Drawing.Size(84, 32);
-            this.eliminarComponente_btn.TabIndex = 58;
-            this.eliminarComponente_btn.Text = "Eliminar";
-            this.eliminarComponente_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.eliminarComponente_btn.UseVisualStyleBackColor = true;
-            this.eliminarComponente_btn.Click += new System.EventHandler(this.eliminarComponente_btn_Click);
-            // 
-            // agregarComponente_btn
-            // 
-            this.agregarComponente_btn.FlatAppearance.BorderSize = 0;
-            this.agregarComponente_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarComponente_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarComponente_btn.Image = global::ImporteVehiculos.Properties.Resources.sumar;
-            this.agregarComponente_btn.Location = new System.Drawing.Point(204, 4);
-            this.agregarComponente_btn.Name = "agregarComponente_btn";
-            this.agregarComponente_btn.Size = new System.Drawing.Size(84, 32);
-            this.agregarComponente_btn.TabIndex = 57;
-            this.agregarComponente_btn.Text = "Agregar";
-            this.agregarComponente_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.agregarComponente_btn.UseVisualStyleBackColor = true;
-            this.agregarComponente_btn.Click += new System.EventHandler(this.agregarComponente_btn_Click);
             // 
             // label7
             // 
@@ -456,58 +336,24 @@
             this.label7.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 14);
+            this.label7.Size = new System.Drawing.Size(108, 14);
             this.label7.TabIndex = 56;
-            this.label7.Text = "Gastos Mantenimientos";
+            this.label7.Text = "Detalle Factura";
             // 
-            // label2
+            // detalleFactura_dtg
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 14);
-            this.label2.TabIndex = 55;
-            this.label2.Text = "Piezas y Repuestos";
-            // 
-            // gastos_dtg
-            // 
-            this.gastos_dtg.AllowUserToAddRows = false;
-            this.gastos_dtg.AllowUserToDeleteRows = false;
-            this.gastos_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.gastos_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.gastos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gastos_dtg.Location = new System.Drawing.Point(3, 40);
-            this.gastos_dtg.MultiSelect = false;
-            this.gastos_dtg.Name = "gastos_dtg";
-            this.gastos_dtg.ReadOnly = true;
-            this.gastos_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gastos_dtg.Size = new System.Drawing.Size(375, 245);
-            this.gastos_dtg.TabIndex = 54;
-            // 
-            // Componentes_dtg
-            // 
-            this.Componentes_dtg.AllowUserToAddRows = false;
-            this.Componentes_dtg.AllowUserToDeleteRows = false;
-            this.Componentes_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Componentes_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Componentes_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.Componentes_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Componentes_dtg.Location = new System.Drawing.Point(3, 42);
-            this.Componentes_dtg.MultiSelect = false;
-            this.Componentes_dtg.Name = "Componentes_dtg";
-            this.Componentes_dtg.ReadOnly = true;
-            this.Componentes_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Componentes_dtg.Size = new System.Drawing.Size(375, 243);
-            this.Componentes_dtg.TabIndex = 53;
-            this.Componentes_dtg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Componentes_dtg_CellContentClick);
+            this.detalleFactura_dtg.AllowUserToAddRows = false;
+            this.detalleFactura_dtg.AllowUserToDeleteRows = false;
+            this.detalleFactura_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.detalleFactura_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.detalleFactura_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.detalleFactura_dtg.Location = new System.Drawing.Point(6, 40);
+            this.detalleFactura_dtg.MultiSelect = false;
+            this.detalleFactura_dtg.Name = "detalleFactura_dtg";
+            this.detalleFactura_dtg.ReadOnly = true;
+            this.detalleFactura_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.detalleFactura_dtg.Size = new System.Drawing.Size(407, 245);
+            this.detalleFactura_dtg.TabIndex = 54;
             // 
             // actualizar_btn
             // 
@@ -602,6 +448,50 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1181, 77);
             this.panel4.TabIndex = 59;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label16.Location = new System.Drawing.Point(584, 32);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(157, 16);
+            this.label16.TabIndex = 100;
+            this.label16.Text = "P. Estimado Venta($RD):";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label19.Location = new System.Drawing.Point(584, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(165, 16);
+            this.label19.TabIndex = 103;
+            this.label19.Text = "P. Estimado Venta($USD):";
+            // 
+            // estimadoUSD_lbl
+            // 
+            this.estimadoUSD_lbl.AutoSize = true;
+            this.estimadoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimadoUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.estimadoUSD_lbl.Location = new System.Drawing.Point(753, 52);
+            this.estimadoUSD_lbl.Name = "estimadoUSD_lbl";
+            this.estimadoUSD_lbl.Size = new System.Drawing.Size(72, 16);
+            this.estimadoUSD_lbl.TabIndex = 102;
+            this.estimadoUSD_lbl.Text = "PrecioUSD";
+            // 
+            // estimadoRD_lbl
+            // 
+            this.estimadoRD_lbl.AutoSize = true;
+            this.estimadoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimadoRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.estimadoRD_lbl.Location = new System.Drawing.Point(753, 32);
+            this.estimadoRD_lbl.Name = "estimadoRD_lbl";
+            this.estimadoRD_lbl.Size = new System.Drawing.Size(63, 16);
+            this.estimadoRD_lbl.TabIndex = 101;
+            this.estimadoRD_lbl.Text = "precioRD";
             // 
             // label5
             // 
@@ -841,6 +731,19 @@
             this.panel5.Size = new System.Drawing.Size(1181, 105);
             this.panel5.TabIndex = 106;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.linkLabel1.Location = new System.Drawing.Point(297, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(160, 16);
+            this.linkLabel1.TabIndex = 118;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Ver Todos los Detalles";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // acto_venta_chbox
             // 
             this.acto_venta_chbox.AutoSize = true;
@@ -966,91 +869,14 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.panel6.Controls.Add(this.gastos_dtg);
+            this.panel6.Controls.Add(this.detalleFactura_dtg);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.subTotalGastoUSD_lbl);
-            this.panel6.Controls.Add(this.subTotalGastoRD_lbl);
             this.panel6.Controls.Add(this.agregarGastos_btn);
-            this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.eliminarGastos_btn);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Location = new System.Drawing.Point(399, 128);
+            this.panel6.Location = new System.Drawing.Point(733, 131);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(381, 333);
+            this.panel6.Size = new System.Drawing.Size(436, 333);
             this.panel6.TabIndex = 107;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.Componentes_dtg);
-            this.panel7.Controls.Add(this.agregarComponente_btn);
-            this.panel7.Controls.Add(this.eliminarComponente_btn);
-            this.panel7.Controls.Add(this.subTotalCompUSD_lbl);
-            this.panel7.Controls.Add(this.label9);
-            this.panel7.Controls.Add(this.subTotalCompRD_lbl);
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Location = new System.Drawing.Point(786, 128);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(381, 333);
-            this.panel7.TabIndex = 108;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label16.Location = new System.Drawing.Point(584, 32);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(157, 16);
-            this.label16.TabIndex = 100;
-            this.label16.Text = "P. Estimado Venta($RD):";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label19.Location = new System.Drawing.Point(584, 54);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(165, 16);
-            this.label19.TabIndex = 103;
-            this.label19.Text = "P. Estimado Venta($USD):";
-            // 
-            // estimadoUSD_lbl
-            // 
-            this.estimadoUSD_lbl.AutoSize = true;
-            this.estimadoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimadoUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.estimadoUSD_lbl.Location = new System.Drawing.Point(753, 52);
-            this.estimadoUSD_lbl.Name = "estimadoUSD_lbl";
-            this.estimadoUSD_lbl.Size = new System.Drawing.Size(72, 16);
-            this.estimadoUSD_lbl.TabIndex = 102;
-            this.estimadoUSD_lbl.Text = "PrecioUSD";
-            // 
-            // estimadoRD_lbl
-            // 
-            this.estimadoRD_lbl.AutoSize = true;
-            this.estimadoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimadoRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.estimadoRD_lbl.Location = new System.Drawing.Point(753, 32);
-            this.estimadoRD_lbl.Name = "estimadoRD_lbl";
-            this.estimadoRD_lbl.Size = new System.Drawing.Size(63, 16);
-            this.estimadoRD_lbl.TabIndex = 101;
-            this.estimadoRD_lbl.Text = "precioRD";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.linkLabel1.Location = new System.Drawing.Point(297, 9);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(160, 16);
-            this.linkLabel1.TabIndex = 118;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver Todos los Detalles";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // DetallesForm
             // 
@@ -1059,7 +885,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(1181, 619);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -1072,11 +897,10 @@
             this.Load += new System.EventHandler(this.DetallesForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gastosAduanales_dtg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturas_dtg)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gastos_dtg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Componentes_dtg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleFactura_dtg)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1085,8 +909,6 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1100,22 +922,10 @@
         private System.Windows.Forms.Label totalRD_lbl;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label subTotalGastoUSD_lbl;
-        private System.Windows.Forms.Label subTotalGastoRD_lbl;
-        private System.Windows.Forms.Label subTotalCompUSD_lbl;
-        private System.Windows.Forms.Label subTotalCompRD_lbl;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button eliminarGastos_btn;
         private System.Windows.Forms.Button agregarGastos_btn;
-        private System.Windows.Forms.Button eliminarComponente_btn;
-        private System.Windows.Forms.Button agregarComponente_btn;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView gastos_dtg;
-        private System.Windows.Forms.DataGridView Componentes_dtg;
+        private System.Windows.Forms.DataGridView detalleFactura_dtg;
         private System.Windows.Forms.Button pagos_btn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label subTotalAduanaUSD_lbl;
@@ -1125,7 +935,7 @@
         private System.Windows.Forms.Button eliminarGastoAduana_btn;
         private System.Windows.Forms.Button agregarGastosAduana_btn;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DataGridView gastosAduanales_dtg;
+        private System.Windows.Forms.DataGridView facturas_dtg;
         private System.Windows.Forms.Button actualizar_btn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
@@ -1151,7 +961,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.CheckBox acto_venta_chbox;
         private System.Windows.Forms.CheckBox matricula_chbox;
         private System.Windows.Forms.CheckBox cedula_chbox;

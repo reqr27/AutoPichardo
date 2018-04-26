@@ -56,7 +56,9 @@ namespace ImporteVehiculos.Classes
         double MprecioSeguroUSD;
         double MprecioTraspasoRD;
         double MprecioTraspasoUSD;
-        
+
+        string MnumeroFactura;
+
         bool MestadoColor;
         int MidColor;
         int MidPropietario;
@@ -111,7 +113,7 @@ namespace ImporteVehiculos.Classes
         bool McrearUbicacion;
         bool McrearColor;
         bool McrearSeguro;
-
+        int Mcantidad;
 
         //double Msubtotal;
         //double Mtotal;
@@ -132,6 +134,12 @@ namespace ImporteVehiculos.Classes
         {
             get { return Mpais; }
             set { Mpais = value; }
+        }
+
+        public string NumeroFactura
+        {
+            get { return MnumeroFactura; }
+            set { MnumeroFactura = value; }
         }
 
         public string Suplidor
@@ -156,6 +164,12 @@ namespace ImporteVehiculos.Classes
         {
             get { return MidSeguro; }
             set { MidSeguro = value; }
+        }
+
+        public int Cantidad
+        {
+            get { return Mcantidad; }
+            set { Mcantidad = value; }
         }
 
         public int Duracion
@@ -1807,6 +1821,14 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_vehiculos_para_facturar", lst);
         }
+
+        public DataTable ObtenerVehiculosNoFacturados()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_vehiculos_no_vendidos", lst);
+        }
+
         public DataTable ObtenerCuentasPorPagar()
         {
             DataTable dt = new DataTable();
@@ -2344,12 +2366,48 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@montoUSD", MprecioUSD));
             lst.Add(new clsParametros("@fecha", Mfecha));
             lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
-
+            lst.Add(new clsParametros("@cantidad", Mcantidad));
 
             C.EjecutarSP("insertar_gasto_vehiculo", ref lst);
 
             mensaje = lst[0].Valor.ToString();
             return mensaje;
+        }
+
+        public string InsertarFacturaServicios()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@montoRD", MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@numeroFactura", MnumeroFactura));
+
+            C.EjecutarSP("insertar_factura_servicios", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerFacturasServiciosVehiculoIndividual()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            return dt = C.Listado("obtener_facturas_servicio_vehiculo_individual", lst);
+        }
+
+        public DataTable ObtenerFacturasDetallesServicios()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idFactura", Mid));
+            return dt = C.Listado("obtener_detalles_factura_servicio", lst);
         }
 
     }

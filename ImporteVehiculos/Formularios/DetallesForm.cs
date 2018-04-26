@@ -25,6 +25,7 @@ namespace ImporteVehiculos.Formularios
         Procedimientos P = new Procedimientos();
         GlobalFunctions GF = new GlobalFunctions();
         int idVehiculo = Program.GidVehiculo;
+        bool dtgfill = false;
         public DetallesForm()
         {
             InitializeComponent();
@@ -34,46 +35,64 @@ namespace ImporteVehiculos.Formularios
         {
             ObtenerDetallesVehiculo();
             LLenarDtgComponentes();
-            LLenarDtgGastos();
-            LLenarDtgAduanales();
+            //LLenarDtgGastos();
+            LLenarDtgFacturas();
+            LLenarDtgDetallesFacturas();
             CalcularTotales();
             Permisos();
         }
         public void LLenarDtgComponentes()
         {
 
-            DataTable dt = new DataTable();
-            Componentes_dtg.DataSource = null;
-            P.IdVehiculo = idVehiculo;
-            dt = P.ObtenerComponentesVehiculoEspecifico();
-            Componentes_dtg.DataSource = dt;
-            Componentes_dtg.Columns[1].DefaultCellStyle.Format = "N2";
-            Componentes_dtg.Columns[2].DefaultCellStyle.Format = "N2";
+            //DataTable dt = new DataTable();
+            //Componentes_dtg.DataSource = null;
+            //P.IdVehiculo = idVehiculo;
+            //dt = P.ObtenerComponentesVehiculoEspecifico();
+            //Componentes_dtg.DataSource = dt;
+            //Componentes_dtg.Columns[1].DefaultCellStyle.Format = "N2";
+            //Componentes_dtg.Columns[2].DefaultCellStyle.Format = "N2";
         }
 
         public void LLenarDtgGastos()
         {
 
-            DataTable dt = new DataTable();
-            gastos_dtg.DataSource = null;
-            P.IdVehiculo = idVehiculo;
-            dt = P.ObtenerGastosReparacionVehiculoEspecifico();
-            gastos_dtg.DataSource = dt;
-            gastos_dtg.Columns[2].DefaultCellStyle.Format = "N2";
-            gastos_dtg.Columns[3].DefaultCellStyle.Format = "N2";
+            //DataTable dt = new DataTable();
+            //detalleFactura_dtg.DataSource = null;
+            //P.IdVehiculo = idVehiculo;
+            //dt = P.ObtenerGastosReparacionVehiculoEspecifico();
+            //detalleFactura_dtg.DataSource = dt;
+            //detalleFactura_dtg.Columns[2].DefaultCellStyle.Format = "N2";
+            //detalleFactura_dtg.Columns[3].DefaultCellStyle.Format = "N2";
         }
 
-        public void LLenarDtgAduanales()
+        public void LLenarDtgFacturas()
         {
 
             DataTable dt = new DataTable();
-            gastosAduanales_dtg.DataSource = null;
+            facturas_dtg.DataSource = null;
             P.IdVehiculo = idVehiculo;
-            dt = P.ObtenerGastosAduanalesVehiculoEspecifico();
-            gastosAduanales_dtg.DataSource = dt;
-            gastosAduanales_dtg.Columns[1].DefaultCellStyle.Format = "N2";
-            gastosAduanales_dtg.Columns[2].DefaultCellStyle.Format = "N2";
+            dt = P.ObtenerFacturasServiciosVehiculoIndividual();
+            facturas_dtg.DataSource = dt;
+            facturas_dtg.Columns[3].DefaultCellStyle.Format = "N2";
+            facturas_dtg.Columns[4].DefaultCellStyle.Format = "N2";
+            dtgfill = true;
         }
+
+        public void LLenarDtgDetallesFacturas()
+        {
+            if (facturas_dtg.Rows.Count > 0)
+            {
+                DataTable dt = new DataTable();
+                detalleFactura_dtg.DataSource = null;
+                P.Id = Convert.ToInt32(facturas_dtg.CurrentRow.Cells[6].Value);
+                dt = P.ObtenerFacturasDetallesServicios();
+                detalleFactura_dtg.DataSource = dt;
+                detalleFactura_dtg.Columns[3].DefaultCellStyle.Format = "N2";
+                detalleFactura_dtg.Columns[4].DefaultCellStyle.Format = "N2";
+            }
+            
+        }
+
         public void ObtenerDetallesVehiculo()
         {
             DataTable dt = new DataTable();
@@ -194,7 +213,7 @@ namespace ImporteVehiculos.Formularios
             form.ShowDialog();
             LLenarDtgComponentes();
             LLenarDtgGastos();
-            LLenarDtgAduanales();
+            LLenarDtgFacturas();
             CalcularTotales();
         }
 
@@ -211,46 +230,46 @@ namespace ImporteVehiculos.Formularios
 
             double totalRD = 0;
             double totalUSD = 0;
-            if (Componentes_dtg.Rows.Count > 0)
+            //if (Componentes_dtg.Rows.Count > 0)
+            //{
+            //    foreach (DataGridViewRow row in Componentes_dtg.Rows)
+            //    {
+            //       componente_sub_totalRD += Convert.ToDouble(row.Cells[1].Value);
+            //       componente_sub_totalUSD+= Convert.ToDouble(row.Cells[2].Value);
+
+            //    }
+            //    subTotalCompRD_lbl.Text = componente_sub_totalRD.ToString("N2");
+            //    subTotalCompUSD_lbl.Text = componente_sub_totalUSD.ToString("N2");
+            //}
+            //else
+            //{
+            //    subTotalCompRD_lbl.Text = "0.00";
+            //    subTotalCompUSD_lbl.Text = "0.00";
+            //}
+
+            //if (gastos_dtg.Rows.Count > 0)
+            //{
+            //    foreach (DataGridViewRow row in gastos_dtg.Rows)
+            //    {
+            //        gastoRep_sub_totalRD += Convert.ToDouble(row.Cells[2].Value);
+            //        gastoRep_sub_totalUSD += Convert.ToDouble(row.Cells[3].Value);
+
+            //    }
+            //    subTotalGastoRD_lbl.Text = gastoRep_sub_totalRD.ToString("N2");
+            //    subTotalGastoUSD_lbl.Text = gastoRep_sub_totalUSD.ToString("N2");
+            //}
+            //else
+            //{
+            //    subTotalGastoRD_lbl.Text = "0.00";
+            //    subTotalGastoUSD_lbl.Text = "0.00";
+            //}
+
+            if (facturas_dtg.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in Componentes_dtg.Rows)
+                foreach (DataGridViewRow row in facturas_dtg.Rows)
                 {
-                   componente_sub_totalRD += Convert.ToDouble(row.Cells[1].Value);
-                   componente_sub_totalUSD+= Convert.ToDouble(row.Cells[2].Value);
-
-                }
-                subTotalCompRD_lbl.Text = componente_sub_totalRD.ToString("N2");
-                subTotalCompUSD_lbl.Text = componente_sub_totalUSD.ToString("N2");
-            }
-            else
-            {
-                subTotalCompRD_lbl.Text = "0.00";
-                subTotalCompUSD_lbl.Text = "0.00";
-            }
-
-            if (gastos_dtg.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in gastos_dtg.Rows)
-                {
-                    gastoRep_sub_totalRD += Convert.ToDouble(row.Cells[2].Value);
-                    gastoRep_sub_totalUSD += Convert.ToDouble(row.Cells[3].Value);
-
-                }
-                subTotalGastoRD_lbl.Text = gastoRep_sub_totalRD.ToString("N2");
-                subTotalGastoUSD_lbl.Text = gastoRep_sub_totalUSD.ToString("N2");
-            }
-            else
-            {
-                subTotalGastoRD_lbl.Text = "0.00";
-                subTotalGastoUSD_lbl.Text = "0.00";
-            }
-
-            if (gastosAduanales_dtg.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in gastosAduanales_dtg.Rows)
-                {
-                    gastoAdu_sub_totalRD += Convert.ToDouble(row.Cells[2].Value);
-                    gastoAdu_sub_totalUSD += Convert.ToDouble(row.Cells[3].Value);
+                    gastoAdu_sub_totalRD += Convert.ToDouble(row.Cells[3].Value);
+                    gastoAdu_sub_totalUSD += Convert.ToDouble(row.Cells[4].Value);
 
                 }
                 subTotalAduanaRD_lbl.Text = gastoAdu_sub_totalRD.ToString("N2");
@@ -355,12 +374,12 @@ namespace ImporteVehiculos.Formularios
 
         private void eliminarGastos_btn_Click(object sender, EventArgs e)
         {
-            if(gastos_dtg.Rows.Count > 0)
+            if(detalleFactura_dtg.Rows.Count > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina Cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    P.Id = Convert.ToInt32(gastos_dtg.CurrentRow.Cells[4].Value);
+                    P.Id = Convert.ToInt32(detalleFactura_dtg.CurrentRow.Cells[4].Value);
                     P.IdVehiculo = idVehiculo;
                     string msj = P.EliminarGastoReparacionVehiculo();
                     if (msj == "1")
@@ -383,32 +402,32 @@ namespace ImporteVehiculos.Formularios
 
         private void eliminarComponente_btn_Click(object sender, EventArgs e)
         {
-            if (Componentes_dtg.Rows.Count > 0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    P.Id = Convert.ToInt32(Componentes_dtg.CurrentRow.Cells[3].Value);
-                    P.IdVehiculo = idVehiculo;
-                    string msj = P.EliminarComponenteVehiculo();
-                    if (msj == "1")
-                    {
-                        MessageBox.Show("Pieza o repuesto Eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LLenarDtgGastos();
-                        CalcularTotales();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Pieza o repuesto no pudo ser eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //if (Componentes_dtg.Rows.Count > 0)
+            //{
+            //    DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        P.Id = Convert.ToInt32(Componentes_dtg.CurrentRow.Cells[3].Value);
+            //        P.IdVehiculo = idVehiculo;
+            //        string msj = P.EliminarComponenteVehiculo();
+            //        if (msj == "1")
+            //        {
+            //            MessageBox.Show("Pieza o repuesto Eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            LLenarDtgGastos();
+            //            CalcularTotales();
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Pieza o repuesto no pudo ser eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    }
-                }
+            //        }
+            //    }
                     
-            }
-            LLenarDtgComponentes();
-            LLenarDtgGastos();
-            LLenarDtgAduanales();
-            CalcularTotales();
+            //}
+            //LLenarDtgComponentes();
+            //LLenarDtgGastos();
+            //LLenarDtgAduanales();
+            //CalcularTotales();
         }
 
         private void pagos_btn_Click(object sender, EventArgs e)
@@ -428,18 +447,18 @@ namespace ImporteVehiculos.Formularios
 
         private void eliminarGastoAduana_btn_Click(object sender, EventArgs e)
         {
-            if (gastosAduanales_dtg.Rows.Count > 0)
+            if (facturas_dtg.Rows.Count > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    P.Id = Convert.ToInt32(gastosAduanales_dtg.CurrentRow.Cells[4].Value);
+                    P.Id = Convert.ToInt32(facturas_dtg.CurrentRow.Cells[4].Value);
                     P.IdVehiculo = idVehiculo;
                     string msj = P.EliminarGastoAduanalVehiculo();
                     if (msj == "1")
                     {
                         MessageBox.Show("Eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LLenarDtgAduanales();
+                        LLenarDtgFacturas();
                         CalcularTotales();
                     }
                     else
@@ -458,8 +477,8 @@ namespace ImporteVehiculos.Formularios
             bool permiso = GF.ValidarPermisoTransaccion("AGREGAR PIEZAS A VEHICULO");
             if (!permiso)
             {
-                agregarComponente_btn.Enabled = false;
-                eliminarComponente_btn.Enabled = false;
+                //agregarComponente_btn.Enabled = false;
+                //eliminarComponente_btn.Enabled = false;
             }
 
             permiso = GF.ValidarPermisoTransaccion("AGREGAR GASTO A VEHICULO");
@@ -498,7 +517,7 @@ namespace ImporteVehiculos.Formularios
             ObtenerDetallesVehiculo();
             LLenarDtgComponentes();
             LLenarDtgGastos();
-            LLenarDtgAduanales();
+            LLenarDtgFacturas();
             CalcularTotales();
             Permisos();
         }
@@ -568,9 +587,26 @@ namespace ImporteVehiculos.Formularios
             ObtenerDetallesVehiculo();
             LLenarDtgComponentes();
             LLenarDtgGastos();
-            LLenarDtgAduanales();
+            LLenarDtgFacturas();
             CalcularTotales();
             Permisos();
+        }
+
+        private void facturas_dtg_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtgfill)
+            {
+                LLenarDtgDetallesFacturas();
+            }
+            
+        }
+
+        private void facturas_dtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgfill)
+            {
+                LLenarDtgDetallesFacturas();
+            }
         }
     }
 }

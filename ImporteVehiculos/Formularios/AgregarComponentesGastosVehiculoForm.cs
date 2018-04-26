@@ -14,6 +14,15 @@ namespace ImporteVehiculos.Formularios
 {
     public partial class AgregarComponentesGastosVehiculoForm : Form
     {
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         double precioRD;
         double precioUSD;
         int idTransaccion;
@@ -33,12 +42,15 @@ namespace ImporteVehiculos.Formularios
             dt1 = P.ObtenerTasaDolarYFecha();
             tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
             FieldStatus(false);
-            
+            LLenarVehiculoCB();
             CalcularTotal();
+            CalcularTotalServicios();
             LlenarTallerCb();
             LLenarTipoPagoCb();
-            CargarVentana();
+            LlenarGastosReparacionCb();
+            //CargarVentana();
             Permisos();
+            idTransaccion = 6;
         }
 
         public void clearFields()
@@ -52,7 +64,14 @@ namespace ImporteVehiculos.Formularios
             restante_RD_lbl.Text = "0.00";
             restante_USD_lbl.Text = "0.00";
             totalRD_lbl.Text = "0.00";
-            totalRD_lbl.Text = "0.00";
+            totalUSD_lbl.Text = "0.00";
+            servicios_dtg.Rows.Clear();
+            servicioTotalRD_lbl.Text = "0.00";
+            servicioTotalUSD_lbl.Text = "0.00";
+            precio_txt.Text = "";
+            numeroFactura_txt.Text = "";
+            nota_factura_txt.Text = "";
+            montoServicio_txt.Text = "";
         }
 
         public void LLenarTipoPagoCb()
@@ -68,6 +87,28 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void LLenarVehiculoCB()
+        {
+            vehiculos_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerVehiculosNoFacturados();
+            vehiculos_cb.DataSource = dt;
+            vehiculos_cb.DisplayMember = "VEHICULO";
+            vehiculos_cb.ValueMember = "ID";
+            vehiculos_cb.SelectedIndex = 0;
+
+            if(dt.Rows.Count == 0)
+            {
+                mantenimiento_radiobtn.Enabled = false;
+                piezas_radiobtn.Enabled = false;
+                otros_radiobtn.Enabled = false;
+
+                agregarServicio_btn.Enabled = false;
+            }
+
+
+        }
+
         public void CargarVentana()
         {
             if (Program.Gventana == "componentes")
@@ -76,27 +117,27 @@ namespace ImporteVehiculos.Formularios
                 idTransaccion = 5;
                 //taller_cb.Visible = true;
                 //taller_lbl.Visible = true;
-                descripcion_lbl.Text = "PIEZAS Y REPUESTOS";
+                //descripcion_lbl.Text = "PIEZAS Y REPUESTOS";
                 LlenarComponenteCb();
             }
             else if (Program.Gventana == "reparacion")
             {
                 idTransaccion = 6;
-                descripcion_lbl.Text = "GASTOS REPARACION:";
-                nombreForm_lbl.Text = "GASTOS REPARACION";
+                //descripcion_lbl.Text = "GASTOS REPARACION:";
+                //nombreForm_lbl.Text = "GASTOS REPARACION";
                 LlenarGastosReparacionCb();
                 //taller_cb.Visible = true;
                 //taller_lbl.Visible = true;
-                agregarTaller_lnklbl.Visible = true;
-                
+                //agregarTaller_lnklbl.Visible = true;
+
             }
 
-            else 
+            else
             {
 
-                idTransaccion = 7;
-                descripcion_lbl.Text = "OTROS GASTOS:";
-                nombreForm_lbl.Text = "OTROS GASTOS";
+                //idTransaccion = 7;
+                //descripcion_lbl.Text = "OTROS GASTOS:";
+                //nombreForm_lbl.Text = "OTROS GASTOS";
                 LlenarGastosAduanalesCb();
             }
         }
@@ -105,7 +146,7 @@ namespace ImporteVehiculos.Formularios
         {
             descripcion_cb.DataSource = null;
             DataTable dt = new DataTable();
-            P.IdVehiculo = Program.GidVehiculo;
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
             dt = P.ObtenerCompoentesVehiculoFabricanteModeloAño();
             descripcion_cb.DataSource = dt;
             descripcion_cb.DisplayMember = "COMPONENTES";
@@ -123,7 +164,7 @@ namespace ImporteVehiculos.Formularios
             descripcion_cb.DisplayMember = "DESCRIPCION";
             descripcion_cb.ValueMember = "ID";
             descripcion_cb.SelectedIndex = -1;
-            
+
         }
 
         public void LlenarGastosAduanalesCb()
@@ -152,8 +193,8 @@ namespace ImporteVehiculos.Formularios
 
         public void GuardarGastosReparacion()
         {
-            string[] valores = { descripcion_cb.Text};
-            string[] numeros = { precio_txt.Text};
+            string[] valores = { descripcion_cb.Text };
+            string[] numeros = { precio_txt.Text };
             string msj = GF.ValidarCampoString(valores);
             string msj1 = GF.ValidarCampoNumerico(numeros);
 
@@ -184,7 +225,7 @@ namespace ImporteVehiculos.Formularios
                 if (respuesta == "1")
                 {
                     MessageBox.Show("Gasto Reparación fue Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
 
                 }
                 else if (respuesta == "2")
@@ -220,7 +261,7 @@ namespace ImporteVehiculos.Formularios
             {
                 P.IdVehiculo = Program.GidVehiculo;
                 P.Id = Convert.ToInt32(descripcion_cb.SelectedValue);
-               
+
                 if (rdDinero_radiobtn.Checked)
                 {
                     P.PrecioRD = Convert.ToDouble(precio_txt.Text);
@@ -312,36 +353,40 @@ namespace ImporteVehiculos.Formularios
             {
                 if (pagos_dtg.Rows.Count > 0)
                 {
-                    if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0))
+
+                    if (servicios_dtg.Rows.Count > 0)
                     {
-                        if (InsertarDetalle())
+                        if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0))
                         {
-                            if (RegistrarGastos())
+                            if(servicioTotalRD_lbl.Text == totalRD_lbl.Text && servicioTotalUSD_lbl.Text == totalUSD_lbl.Text)
                             {
-                                MessageBox.Show("Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                clearFields();
+                                AgregarFactura();
                             }
                             else
                             {
-                                MessageBox.Show("Gasto no pudo ser registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Total detalles de factura debe ser igual al monto total de la factura", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             }
+
                         }
                         else
                         {
-                             
-                             MessageBox.Show("Gasto no pudo ser registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Montos restantes deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Montos restantes deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Agregar Detalles de Factura", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
+
+
 
                 }
                 else
                 {
-                    MessageBox.Show("Agregar Detalles de Pagos Cada Categoría", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Agregar Detalles de Pagos Factura", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 
@@ -350,47 +395,40 @@ namespace ImporteVehiculos.Formularios
         }
         public void LlenarPrecioTxt()
         {
-            if (descripcion_cb.Text != "System.Data.DataRowView")
+            if (descripcion_cb.Text != "System.Data.DataRowView" && descripcion_cb.SelectedIndex != -1)
             {
-                
+
                 DataTable dt = new DataTable();
                 P.Id = Convert.ToInt32(descripcion_cb.SelectedValue);
                 dt = P.ObtenerPrecioCompoenteSeleccionado();
                 if (rdDinero_radiobtn.Checked)
                 {
-                    precio_txt.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+                    montoServicio_txt.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
                 }
                 else
                 {
-                    precio_txt.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+                    montoServicio_txt.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
                 }
             }
-                
+
         }
 
         private void descripcion_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Program.Gventana == "componentes")
-            {
 
-                if (ComboFill)
-                {
-                    LlenarPrecioTxt();
-                }
-            }
         }
 
 
 
         private void rdDinero_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
-            
-            if (Program.Gventana == "componentes")
+
+            if (piezas_radiobtn.Checked && descripcion_cb.SelectedIndex != -1)
             {
+
                 if (ComboFill)
                 {
                     LlenarPrecioTxt();
-                   
                 }
             }
             CalcularPrecio();
@@ -404,12 +442,12 @@ namespace ImporteVehiculos.Formularios
             dt1 = P.ObtenerTasaDolarYFecha();
             tasa_lbl.Text = "";
             tasa_lbl.Text = "1.00 $USD = " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
-            
+
         }
 
         public void Permisos()
         {
-            
+
             bool permiso = GF.ValidarPermisoTransaccion("TASA CAMBIO");
             if (!permiso)
             {
@@ -419,32 +457,32 @@ namespace ImporteVehiculos.Formularios
             permiso = GF.ValidarPermisoTransaccion("CREAR TALLER");
             if (!permiso)
             {
-                agregarTaller_lnklbl.Enabled = false;
+                //agregarTaller_lnklbl.Enabled = false;
             }
 
             permiso = GF.ValidarPermisoTransaccion("CREAR GASTOS");
             if (!permiso)
             {
-                nuevo_lnklbl.Enabled = false;
+                //nuevo_lnklbl.Enabled = false;
             }
         }
 
         private void nuevo_lnklbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ComboFill = false;
-            if(Program.Gventana == "componentes")
+            if (Program.Gventana == "componentes")
             {
                 PiezasRepuestosForm form = new PiezasRepuestosForm();
                 form.ShowDialog();
-                
+
                 LlenarComponenteCb();
             }
-            else if(Program.Gventana == "reparacion")
+            else if (Program.Gventana == "reparacion")
             {
                 GastosGeneralesForm form = new GastosGeneralesForm();
                 form.ShowDialog();
                 LlenarGastosReparacionCb();
-                
+
             }
             else
             {
@@ -495,7 +533,7 @@ namespace ImporteVehiculos.Formularios
             }
         }
 
-        
+
 
         public void CalcularTotal()
         {
@@ -557,7 +595,7 @@ namespace ImporteVehiculos.Formularios
 
         }
 
-       
+
 
         private void agregarPago_btn_Click(object sender, EventArgs e)
         {
@@ -626,6 +664,7 @@ namespace ImporteVehiculos.Formularios
                 else
                 {
                     MessageBox.Show("La cantidad digitada supera el precio total del traspaso", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
 
             }
@@ -777,6 +816,43 @@ namespace ImporteVehiculos.Formularios
             }
         }
 
+        public bool InsertarFacturaServicios()
+        {
+            bool result = false;
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.Fecha = fecha_dtp.Value;
+            P.Nota = nota_factura_txt.Text;
+            if (rdDinero_radiobtn.Checked)
+            {
+                P.MontoRD = Convert.ToDouble(precio_txt.Text);
+                P.MontoUSD = Convert.ToDouble(precio_txt.Text) / Convert.ToDouble(dt1.Rows[0]["TASA"]);
+            }
+            else
+            {
+                P.MontoRD = Convert.ToDouble(precio_txt.Text) * Convert.ToDouble(dt1.Rows[0]["TASA"]);
+                P.MontoUSD = Convert.ToDouble(precio_txt.Text);
+            }
+            
+            P.NumeroFactura = numeroFactura_txt.Text;
+            P.IdSuplidor = Convert.ToInt32(taller_cb.SelectedValue);
+            string msj = P.InsertarFacturaServicios();
+            if(msj == "1")
+            {
+                result = true;
+            }
+            else if (msj == "2")
+            {
+                MessageBox.Show("Número de factura ya existe para el suplidor elegido", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            return result;
+        }
+
+
         public bool InsertarDetalle()
         {
             int error = 0;
@@ -785,7 +861,7 @@ namespace ImporteVehiculos.Formularios
             {
 
 
-                P.IdVehiculo = Program.GidVehiculo2;
+                P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
                 P.Fecha = fecha_dtp.Value;
                 P.Nota = row.Cells[3].Value.ToString();
                 P.IdTipoPago = Convert.ToInt32(row.Cells[5].Value);
@@ -807,29 +883,273 @@ namespace ImporteVehiculos.Formularios
             {
                 result = true;
             }
-            
+
             return result;
 
         }
 
         public bool RegistrarGastos()
         {
+            int error = 0;
             bool result = false;
             string msj = "";
-            
-            P.Id = Convert.ToInt32(descripcion_cb.SelectedValue);
-            P.Fecha = fecha_dtp.Value;
-            P.IdSuplidor = Convert.ToInt32(taller_cb.SelectedValue);
-            P.IdVehiculo = Program.GidVehiculo2;
-            P.PrecioRD = precioRD;
-            P.PrecioUSD = precioUSD;
-            P.IdTransaccion = idTransaccion;
-            msj = P.InsertarGastosVehiculo();
-            if (msj == "1")
+            foreach (DataGridViewRow row in servicios_dtg.Rows)
+            {
+
+                P.Id = Convert.ToInt32(row.Cells[6].Value);
+                P.Fecha = fecha_dtp.Value;
+                P.IdSuplidor = Convert.ToInt32(taller_cb.SelectedValue);
+                P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+                P.PrecioRD = Convert.ToDouble(row.Cells[2].Value);
+                P.PrecioUSD = Convert.ToDouble(row.Cells[3].Value); 
+                P.IdTransaccion = Convert.ToInt32(row.Cells[5].Value);
+                P.Cantidad = Convert.ToInt32(row.Cells[0].Value);
+                msj = P.InsertarGastosVehiculo();
+                if (msj != "1")
+                {
+                    error++;
+                }
+            }
+            if (error == 0)
             {
                 result = true;
             }
             return result;
         }
-    }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void mantenimiento_radiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mantenimiento_radiobtn.Checked)
+            {
+                cantidad_txtNum.Value = 1;
+                idTransaccion = 6;
+                LlenarGastosReparacionCb();
+            }
+            else if (piezas_radiobtn.Checked)
+            {
+                cantidad_txtNum.Value = 1;
+                idTransaccion = 5;
+                LlenarComponenteCb();
+            }
+            else
+            {
+                cantidad_txtNum.Value = 1;
+                idTransaccion = 7;
+                LlenarGastosAduanalesCb();
+            }
+        }
+
+        private void vehiculos_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // ELIMINAR PIEZA VEHICULO DEL GRID
+        }
+
+        private void descripcion_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (piezas_radiobtn.Checked && descripcion_cb.SelectedIndex != -1)
+            {
+
+                if (ComboFill)
+                {
+                    LlenarPrecioTxt();
+                }
+            }
+        }
+
+        private void agregarServicio_btn_Click(object sender, EventArgs e)
+        {
+            string[] valores = { descripcion_cb.Text };
+            string[] numeros = { montoServicio_txt.Text };
+            string msj = GF.ValidarCampoString(valores);
+            string msj1 = GF.ValidarCampoNumerico(numeros);
+            if (msj != "OK")
+            {
+                MessageBox.Show("Seleccione Servicio o Pieza", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (msj1 != "OK")
+            {
+                MessageBox.Show("Campo Monto solo permite números", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                AgregarServiciosDtg();
+            }
+        }
+
+        public void AgregarServiciosDtg()
+        {
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            bool add = true;
+            double cantidadAgregar;
+            
+            if (rdDinero_radiobtn.Checked)
+            {
+                cantidadAgregar = Convert.ToDouble(montoServicio_txt.Text);
+
+
+                foreach (DataGridViewRow row1 in servicios_dtg.Rows)
+                {
+                    //if (row1.Cells[1].Value.ToString() == tipoPago_cb.Text)
+                    //{
+                    //    row1.Cells[1].Value = cantidadAgregar + Convert.ToDouble(row1.Cells[1].Value);
+                    //    row1.Cells[2].Value = (cantidadAgregar / Convert.ToDouble(dt1.Rows[0]["TASA"])) + Convert.ToDouble(row1.Cells[2].Value);
+                    //    add = false;
+                    //}
+
+
+                }
+                if (add)
+                {
+                    servicios_dtg.Rows.Add();
+
+                    int row = servicios_dtg.Rows.Count;
+                    servicios_dtg.Rows[row - 1].Cells[0].Value = cantidad_txtNum.Value.ToString();
+                    servicios_dtg.Rows[row - 1].Cells[1].Value = descripcion_cb.Text;
+                    servicios_dtg.Rows[row - 1].Cells[2].Value = cantidadAgregar * Convert.ToDouble(cantidad_txtNum.Value);
+                    servicios_dtg.Rows[row - 1].Cells[3].Value = (cantidadAgregar / Convert.ToDouble(dt1.Rows[0]["TASA"])) * Convert.ToDouble(cantidad_txtNum.Value);
+                    servicios_dtg.Rows[row - 1].Cells[5].Value = idTransaccion.ToString();
+
+                    servicios_dtg.Rows[row - 1].Cells[6].Value = Convert.ToInt32(descripcion_cb.SelectedValue);
+                }
+
+                CalcularTotalServicios();
+                montoServicio_txt.Text = "";
+                cantidad_txtNum.Value = 1; ;
+
+
+
+            }
+            else
+            {
+                cantidadAgregar = Convert.ToDouble(monto_txt.Text);
+
+                foreach (DataGridViewRow row1 in pagos_dtg.Rows)
+                {
+                    //if (row1.Cells[0].Value.ToString() == tipoPago_cb.Text)
+                    //{
+                    //    row1.Cells[1].Value = (cantidadAgregar * Convert.ToDouble(dt1.Rows[0]["TASA"])) + Convert.ToDouble(row1.Cells[1].Value);
+                    //    row1.Cells[2].Value = (cantidadAgregar) + Convert.ToDouble(row1.Cells[2].Value);
+                    //    add = false;
+                    //}
+
+
+                }
+                if (add)
+                {
+                    //Convert.ToDouble(dt1.Rows[0]["TASA"]);
+                    servicios_dtg.Rows.Add();
+
+                    int row = servicios_dtg.Rows.Count;
+                    servicios_dtg.Rows[row - 1].Cells[0].Value = cantidad_txtNum.Value.ToString();
+                    servicios_dtg.Rows[row - 1].Cells[1].Value = descripcion_cb.Text;
+                    servicios_dtg.Rows[row - 1].Cells[2].Value = (cantidadAgregar * Convert.ToDouble(dt1.Rows[0]["TASA"])) * Convert.ToDouble(cantidad_txtNum.Value);
+                    servicios_dtg.Rows[row - 1].Cells[3].Value = cantidadAgregar * Convert.ToDouble(cantidad_txtNum.Value);
+                    servicios_dtg.Rows[row - 1].Cells[5].Value = idTransaccion.ToString();
+
+                    servicios_dtg.Rows[row - 1].Cells[6].Value = Convert.ToInt32(descripcion_cb.SelectedValue);
+
+                }
+                CalcularTotalServicios();
+                montoServicio_txt.Text = "";
+                cantidad_txtNum.Value = 1; ;
+
+
+            }
+        }
+
+        private void servicios_dtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == servicios_dtg.NewRowIndex || e.RowIndex < 0)
+                return;
+
+            //Check if click is on specific column 
+            if (e.ColumnIndex == servicios_dtg.Columns["dataGridViewButtonColumn2"].Index)
+            {
+                //Put some logic here, for example to remove row from your binding list.
+                servicios_dtg.Rows.RemoveAt(e.RowIndex);
+                CalcularTotalServicios();
+            }
+        }
+
+        public void CalcularTotalServicios()
+        {
+            double totalRD = 0;
+            double totalUSD = 0;
+            if (servicios_dtg.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in servicios_dtg.Rows)
+                {
+                    totalRD += Convert.ToDouble(row.Cells[2].Value);
+                    totalUSD += Convert.ToDouble(row.Cells[3].Value);
+
+
+                }
+                servicioTotalRD_lbl.Text = totalRD.ToString("N2");
+                servicioTotalUSD_lbl.Text = totalUSD.ToString("N2");
+
+
+
+            }
+            else
+            {
+                servicioTotalRD_lbl.Text = "0.00";
+                servicioTotalUSD_lbl.Text = "0.00";
+
+            }
+
+
+        }
+
+        public void AgregarFactura()
+        {
+            string[] valores = { taller_cb.Text, vehiculos_cb.Text }; //seguro_cb.Text, seguro_cb.Text 
+            string msj = GF.ValidarCampoString(valores);
+
+            if (msj != "OK")
+            {
+                MessageBox.Show("Todos los Campos son necesarios.", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+            else
+            {
+                if (InsertarFacturaServicios())
+                {
+                    if (InsertarDetalle())
+                    {
+                        if (RegistrarGastos())
+                        {
+                            MessageBox.Show("Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            clearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gasto no pudo ser registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Gasto no pudo ser registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo insertar Factura!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+        }
+    } 
 }

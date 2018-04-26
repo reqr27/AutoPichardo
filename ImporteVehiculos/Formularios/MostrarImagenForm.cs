@@ -29,7 +29,7 @@ namespace ImporteVehiculos.Formularios
         public int idEvento = 0;
         Procedimientos P = new Procedimientos();
         GlobalFunctions GF = new GlobalFunctions();
-        int count = 0;
+        //int count = 0;
         public string ventana = Program.Gventana;
         public int id = Program.Gid;
         public int idVehiculo = Program.GidVehiculo;

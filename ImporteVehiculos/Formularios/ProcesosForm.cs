@@ -178,5 +178,20 @@ namespace ImporteVehiculos.Formularios
             }
             
         }
+
+        private void servicios_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["AgregarComponentesGastosVehiculoForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+                fc.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                AgregarComponentesGastosVehiculoForm frm = new AgregarComponentesGastosVehiculoForm();
+                frm.Show();
+            }
+        }
     }
 }

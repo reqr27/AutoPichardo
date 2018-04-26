@@ -712,6 +712,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\bill.png" />
     <None Include="Resources\insurance.png" />
     <None Include="Resources\browsing.png" />
     <None Include="Resources\salesman.png" />

@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcesosForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.servicios_btn = new System.Windows.Forms.Button();
             this.cuentasCobrar_btn = new System.Windows.Forms.Button();
             this.cuentasPagar_btn = new System.Windows.Forms.Button();
             this.facturacion_btn = new System.Windows.Forms.Button();
             this.compras_btn = new System.Windows.Forms.Button();
             this.importar_btn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,33 +66,21 @@
             this.label27.TabIndex = 36;
             this.label27.Text = "PROCESOS";
             // 
-            // button3
+            // servicios_btn
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(662, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 35;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(694, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 34;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.servicios_btn.FlatAppearance.BorderSize = 0;
+            this.servicios_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.servicios_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servicios_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.servicios_btn.Image = global::ImporteVehiculos.Properties.Resources.bill;
+            this.servicios_btn.Location = new System.Drawing.Point(539, 217);
+            this.servicios_btn.Name = "servicios_btn";
+            this.servicios_btn.Size = new System.Drawing.Size(149, 139);
+            this.servicios_btn.TabIndex = 13;
+            this.servicios_btn.Text = "FACTURAS SERVICIOS";
+            this.servicios_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.servicios_btn.UseVisualStyleBackColor = true;
+            this.servicios_btn.Click += new System.EventHandler(this.servicios_btn_Click);
             // 
             // cuentasCobrar_btn
             // 
@@ -173,12 +162,41 @@
             this.importar_btn.UseVisualStyleBackColor = true;
             this.importar_btn.Click += new System.EventHandler(this.importar_btn_Click);
             // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(662, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 35;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(694, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 34;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ProcesosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(726, 403);
+            this.Controls.Add(this.servicios_btn);
             this.Controls.Add(this.cuentasCobrar_btn);
             this.Controls.Add(this.cuentasPagar_btn);
             this.Controls.Add(this.facturacion_btn);
@@ -209,5 +227,6 @@
         private System.Windows.Forms.Button facturacion_btn;
         private System.Windows.Forms.Button cuentasPagar_btn;
         private System.Windows.Forms.Button cuentasCobrar_btn;
+        private System.Windows.Forms.Button servicios_btn;
     }
 }
