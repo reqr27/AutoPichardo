@@ -54,6 +54,7 @@ namespace ImporteVehiculos.Formularios
 
         private void CobrosCuentasCobrarForm_Load(object sender, EventArgs e)
         {
+            guardar_btn.NotifyDefault(false);
             if(transaccion == "VENTA")
             {
                 idTransaccion = 1;
@@ -70,6 +71,7 @@ namespace ImporteVehiculos.Formularios
                 traspasoImg_btn.Visible = false;
                 
             }
+            
 
             cc_lbl.Text = "# CC: " + idCC.ToString("0000000");
             LLenarTipoPagoCb();
@@ -79,12 +81,14 @@ namespace ImporteVehiculos.Formularios
             CalcularTotales();
 
             Permisos();
+            pago_txt.Focus();
         }
 
         public void clearFields()
         {
             pago_txt.Text = "";
             nota_txt.Text = "";
+            pago_txt.Focus();
         }
 
         public void ObtenerDetalleCuentaCobrar()

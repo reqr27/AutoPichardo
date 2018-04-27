@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SegurosForm));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.estadoPais_chbox = new System.Windows.Forms.CheckBox();
-            this.pais_txt = new System.Windows.Forms.TextBox();
+            this.seguro_txt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.paises_dtg = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.telefono_txt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.agregar_btn = new System.Windows.Forms.Button();
             this.cancelar_btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.telefono_txt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paises_dtg)).BeginInit();
             this.panel2.SuspendLayout();
@@ -60,6 +60,34 @@
             this.panel3.Size = new System.Drawing.Size(475, 44);
             this.panel3.TabIndex = 49;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(409, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 33;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(441, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 32;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label11
             // 
@@ -85,13 +113,13 @@
             this.estadoPais_chbox.Text = "Habilitar";
             this.estadoPais_chbox.UseVisualStyleBackColor = true;
             // 
-            // pais_txt
+            // seguro_txt
             // 
-            this.pais_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pais_txt.Location = new System.Drawing.Point(133, 55);
-            this.pais_txt.Name = "pais_txt";
-            this.pais_txt.Size = new System.Drawing.Size(243, 20);
-            this.pais_txt.TabIndex = 57;
+            this.seguro_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguro_txt.Location = new System.Drawing.Point(133, 55);
+            this.seguro_txt.Name = "seguro_txt";
+            this.seguro_txt.Size = new System.Drawing.Size(243, 20);
+            this.seguro_txt.TabIndex = 57;
             // 
             // label5
             // 
@@ -143,24 +171,6 @@
             this.label1.Text = "Doble Click Campo Para Actualizar!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // telefono_txt
-            // 
-            this.telefono_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefono_txt.Location = new System.Drawing.Point(133, 84);
-            this.telefono_txt.Name = "telefono_txt";
-            this.telefono_txt.Size = new System.Drawing.Size(243, 20);
-            this.telefono_txt.TabIndex = 61;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Télefono:";
-            // 
             // agregar_btn
             // 
             this.agregar_btn.FlatAppearance.BorderSize = 0;
@@ -194,36 +204,27 @@
             this.cancelar_btn.UseVisualStyleBackColor = true;
             this.cancelar_btn.Click += new System.EventHandler(this.cancelar_btn_Click);
             // 
-            // button3
+            // telefono_txt
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(409, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 33;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.telefono_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefono_txt.Location = new System.Drawing.Point(133, 84);
+            this.telefono_txt.Name = "telefono_txt";
+            this.telefono_txt.Size = new System.Drawing.Size(243, 20);
+            this.telefono_txt.TabIndex = 61;
             // 
-            // button2
+            // label2
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(441, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 32;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(45, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Télefono:";
             // 
             // SegurosForm
             // 
+            this.AcceptButton = this.agregar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 429);
@@ -231,7 +232,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.estadoPais_chbox);
-            this.Controls.Add(this.pais_txt);
+            this.Controls.Add(this.seguro_txt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.paises_dtg);
             this.Controls.Add(this.panel3);
@@ -258,7 +259,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox estadoPais_chbox;
-        private System.Windows.Forms.TextBox pais_txt;
+        private System.Windows.Forms.TextBox seguro_txt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView paises_dtg;
         private System.Windows.Forms.Panel panel2;

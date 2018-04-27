@@ -195,6 +195,12 @@
     <Compile Include="Formularios\CuentasPagarForm.Designer.cs">
       <DependentUpon>CuentasPagarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\DetallesFacturaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DetallesFacturaForm.Designer.cs">
+      <DependentUpon>DetallesFacturaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\DetallesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\CuentasPagarForm.resx">
       <DependentUpon>CuentasPagarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DetallesFacturaForm.resx">
+      <DependentUpon>DetallesFacturaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\DetallesForm.resx">
       <DependentUpon>DetallesForm.cs</DependentUpon>

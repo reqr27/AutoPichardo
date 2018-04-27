@@ -35,6 +35,8 @@ namespace ImporteVehiculos.Formularios
         {
             LLenarPaisesCB();
             LlenarDtgSuplidores();
+            agregar_btn.NotifyDefault(false);
+            suplidor_txt.Focus();
 
         }
 
@@ -71,6 +73,7 @@ namespace ImporteVehiculos.Formularios
             telefono1_txt.Text = "";
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            suplidor_txt.Focus();
         }
 
         public void LLenarPaisesCB()
@@ -221,6 +224,16 @@ namespace ImporteVehiculos.Formularios
         private void cancelar_btn_Click(object sender, EventArgs e)
         {
             resetCampos();
+        }
+
+        private void pais_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarPaisesCB();
+        }
+
+        private void ciudad_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarCiudadCB();
         }
     }
 }

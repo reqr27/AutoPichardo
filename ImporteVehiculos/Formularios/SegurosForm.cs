@@ -40,6 +40,8 @@ namespace ImporteVehiculos.Formularios
         private void SegurosForm_Load(object sender, EventArgs e)
         {
             LlenarDtgSeguros();
+            agregar_btn.NotifyDefault(false);
+            seguro_txt.Focus();
 
         }
 
@@ -69,10 +71,11 @@ namespace ImporteVehiculos.Formularios
             evento = false;
             idEvento = 0;
             estadoPais_chbox.Checked = true;
-            pais_txt.Text = "";
+            seguro_txt.Text = "";
             telefono_txt.Text = "";
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            seguro_txt.Focus();
         }
 
         private void paises_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +85,7 @@ namespace ImporteVehiculos.Formularios
             agregar_btn.Text = "Actualizar";
             agregar_btn.Image = Properties.Resources.rotacion;
             idEvento = Convert.ToInt32(paises_dtg.CurrentRow.Cells[0].Value.ToString());
-            pais_txt.Text = paises_dtg.CurrentRow.Cells[1].Value.ToString();
+            seguro_txt.Text = paises_dtg.CurrentRow.Cells[1].Value.ToString();
             telefono_txt.Text = paises_dtg.CurrentRow.Cells[2].Value.ToString();
             estadoPais_chbox.Checked = Convert.ToBoolean(paises_dtg.CurrentRow.Cells[3].Value.ToString());
 
@@ -102,7 +105,7 @@ namespace ImporteVehiculos.Formularios
 
         public void registrarSeguro()
         {
-            string[] valores = { pais_txt.Text,telefono_txt.Text };
+            string[] valores = { seguro_txt.Text,telefono_txt.Text };
 
             string msj = GF.ValidarCampoString(valores);
 
@@ -113,7 +116,7 @@ namespace ImporteVehiculos.Formularios
             else
             {
                 P.Estado = estadoPais_chbox.Checked;
-                P.Nombre = pais_txt.Text;
+                P.Nombre = seguro_txt.Text;
                 P.Telefono1 = telefono_txt.Text;
 
                 string respuesta = P.RegistrarSeguro();
@@ -133,7 +136,7 @@ namespace ImporteVehiculos.Formularios
 
         public void ActualizarSeguro()
         {
-            string[] valores = { pais_txt.Text,telefono_txt.Text };
+            string[] valores = { seguro_txt.Text,telefono_txt.Text };
 
             string msj = GF.ValidarCampoString(valores);
 
@@ -145,7 +148,7 @@ namespace ImporteVehiculos.Formularios
             {
                 P.Id = idEvento;
                 P.Estado = estadoPais_chbox.Checked;
-                P.Nombre = pais_txt.Text;
+                P.Nombre = seguro_txt.Text;
                 P.Telefono1 = telefono_txt.Text;
 
                 string respuesta = P.ActualizarSeguro();

@@ -72,8 +72,8 @@
             this.ubicaciones_chbox = new System.Windows.Forms.CheckBox();
             this.colores_chbox = new System.Windows.Forms.CheckBox();
             this.suplidores_chbox = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.seguros_chbox = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -610,16 +610,6 @@
             this.suplidores_chbox.Text = "Agregar Suplidores";
             this.suplidores_chbox.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(424, 60);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 18);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Permisos del Usuario";
-            // 
             // seguros_chbox
             // 
             this.seguros_chbox.AutoSize = true;
@@ -632,8 +622,19 @@
             this.seguros_chbox.Text = "Agregar Seguros";
             this.seguros_chbox.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(424, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(171, 18);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Permisos del Usuario";
+            // 
             // UsuariosForm
             // 
+            this.AcceptButton = this.agregarEditarUsuario_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));

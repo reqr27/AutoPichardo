@@ -59,6 +59,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.notaVenta_txt = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.precioEstimadoVentaUSD_txt = new System.Windows.Forms.TextBox();
             this.tasa_lbl = new System.Windows.Forms.LinkLabel();
@@ -184,8 +186,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.notaPagoSeguros_txt = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label41 = new System.Windows.Forms.Label();
-            this.notaVenta_txt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
             this.panel4.SuspendLayout();
@@ -502,6 +502,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENERALES";
             // 
+            // notaVenta_txt
+            // 
+            this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaVenta_txt.Location = new System.Drawing.Point(259, 393);
+            this.notaVenta_txt.Multiline = true;
+            this.notaVenta_txt.Name = "notaVenta_txt";
+            this.notaVenta_txt.Size = new System.Drawing.Size(409, 68);
+            this.notaVenta_txt.TabIndex = 147;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(256, 376);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(90, 14);
+            this.label41.TabIndex = 146;
+            this.label41.Text = "NOTA VENTA:";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -593,6 +613,7 @@
             this.cliente_cb.Name = "cliente_cb";
             this.cliente_cb.Size = new System.Drawing.Size(287, 22);
             this.cliente_cb.TabIndex = 126;
+            this.cliente_cb.DropDown += new System.EventHandler(this.cliente_cb_DropDown);
             // 
             // label
             // 
@@ -652,6 +673,7 @@
             this.vehiculos_cb.Name = "vehiculos_cb";
             this.vehiculos_cb.Size = new System.Drawing.Size(271, 22);
             this.vehiculos_cb.TabIndex = 131;
+            this.vehiculos_cb.DropDown += new System.EventHandler(this.vehiculos_cb_DropDown);
             this.vehiculos_cb.SelectionChangeCommitted += new System.EventHandler(this.vehiculos_cb_SelectionChangeCommitted);
             // 
             // costoUSD_txt
@@ -1706,6 +1728,7 @@
             this.seguro_cb.Name = "seguro_cb";
             this.seguro_cb.Size = new System.Drawing.Size(246, 22);
             this.seguro_cb.TabIndex = 146;
+            this.seguro_cb.DropDown += new System.EventHandler(this.seguro_cb_DropDown);
             // 
             // label30
             // 
@@ -1928,28 +1951,9 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(256, 376);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(90, 14);
-            this.label41.TabIndex = 146;
-            this.label41.Text = "NOTA VENTA:";
-            // 
-            // notaVenta_txt
-            // 
-            this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notaVenta_txt.Location = new System.Drawing.Point(259, 393);
-            this.notaVenta_txt.Multiline = true;
-            this.notaVenta_txt.Name = "notaVenta_txt";
-            this.notaVenta_txt.Size = new System.Drawing.Size(409, 68);
-            this.notaVenta_txt.TabIndex = 147;
-            // 
             // VenderForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 543);

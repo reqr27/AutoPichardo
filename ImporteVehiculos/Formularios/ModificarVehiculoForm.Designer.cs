@@ -111,6 +111,7 @@
             this.propietario_cb.Name = "propietario_cb";
             this.propietario_cb.Size = new System.Drawing.Size(203, 22);
             this.propietario_cb.TabIndex = 5;
+            this.propietario_cb.DropDown += new System.EventHandler(this.propietario_cb_DropDown);
             // 
             // label7
             // 
@@ -408,6 +409,7 @@
             this.suplidor_cb.Name = "suplidor_cb";
             this.suplidor_cb.Size = new System.Drawing.Size(203, 22);
             this.suplidor_cb.TabIndex = 6;
+            this.suplidor_cb.DropDown += new System.EventHandler(this.suplidor_cb_DropDown);
             // 
             // label10
             // 
@@ -430,6 +432,7 @@
             this.color_cb.Name = "color_cb";
             this.color_cb.Size = new System.Drawing.Size(203, 22);
             this.color_cb.TabIndex = 7;
+            this.color_cb.DropDown += new System.EventHandler(this.color_cb_DropDown);
             // 
             // flowLayoutPanel2
             // 
@@ -473,6 +476,7 @@
             this.ubicacion_cb.Name = "ubicacion_cb";
             this.ubicacion_cb.Size = new System.Drawing.Size(203, 22);
             this.ubicacion_cb.TabIndex = 8;
+            this.ubicacion_cb.DropDown += new System.EventHandler(this.ubicacion_cb_DropDown);
             // 
             // label4
             // 
@@ -593,6 +597,7 @@
             // 
             // ModificarVehiculoForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 424);

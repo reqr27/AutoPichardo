@@ -26,8 +26,10 @@ namespace ImporteVehiculos.Formularios
 
         private void PropietariosForm_Load(object sender, EventArgs e)
         {
+            guardarPropietario_btn.NotifyDefault(false);
             LlenarDtgPropietarios();
             resetCampos();
+            propietario_txt.Focus();
         }
 
         public void LlenarDtgPropietarios()
@@ -53,6 +55,7 @@ namespace ImporteVehiculos.Formularios
             estadoPropietario_chbox.Checked = true;
             guardarPropietario_btn.Text = "Guardar";
             guardarPropietario_btn.Image = Properties.Resources.disquete;
+            propietario_txt.Focus();
         }
 
         private void guardarPropietario_btn_Click(object sender, EventArgs e)

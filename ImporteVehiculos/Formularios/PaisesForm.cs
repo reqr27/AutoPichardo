@@ -47,11 +47,13 @@ namespace ImporteVehiculos.Formularios
 
         public void LlenarDtgPais()
         {
+            agregar_btn.NotifyDefault(false);
             paises_dtg.DataSource = null;
 
             DataTable dt = new DataTable();
             dt = P.ObtenerTodosPaises();
             paises_dtg.DataSource = dt;
+            pais_txt.Focus();
            
         }
 
@@ -69,6 +71,7 @@ namespace ImporteVehiculos.Formularios
             pais_txt.Text = "";
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            pais_txt.Focus();
         }
 
         private void paises_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

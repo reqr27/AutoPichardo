@@ -69,6 +69,8 @@ namespace ImporteVehiculos.Formularios
             restanteTraspaso_USD_lbl.Text = "0.00";
             totalTraspasoRD_lbl.Text = "0.00";
             totalTraspasoRD_lbl.Text = "0.00";
+            vehiculos_cb.Focus();
+            tabControl1.SelectTab(0);
 
             //precioSeguro_txt.Text = "";
             //montoSeguros_txt.Text = "";
@@ -124,6 +126,8 @@ namespace ImporteVehiculos.Formularios
            // LLenarTipoPagoCbSeguros();
            // LLenarSegurosCb();
             Permisos();
+            vehiculos_cb.Focus();
+            guardar_btn.NotifyDefault(false);
         }
         public void Permisos()
         {
@@ -1651,6 +1655,21 @@ namespace ImporteVehiculos.Formularios
                
             }
             
+        }
+
+        private void seguro_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarSegurosCb();
+        }
+
+        private void vehiculos_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarVehiculosCb();
+        }
+
+        private void cliente_cb_DropDown(object sender, EventArgs e)
+        {
+            LlenarDtgClientes();
         }
     }
 }

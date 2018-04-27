@@ -39,9 +39,11 @@ namespace ImporteVehiculos.Formularios
 
         private void CuentasCobrarForm_Load(object sender, EventArgs e)
         {
+            verDetalles_btn.NotifyDefault(false);
             desde_dtp.Value = DateTime.Now.AddMonths(-1);
             LlenarDtgCuentasCobrar();
             CalcularTotal();
+            cliente_txt.Focus();
 
         }
 

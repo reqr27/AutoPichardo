@@ -30,9 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UbicacionForm));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.agregar_btn = new System.Windows.Forms.Button();
+            this.cancelar_btn = new System.Windows.Forms.Button();
             this.estadoUbicacion_chbox = new System.Windows.Forms.CheckBox();
             this.lugar_txt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ciudad_cb = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.agregar_btn = new System.Windows.Forms.Button();
-            this.cancelar_btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ubicaciones_dtg)).BeginInit();
@@ -62,6 +62,34 @@
             this.panel3.Size = new System.Drawing.Size(476, 44);
             this.panel3.TabIndex = 50;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(409, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 33;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(441, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 32;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label11
             // 
@@ -97,6 +125,38 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "Doble Click Campo Para Actualizar!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // agregar_btn
+            // 
+            this.agregar_btn.FlatAppearance.BorderSize = 0;
+            this.agregar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.agregar_btn.Image = global::ImporteVehiculos.Properties.Resources.disquete;
+            this.agregar_btn.Location = new System.Drawing.Point(253, 0);
+            this.agregar_btn.Name = "agregar_btn";
+            this.agregar_btn.Size = new System.Drawing.Size(101, 67);
+            this.agregar_btn.TabIndex = 33;
+            this.agregar_btn.Text = "Registrar";
+            this.agregar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.agregar_btn.UseVisualStyleBackColor = true;
+            this.agregar_btn.Click += new System.EventHandler(this.agregar_btn_Click);
+            // 
+            // cancelar_btn
+            // 
+            this.cancelar_btn.Enabled = false;
+            this.cancelar_btn.FlatAppearance.BorderSize = 0;
+            this.cancelar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.close__1_;
+            this.cancelar_btn.Location = new System.Drawing.Point(360, 0);
+            this.cancelar_btn.Name = "cancelar_btn";
+            this.cancelar_btn.Size = new System.Drawing.Size(107, 67);
+            this.cancelar_btn.TabIndex = 36;
+            this.cancelar_btn.Text = "Cancelar";
+            this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.cancelar_btn.UseVisualStyleBackColor = true;
             // 
             // estadoUbicacion_chbox
             // 
@@ -157,6 +217,7 @@
             this.pais_cb.Name = "pais_cb";
             this.pais_cb.Size = new System.Drawing.Size(262, 22);
             this.pais_cb.TabIndex = 68;
+            this.pais_cb.DropDown += new System.EventHandler(this.pais_cb_DropDown);
             this.pais_cb.SelectedIndexChanged += new System.EventHandler(this.pais_cb_SelectedIndexChanged);
             // 
             // label9
@@ -181,6 +242,7 @@
             this.ciudad_cb.Name = "ciudad_cb";
             this.ciudad_cb.Size = new System.Drawing.Size(262, 22);
             this.ciudad_cb.TabIndex = 74;
+            this.ciudad_cb.DropDown += new System.EventHandler(this.ciudad_cb_DropDown);
             // 
             // label7
             // 
@@ -192,68 +254,9 @@
             this.label7.TabIndex = 75;
             this.label7.Text = "CIUDAD:";
             // 
-            // agregar_btn
-            // 
-            this.agregar_btn.FlatAppearance.BorderSize = 0;
-            this.agregar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.agregar_btn.Image = global::ImporteVehiculos.Properties.Resources.disquete;
-            this.agregar_btn.Location = new System.Drawing.Point(253, 0);
-            this.agregar_btn.Name = "agregar_btn";
-            this.agregar_btn.Size = new System.Drawing.Size(101, 67);
-            this.agregar_btn.TabIndex = 33;
-            this.agregar_btn.Text = "Registrar";
-            this.agregar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.agregar_btn.UseVisualStyleBackColor = true;
-            this.agregar_btn.Click += new System.EventHandler(this.agregar_btn_Click);
-            // 
-            // cancelar_btn
-            // 
-            this.cancelar_btn.Enabled = false;
-            this.cancelar_btn.FlatAppearance.BorderSize = 0;
-            this.cancelar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.close__1_;
-            this.cancelar_btn.Location = new System.Drawing.Point(360, 0);
-            this.cancelar_btn.Name = "cancelar_btn";
-            this.cancelar_btn.Size = new System.Drawing.Size(107, 67);
-            this.cancelar_btn.TabIndex = 36;
-            this.cancelar_btn.Text = "Cancelar";
-            this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.cancelar_btn.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(409, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 33;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(441, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 32;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // UbicacionForm
             // 
+            this.AcceptButton = this.agregar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));

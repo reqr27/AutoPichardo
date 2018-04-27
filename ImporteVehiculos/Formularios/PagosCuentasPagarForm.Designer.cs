@@ -41,6 +41,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.detalles_btn = new System.Windows.Forms.LinkLabel();
+            this.v_lbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.cp_lbl = new System.Windows.Forms.Label();
             this.dias_lbl = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -90,7 +94,6 @@
             this.tipoPago_cb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pagos_dtg = new System.Windows.Forms.DataGridView();
-            this.label28 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompra_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -215,6 +218,9 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.detalles_btn);
+            this.panel4.Controls.Add(this.v_lbl);
+            this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.cp_lbl);
             this.panel4.Controls.Add(this.dias_lbl);
@@ -242,6 +248,53 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(929, 190);
             this.panel4.TabIndex = 59;
+            // 
+            // detalles_btn
+            // 
+            this.detalles_btn.AutoSize = true;
+            this.detalles_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalles_btn.LinkColor = System.Drawing.Color.White;
+            this.detalles_btn.Location = new System.Drawing.Point(432, 24);
+            this.detalles_btn.Name = "detalles_btn";
+            this.detalles_btn.Size = new System.Drawing.Size(103, 14);
+            this.detalles_btn.TabIndex = 132;
+            this.detalles_btn.TabStop = true;
+            this.detalles_btn.Text = "Detalles Factura";
+            this.detalles_btn.Visible = false;
+            this.detalles_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.detalles_btn_LinkClicked);
+            // 
+            // v_lbl
+            // 
+            this.v_lbl.AutoSize = true;
+            this.v_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.v_lbl.Location = new System.Drawing.Point(81, 57);
+            this.v_lbl.Name = "v_lbl";
+            this.v_lbl.Size = new System.Drawing.Size(48, 15);
+            this.v_lbl.TabIndex = 131;
+            this.v_lbl.Text = "label29";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label12.Location = new System.Drawing.Point(13, 57);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 15);
+            this.label12.TabIndex = 130;
+            this.label12.Text = "Vehículo:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label28.Location = new System.Drawing.Point(13, 22);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(104, 15);
+            this.label28.TabIndex = 129;
+            this.label28.Text = "DESCRIPCION:";
             // 
             // cp_lbl
             // 
@@ -281,7 +334,7 @@
             this.fechaCompra_lbl.AutoSize = true;
             this.fechaCompra_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCompra_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.fechaCompra_lbl.Location = new System.Drawing.Point(73, 59);
+            this.fechaCompra_lbl.Location = new System.Drawing.Point(846, 42);
             this.fechaCompra_lbl.Name = "fechaCompra_lbl";
             this.fechaCompra_lbl.Size = new System.Drawing.Size(37, 15);
             this.fechaCompra_lbl.TabIndex = 122;
@@ -292,7 +345,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label24.Location = new System.Drawing.Point(13, 59);
+            this.label24.Location = new System.Drawing.Point(786, 42);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(54, 15);
             this.label24.TabIndex = 121;
@@ -303,7 +356,7 @@
             this.chasis_lbl.AutoSize = true;
             this.chasis_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chasis_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.chasis_lbl.Location = new System.Drawing.Point(261, 59);
+            this.chasis_lbl.Location = new System.Drawing.Point(417, 57);
             this.chasis_lbl.Name = "chasis_lbl";
             this.chasis_lbl.Size = new System.Drawing.Size(62, 15);
             this.chasis_lbl.TabIndex = 120;
@@ -314,7 +367,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label26.Location = new System.Drawing.Point(201, 59);
+            this.label26.Location = new System.Drawing.Point(357, 57);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(54, 15);
             this.label26.TabIndex = 119;
@@ -371,9 +424,9 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label21.Location = new System.Drawing.Point(356, 86);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(166, 19);
+            this.label21.Size = new System.Drawing.Size(163, 19);
             this.label21.TabIndex = 114;
-            this.label21.Text = "Precio total($USD):";
+            this.label21.Text = "Total Pagar($USD):";
             // 
             // label19
             // 
@@ -382,9 +435,9 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label19.Location = new System.Drawing.Point(12, 86);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(160, 19);
+            this.label19.Size = new System.Drawing.Size(153, 19);
             this.label19.TabIndex = 113;
-            this.label19.Text = "Precio Total($RD):";
+            this.label19.Text = "Total Pagar($RD):";
             // 
             // direccion_lbl
             // 
@@ -819,19 +872,9 @@
             this.pagos_dtg.Size = new System.Drawing.Size(306, 228);
             this.pagos_dtg.TabIndex = 102;
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label28.Location = new System.Drawing.Point(13, 22);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(104, 15);
-            this.label28.TabIndex = 129;
-            this.label28.Text = "DESCRIPCION:";
-            // 
             // PagosCuentasPagarForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 569);
@@ -934,5 +977,8 @@
         private System.Windows.Forms.DataGridView pagos_dtg;
         private System.Windows.Forms.Label cp_lbl;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label v_lbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.LinkLabel detalles_btn;
     }
 }

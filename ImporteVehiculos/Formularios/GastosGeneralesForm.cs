@@ -23,7 +23,9 @@ namespace ImporteVehiculos.Formularios
 
         private void GastosGeneralesForm_Load(object sender, EventArgs e)
         {
+            guardarGasto_btn.NotifyDefault(false);
             LlenarDtgGastos();
+            descripcionGasto_txt.Focus();
         }
 
         public void LlenarDtgGastos()
@@ -38,6 +40,7 @@ namespace ImporteVehiculos.Formularios
 
         public void resetCampos()
         {
+
             cancelarEditar_btn.Enabled = false;
             evento = false;
             idEvento = 0;
@@ -47,6 +50,7 @@ namespace ImporteVehiculos.Formularios
             estadoGasto_chbox.Checked = true;
             guardarGasto_btn.Text = "Guardar";
             guardarGasto_btn.Image = Properties.Resources.disquete;
+            descripcionGasto_txt.Focus();
         }
 
         private void guardarGasto_btn_Click(object sender, EventArgs e)

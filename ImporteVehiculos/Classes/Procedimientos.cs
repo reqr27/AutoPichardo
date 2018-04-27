@@ -1578,6 +1578,8 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", Mid));
             lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@facturaSuplidor", MnumeroFactura));
+
             return dt = C.Listado("obtener_detalle_cuenta_por_pagar", lst);
         }
 

@@ -93,11 +93,12 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(209, 20);
+            this.label4.Location = new System.Drawing.Point(209, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 103;
             this.label4.Text = "TRANSACCION: ";
+            this.label4.Visible = false;
             // 
             // tipoTransaccion_cb
             // 
@@ -109,10 +110,11 @@
             this.tipoTransaccion_cb.Items.AddRange(new object[] {
             "EFECTIVO",
             "VEHICULO RECIBIDO"});
-            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 16);
+            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 51);
             this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
             this.tipoTransaccion_cb.Size = new System.Drawing.Size(207, 23);
             this.tipoTransaccion_cb.TabIndex = 102;
+            this.tipoTransaccion_cb.Visible = false;
             this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
             // 
             // label2
@@ -164,7 +166,7 @@
             // propietario_txt
             // 
             this.propietario_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.propietario_txt.Location = new System.Drawing.Point(316, 47);
+            this.propietario_txt.Location = new System.Drawing.Point(316, 17);
             this.propietario_txt.Name = "propietario_txt";
             this.propietario_txt.Size = new System.Drawing.Size(207, 20);
             this.propietario_txt.TabIndex = 51;
@@ -175,7 +177,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label3.Location = new System.Drawing.Point(209, 50);
+            this.label3.Location = new System.Drawing.Point(209, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 15);
             this.label3.TabIndex = 52;
@@ -321,6 +323,7 @@
             // 
             // CuentasPagarForm
             // 
+            this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 479);

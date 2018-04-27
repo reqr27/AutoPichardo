@@ -65,7 +65,7 @@ namespace ImporteVehiculos.Formularios
 
         private void ActivationForm_Load(object sender, EventArgs e)
         {
-
+            
             txt1.MaxLength = 4;
             textBox1.MaxLength = 4;
             textBox2.MaxLength = 4;

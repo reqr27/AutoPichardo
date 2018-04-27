@@ -53,6 +53,8 @@ namespace ImporteVehiculos.Formularios
         private void ColoresForm_Load(object sender, EventArgs e)
         {
             LlenarDtgColor();
+            agregar_btn.NotifyDefault(false);
+            color_txt.Focus();
         }
 
         public void LlenarDtgColor()
@@ -74,6 +76,7 @@ namespace ImporteVehiculos.Formularios
             color_txt.Text = "";
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            color_txt.Focus();
         }
 
         private void agregar_btn_Click(object sender, EventArgs e)

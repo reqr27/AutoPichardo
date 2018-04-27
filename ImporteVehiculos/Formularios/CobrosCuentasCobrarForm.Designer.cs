@@ -33,6 +33,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CobrosCuentasCobrarForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.traspasoImg_btn = new System.Windows.Forms.LinkLabel();
+            this.clienteImg_btn = new System.Windows.Forms.LinkLabel();
             this.cc_lbl = new System.Windows.Forms.Label();
             this.transaccion_lbl = new System.Windows.Forms.Label();
             this.dias_lbl = new System.Windows.Forms.Label();
@@ -91,8 +93,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.creditoRd_lbl = new System.Windows.Forms.Label();
             this.guardar_btn = new System.Windows.Forms.Button();
-            this.clienteImg_btn = new System.Windows.Forms.LinkLabel();
-            this.traspasoImg_btn = new System.Windows.Forms.LinkLabel();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
@@ -146,6 +146,32 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(933, 182);
             this.panel4.TabIndex = 59;
+            // 
+            // traspasoImg_btn
+            // 
+            this.traspasoImg_btn.AutoSize = true;
+            this.traspasoImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traspasoImg_btn.LinkColor = System.Drawing.Color.White;
+            this.traspasoImg_btn.Location = new System.Drawing.Point(556, 65);
+            this.traspasoImg_btn.Name = "traspasoImg_btn";
+            this.traspasoImg_btn.Size = new System.Drawing.Size(116, 14);
+            this.traspasoImg_btn.TabIndex = 128;
+            this.traspasoImg_btn.TabStop = true;
+            this.traspasoImg_btn.Text = "Imágenes Traspaso";
+            this.traspasoImg_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.traspasoImg_btn_LinkClicked);
+            // 
+            // clienteImg_btn
+            // 
+            this.clienteImg_btn.AutoSize = true;
+            this.clienteImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clienteImg_btn.LinkColor = System.Drawing.Color.White;
+            this.clienteImg_btn.Location = new System.Drawing.Point(784, 144);
+            this.clienteImg_btn.Name = "clienteImg_btn";
+            this.clienteImg_btn.Size = new System.Drawing.Size(107, 14);
+            this.clienteImg_btn.TabIndex = 127;
+            this.clienteImg_btn.TabStop = true;
+            this.clienteImg_btn.Text = "Imágenes Cliente";
+            this.clienteImg_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.clienteImg_btn_LinkClicked);
             // 
             // cc_lbl
             // 
@@ -834,34 +860,9 @@
             this.guardar_btn.UseVisualStyleBackColor = true;
             this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
             // 
-            // clienteImg_btn
-            // 
-            this.clienteImg_btn.AutoSize = true;
-            this.clienteImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clienteImg_btn.LinkColor = System.Drawing.Color.White;
-            this.clienteImg_btn.Location = new System.Drawing.Point(784, 144);
-            this.clienteImg_btn.Name = "clienteImg_btn";
-            this.clienteImg_btn.Size = new System.Drawing.Size(107, 14);
-            this.clienteImg_btn.TabIndex = 127;
-            this.clienteImg_btn.TabStop = true;
-            this.clienteImg_btn.Text = "Imágenes Cliente";
-            this.clienteImg_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.clienteImg_btn_LinkClicked);
-            // 
-            // traspasoImg_btn
-            // 
-            this.traspasoImg_btn.AutoSize = true;
-            this.traspasoImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.traspasoImg_btn.LinkColor = System.Drawing.Color.White;
-            this.traspasoImg_btn.Location = new System.Drawing.Point(556, 65);
-            this.traspasoImg_btn.Name = "traspasoImg_btn";
-            this.traspasoImg_btn.Size = new System.Drawing.Size(116, 14);
-            this.traspasoImg_btn.TabIndex = 128;
-            this.traspasoImg_btn.TabStop = true;
-            this.traspasoImg_btn.Text = "Imágenes Traspaso";
-            this.traspasoImg_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.traspasoImg_btn_LinkClicked);
-            // 
             // CobrosCuentasCobrarForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 566);

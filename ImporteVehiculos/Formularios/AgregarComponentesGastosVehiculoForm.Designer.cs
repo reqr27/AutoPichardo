@@ -57,6 +57,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.notaPago_txt = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.nombreForm_lbl = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,34 +79,28 @@
             this.precioRd_lbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.fecha_dtp = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.agregarPago_btn = new System.Windows.Forms.Button();
             this.guardar_btn = new System.Windows.Forms.Button();
             this.vehiculos_cb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mantenimiento_radiobtn = new System.Windows.Forms.RadioButton();
-            this.piezas_radiobtn = new System.Windows.Forms.RadioButton();
             this.otros_radiobtn = new System.Windows.Forms.RadioButton();
+            this.piezas_radiobtn = new System.Windows.Forms.RadioButton();
+            this.mantenimiento_radiobtn = new System.Windows.Forms.RadioButton();
             this.numeroFactura_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cantidad_txtNum = new System.Windows.Forms.NumericUpDown();
+            this.servicioTotalUSD_lbl = new System.Windows.Forms.Label();
+            this.servicioTotalRD_lbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.agregarServicio_btn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.montoServicio_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.servicios_dtg = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.servicioTotalRD_lbl = new System.Windows.Forms.Label();
-            this.servicioTotalUSD_lbl = new System.Windows.Forms.Label();
-            this.nota_factura_txt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cantidad_txtNum = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,15 +108,19 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nota_factura_txt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.servicios_dtg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cantidad_txtNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicios_dtg)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // descripcion_cb
@@ -134,6 +134,7 @@
             this.descripcion_cb.Name = "descripcion_cb";
             this.descripcion_cb.Size = new System.Drawing.Size(248, 22);
             this.descripcion_cb.TabIndex = 5;
+            this.descripcion_cb.DropDown += new System.EventHandler(this.descripcion_cb_DropDown);
             this.descripcion_cb.SelectedIndexChanged += new System.EventHandler(this.descripcion_cb_SelectedIndexChanged);
             this.descripcion_cb.SelectionChangeCommitted += new System.EventHandler(this.descripcion_cb_SelectionChangeCommitted);
             // 
@@ -225,6 +226,7 @@
             this.taller_cb.Name = "taller_cb";
             this.taller_cb.Size = new System.Drawing.Size(329, 22);
             this.taller_cb.TabIndex = 34;
+            this.taller_cb.DropDown += new System.EventHandler(this.taller_cb_DropDown);
             // 
             // label23
             // 
@@ -275,7 +277,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Tipo de Pago";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 96;
+            this.dataGridViewTextBoxColumn1.Width = 88;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -285,7 +287,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "VALOR ($RD)";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 99;
+            this.dataGridViewTextBoxColumn2.Width = 91;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -385,6 +387,34 @@
             this.panel3.Size = new System.Drawing.Size(945, 46);
             this.panel3.TabIndex = 140;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(877, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 31;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(908, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 30;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // nombreForm_lbl
             // 
@@ -619,34 +649,6 @@
             this.fecha_dtp.Size = new System.Drawing.Size(109, 20);
             this.fecha_dtp.TabIndex = 142;
             // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(877, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 31;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(908, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 30;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // agregarPago_btn
             // 
             this.agregarPago_btn.FlatAppearance.BorderSize = 0;
@@ -686,6 +688,7 @@
             this.vehiculos_cb.Name = "vehiculos_cb";
             this.vehiculos_cb.Size = new System.Drawing.Size(326, 22);
             this.vehiculos_cb.TabIndex = 145;
+            this.vehiculos_cb.DropDown += new System.EventHandler(this.vehiculos_cb_DropDown);
             this.vehiculos_cb.SelectionChangeCommitted += new System.EventHandler(this.vehiculos_cb_SelectionChangeCommitted);
             // 
             // label3
@@ -708,20 +711,18 @@
             this.panel1.Size = new System.Drawing.Size(316, 35);
             this.panel1.TabIndex = 146;
             // 
-            // mantenimiento_radiobtn
+            // otros_radiobtn
             // 
-            this.mantenimiento_radiobtn.AutoSize = true;
-            this.mantenimiento_radiobtn.Checked = true;
-            this.mantenimiento_radiobtn.FlatAppearance.BorderSize = 0;
-            this.mantenimiento_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mantenimiento_radiobtn.Location = new System.Drawing.Point(4, 3);
-            this.mantenimiento_radiobtn.Name = "mantenimiento_radiobtn";
-            this.mantenimiento_radiobtn.Size = new System.Drawing.Size(117, 18);
-            this.mantenimiento_radiobtn.TabIndex = 0;
-            this.mantenimiento_radiobtn.TabStop = true;
-            this.mantenimiento_radiobtn.Text = "Mantenimiento";
-            this.mantenimiento_radiobtn.UseVisualStyleBackColor = true;
-            this.mantenimiento_radiobtn.CheckedChanged += new System.EventHandler(this.mantenimiento_radiobtn_CheckedChanged);
+            this.otros_radiobtn.AutoSize = true;
+            this.otros_radiobtn.FlatAppearance.BorderSize = 0;
+            this.otros_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otros_radiobtn.Location = new System.Drawing.Point(255, 3);
+            this.otros_radiobtn.Name = "otros_radiobtn";
+            this.otros_radiobtn.Size = new System.Drawing.Size(57, 18);
+            this.otros_radiobtn.TabIndex = 2;
+            this.otros_radiobtn.Text = "Otros";
+            this.otros_radiobtn.UseVisualStyleBackColor = true;
+            this.otros_radiobtn.CheckedChanged += new System.EventHandler(this.mantenimiento_radiobtn_CheckedChanged);
             // 
             // piezas_radiobtn
             // 
@@ -736,18 +737,20 @@
             this.piezas_radiobtn.UseVisualStyleBackColor = true;
             this.piezas_radiobtn.CheckedChanged += new System.EventHandler(this.mantenimiento_radiobtn_CheckedChanged);
             // 
-            // otros_radiobtn
+            // mantenimiento_radiobtn
             // 
-            this.otros_radiobtn.AutoSize = true;
-            this.otros_radiobtn.FlatAppearance.BorderSize = 0;
-            this.otros_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.otros_radiobtn.Location = new System.Drawing.Point(255, 3);
-            this.otros_radiobtn.Name = "otros_radiobtn";
-            this.otros_radiobtn.Size = new System.Drawing.Size(57, 18);
-            this.otros_radiobtn.TabIndex = 2;
-            this.otros_radiobtn.Text = "Otros";
-            this.otros_radiobtn.UseVisualStyleBackColor = true;
-            this.otros_radiobtn.CheckedChanged += new System.EventHandler(this.mantenimiento_radiobtn_CheckedChanged);
+            this.mantenimiento_radiobtn.AutoSize = true;
+            this.mantenimiento_radiobtn.Checked = true;
+            this.mantenimiento_radiobtn.FlatAppearance.BorderSize = 0;
+            this.mantenimiento_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mantenimiento_radiobtn.Location = new System.Drawing.Point(4, 3);
+            this.mantenimiento_radiobtn.Name = "mantenimiento_radiobtn";
+            this.mantenimiento_radiobtn.Size = new System.Drawing.Size(117, 18);
+            this.mantenimiento_radiobtn.TabIndex = 0;
+            this.mantenimiento_radiobtn.TabStop = true;
+            this.mantenimiento_radiobtn.Text = "Mantenimiento";
+            this.mantenimiento_radiobtn.UseVisualStyleBackColor = true;
+            this.mantenimiento_radiobtn.CheckedChanged += new System.EventHandler(this.mantenimiento_radiobtn_CheckedChanged);
             // 
             // numeroFactura_txt
             // 
@@ -800,23 +803,57 @@
             this.tabPage1.Text = "DETALLE FACTURA";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // label11
             // 
-            this.tabPage2.Controls.Add(this.label23);
-            this.tabPage2.Controls.Add(this.notaPago_txt);
-            this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Controls.Add(this.agregarPago_btn);
-            this.tabPage2.Controls.Add(this.tipoPago_cb);
-            this.tabPage2.Controls.Add(this.monto_txt);
-            this.tabPage2.Controls.Add(this.label24);
-            this.tabPage2.Controls.Add(this.pagos_dtg);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(414, 348);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "DETALLE PAGO FACTURA";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 14);
+            this.label11.TabIndex = 158;
+            this.label11.Text = "CANTIDAD:";
+            // 
+            // cantidad_txtNum
+            // 
+            this.cantidad_txtNum.Location = new System.Drawing.Point(154, 93);
+            this.cantidad_txtNum.Name = "cantidad_txtNum";
+            this.cantidad_txtNum.Size = new System.Drawing.Size(120, 20);
+            this.cantidad_txtNum.TabIndex = 157;
+            this.cantidad_txtNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // servicioTotalUSD_lbl
+            // 
+            this.servicioTotalUSD_lbl.AutoSize = true;
+            this.servicioTotalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servicioTotalUSD_lbl.Location = new System.Drawing.Point(321, 317);
+            this.servicioTotalUSD_lbl.Name = "servicioTotalUSD_lbl";
+            this.servicioTotalUSD_lbl.Size = new System.Drawing.Size(89, 14);
+            this.servicioTotalUSD_lbl.TabIndex = 156;
+            this.servicioTotalUSD_lbl.Text = "TOTAL ($RD):";
+            // 
+            // servicioTotalRD_lbl
+            // 
+            this.servicioTotalRD_lbl.AutoSize = true;
+            this.servicioTotalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servicioTotalRD_lbl.Location = new System.Drawing.Point(100, 317);
+            this.servicioTotalRD_lbl.Name = "servicioTotalRD_lbl";
+            this.servicioTotalRD_lbl.Size = new System.Drawing.Size(89, 14);
+            this.servicioTotalRD_lbl.TabIndex = 155;
+            this.servicioTotalRD_lbl.Text = "TOTAL ($RD):";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(223, 317);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 14);
+            this.label7.TabIndex = 154;
+            this.label7.Text = "TOTAL ($USD):";
             // 
             // agregarServicio_btn
             // 
@@ -832,6 +869,16 @@
             this.agregarServicio_btn.TabIndex = 151;
             this.agregarServicio_btn.UseVisualStyleBackColor = true;
             this.agregarServicio_btn.Click += new System.EventHandler(this.agregarServicio_btn_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 317);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 14);
+            this.label9.TabIndex = 153;
+            this.label9.Text = "TOTAL ($RD):";
             // 
             // montoServicio_txt
             // 
@@ -875,97 +922,6 @@
             this.servicios_dtg.TabIndex = 152;
             this.servicios_dtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.servicios_dtg_CellClick);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(134, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(249, 18);
-            this.label5.TabIndex = 150;
-            this.label5.Text = "DATOS GENERALES FACTURA";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 317);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 14);
-            this.label9.TabIndex = 153;
-            this.label9.Text = "TOTAL ($RD):";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(223, 317);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 14);
-            this.label7.TabIndex = 154;
-            this.label7.Text = "TOTAL ($USD):";
-            // 
-            // servicioTotalRD_lbl
-            // 
-            this.servicioTotalRD_lbl.AutoSize = true;
-            this.servicioTotalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servicioTotalRD_lbl.Location = new System.Drawing.Point(100, 317);
-            this.servicioTotalRD_lbl.Name = "servicioTotalRD_lbl";
-            this.servicioTotalRD_lbl.Size = new System.Drawing.Size(89, 14);
-            this.servicioTotalRD_lbl.TabIndex = 155;
-            this.servicioTotalRD_lbl.Text = "TOTAL ($RD):";
-            // 
-            // servicioTotalUSD_lbl
-            // 
-            this.servicioTotalUSD_lbl.AutoSize = true;
-            this.servicioTotalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servicioTotalUSD_lbl.Location = new System.Drawing.Point(321, 317);
-            this.servicioTotalUSD_lbl.Name = "servicioTotalUSD_lbl";
-            this.servicioTotalUSD_lbl.Size = new System.Drawing.Size(89, 14);
-            this.servicioTotalUSD_lbl.TabIndex = 156;
-            this.servicioTotalUSD_lbl.Text = "TOTAL ($RD):";
-            // 
-            // nota_factura_txt
-            // 
-            this.nota_factura_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nota_factura_txt.Location = new System.Drawing.Point(138, 296);
-            this.nota_factura_txt.Multiline = true;
-            this.nota_factura_txt.Name = "nota_factura_txt";
-            this.nota_factura_txt.Size = new System.Drawing.Size(328, 55);
-            this.nota_factura_txt.TabIndex = 152;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(19, 299);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 14);
-            this.label10.TabIndex = 151;
-            this.label10.Text = "NOTA:";
-            // 
-            // cantidad_txtNum
-            // 
-            this.cantidad_txtNum.Location = new System.Drawing.Point(154, 93);
-            this.cantidad_txtNum.Name = "cantidad_txtNum";
-            this.cantidad_txtNum.Size = new System.Drawing.Size(120, 20);
-            this.cantidad_txtNum.TabIndex = 157;
-            this.cantidad_txtNum.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 95);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 14);
-            this.label11.TabIndex = 158;
-            this.label11.Text = "CANTIDAD:";
-            // 
             // cantidad
             // 
             this.cantidad.HeaderText = "CANT.";
@@ -988,7 +944,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "VALOR ($RD)";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 99;
+            this.dataGridViewTextBoxColumn7.Width = 91;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1027,8 +983,56 @@
             this.idGasto.Visible = false;
             this.idGasto.Width = 77;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.notaPago_txt);
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Controls.Add(this.agregarPago_btn);
+            this.tabPage2.Controls.Add(this.tipoPago_cb);
+            this.tabPage2.Controls.Add(this.monto_txt);
+            this.tabPage2.Controls.Add(this.label24);
+            this.tabPage2.Controls.Add(this.pagos_dtg);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(414, 348);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "DETALLE PAGO FACTURA";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(134, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 18);
+            this.label5.TabIndex = 150;
+            this.label5.Text = "DATOS GENERALES FACTURA";
+            // 
+            // nota_factura_txt
+            // 
+            this.nota_factura_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nota_factura_txt.Location = new System.Drawing.Point(138, 296);
+            this.nota_factura_txt.Multiline = true;
+            this.nota_factura_txt.Name = "nota_factura_txt";
+            this.nota_factura_txt.Size = new System.Drawing.Size(328, 55);
+            this.nota_factura_txt.TabIndex = 152;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(19, 299);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 14);
+            this.label10.TabIndex = 151;
+            this.label10.Text = "NOTA:";
+            // 
             // AgregarComponentesGastosVehiculoForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 544);
@@ -1068,10 +1072,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidad_txtNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicios_dtg)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.servicios_dtg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cantidad_txtNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

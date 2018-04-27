@@ -34,7 +34,10 @@ namespace ImporteVehiculos.Formularios
 
         private void CiudadForm_Load(object sender, EventArgs e)
         {
+            
             LLenarPaisesCB();
+            pais_cb.Focus();
+            agregar_btn.NotifyDefault(false);
         }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -98,6 +101,8 @@ namespace ImporteVehiculos.Formularios
             evento = false;
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            pais_cb.Focus();
+            
         }
 
         private void agregar_btn_Click(object sender, EventArgs e)
@@ -191,6 +196,11 @@ namespace ImporteVehiculos.Formularios
         private void cancelar_btn_Click(object sender, EventArgs e)
         {
             resetCampos();
+        }
+
+        private void pais_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarPaisesCB();
         }
     }
 }

@@ -322,6 +322,7 @@
             this.ciudad_cb.Name = "ciudad_cb";
             this.ciudad_cb.Size = new System.Drawing.Size(262, 22);
             this.ciudad_cb.TabIndex = 3;
+            this.ciudad_cb.DropDown += new System.EventHandler(this.ciudad_cb_DropDown);
             // 
             // pais_cb
             // 
@@ -335,6 +336,7 @@
             this.pais_cb.Name = "pais_cb";
             this.pais_cb.Size = new System.Drawing.Size(262, 22);
             this.pais_cb.TabIndex = 2;
+            this.pais_cb.DropDown += new System.EventHandler(this.pais_cb_DropDown);
             this.pais_cb.SelectedIndexChanged += new System.EventHandler(this.pais_cb_SelectedIndexChanged);
             // 
             // label9
@@ -382,6 +384,7 @@
             // 
             // ClienteForm
             // 
+            this.AcceptButton = this.guardarCliente_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));

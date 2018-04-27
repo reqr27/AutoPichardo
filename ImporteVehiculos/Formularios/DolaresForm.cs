@@ -22,8 +22,10 @@ namespace ImporteVehiculos.Formularios
 
         private void DolaresForm_Load(object sender, EventArgs e)
         {
+            guardar_btn.NotifyDefault(false);
             DataTable dt = new DataTable();
             dt = P.ObtenerTasaDolarYFecha();
+            tasa_txt.Focus();
 
             tasa_txt.Text = (Convert.ToDouble(dt.Rows[0]["TASA"])).ToString("N2");
         }

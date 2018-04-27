@@ -184,6 +184,8 @@ namespace ImporteVehiculos.Formularios
             {
                 VerTodosDetallesVentana();
             }
+            guardar_btn.NotifyDefault(false);
+            precio_estimado_venta_txt.Focus();
 
         }
 
@@ -308,6 +310,26 @@ namespace ImporteVehiculos.Formularios
             dt1 = P.ObtenerTasaDolarYFecha();
             tasa_lbl.Text = "";
             tasa_lbl.Text = "1.00 $USD = " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2") + "$RD";
+        }
+
+        private void ubicacion_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarUbicacionCb();
+        }
+
+        private void propietario_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarPropietarioCb();
+        }
+
+        private void suplidor_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarSuplidorCb();
+        }
+
+        private void color_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarColoresCb();
         }
     }
 }

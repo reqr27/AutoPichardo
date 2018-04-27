@@ -63,6 +63,7 @@ namespace ImporteVehiculos.Formularios
             estado_cb.SelectedIndex = 0;
             LlenarDtg();
             UpdateButtons();
+            reporte_btn.NotifyDefault(false);
         }
         public void UpdateButtons()
         {
@@ -128,7 +129,7 @@ namespace ImporteVehiculos.Formularios
 
             else if (reportes_cb.Text == "Cuentas por Pagar")
             {
-                P.IdTransaccion = Convert.ToInt32(tipoTransaccion_cb.SelectedValue);
+                P.IdTransaccion = 0;
                 P.Desde = Convert.ToDateTime(desde_dtp.Value);
                 P.Hasta = Convert.ToDateTime(hasta_dtp.Value);
                 P.Propietario = "";
@@ -475,8 +476,8 @@ namespace ImporteVehiculos.Formularios
 
             if (reportes_cb.Text == "Cuentas por Pagar")
             {
-               label6.Visible = true;
-               tipoTransaccion_cb.Visible = true;
+               //label6.Visible = true;
+               //tipoTransaccion_cb.Visible = true;
             }
             else
             {

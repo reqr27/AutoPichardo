@@ -74,6 +74,7 @@
             this.fabricante_cbox.Name = "fabricante_cbox";
             this.fabricante_cbox.Size = new System.Drawing.Size(276, 24);
             this.fabricante_cbox.TabIndex = 0;
+            this.fabricante_cbox.DropDown += new System.EventHandler(this.fabricante_cbox_DropDown);
             this.fabricante_cbox.SelectedIndexChanged += new System.EventHandler(this.fabricante_cbox_SelectedIndexChanged);
             // 
             // pieza_txt
@@ -186,6 +187,7 @@
             this.modelo_cb.Name = "modelo_cb";
             this.modelo_cb.Size = new System.Drawing.Size(154, 24);
             this.modelo_cb.TabIndex = 1;
+            this.modelo_cb.DropDown += new System.EventHandler(this.modelo_cb_DropDown);
             this.modelo_cb.SelectedIndexChanged += new System.EventHandler(this.modelo_cb_SelectedIndexChanged);
             // 
             // label1
@@ -281,6 +283,7 @@
             // 
             // PiezasRepuestosForm
             // 
+            this.AcceptButton = this.guardarComponente_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;

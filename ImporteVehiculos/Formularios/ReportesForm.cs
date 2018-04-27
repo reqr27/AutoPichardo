@@ -259,28 +259,7 @@ namespace ImporteVehiculos.Formularios
             rd.Name = "DataSet1";
             rd.Value = ds.Tables["reporte_cuentas_pagar"];
 
-            if(Program.GidTransaccionRpt == 2)
-            {
-                Program.Greporte = "Cuentas Pagar Compras";
-            }
-           else if (Program.GidTransaccionRpt == 4)
-            {
-                Program.Greporte = "Cuentas Pagar Seguros";
-            }
-
-            else if (Program.GidTransaccionRpt == 5)
-            {
-                Program.Greporte = "Cuentas Pagar Piezas/Repuestos";
-            }
-
-            else if (Program.GidTransaccionRpt == 6)
-            {
-                Program.Greporte = "Cuentas Pagar Mantenimientos";
-            }
-            else
-            {
-                Program.Greporte = "Cuentas Pagar Otros";
-            }
+            Program.Greporte = "Cuentas Por Pagar";
 
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
             parametros[1] = new ReportParameter("rptNombre", Program.Greporte);

@@ -51,6 +51,8 @@ namespace ImporteVehiculos.Formularios
             //CargarVentana();
             Permisos();
             idTransaccion = 6;
+            vehiculos_cb.Focus();
+            guardar_btn.NotifyDefault(false);
         }
 
         public void clearFields()
@@ -72,6 +74,7 @@ namespace ImporteVehiculos.Formularios
             numeroFactura_txt.Text = "";
             nota_factura_txt.Text = "";
             montoServicio_txt.Text = "";
+            vehiculos_cb.Focus();
         }
 
         public void LLenarTipoPagoCb()
@@ -1149,6 +1152,32 @@ namespace ImporteVehiculos.Formularios
 
                 }
 
+            }
+        }
+
+        private void vehiculos_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarVehiculoCB();
+        }
+
+        private void taller_cb_DropDown(object sender, EventArgs e)
+        {
+            LlenarTallerCb();
+        }
+
+        private void descripcion_cb_DropDown(object sender, EventArgs e)
+        {
+            if (mantenimiento_radiobtn.Checked)
+            {
+                LlenarGastosReparacionCb();
+            }
+            else if (piezas_radiobtn.Checked)
+            {
+                LlenarComponenteCb();
+            }
+            else
+            {
+                LlenarGastosAduanalesCb();
             }
         }
     } 
