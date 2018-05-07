@@ -80,6 +80,8 @@ namespace ImporteVehiculos {
         
         private reporte_vehiculos_vendidosDataTable tablereporte_vehiculos_vendidos;
         
+        private reporte_datos_recibo_cobro_antiguoDataTable tablereporte_datos_recibo_cobro_antiguo;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -191,6 +193,9 @@ namespace ImporteVehiculos {
                 }
                 if ((ds.Tables["reporte_vehiculos_vendidos"] != null)) {
                     base.Tables.Add(new reporte_vehiculos_vendidosDataTable(ds.Tables["reporte_vehiculos_vendidos"]));
+                }
+                if ((ds.Tables["reporte_datos_recibo_cobro_antiguo"] != null)) {
+                    base.Tables.Add(new reporte_datos_recibo_cobro_antiguoDataTable(ds.Tables["reporte_datos_recibo_cobro_antiguo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -492,6 +497,16 @@ namespace ImporteVehiculos {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public reporte_datos_recibo_cobro_antiguoDataTable reporte_datos_recibo_cobro_antiguo {
+            get {
+                return this.tablereporte_datos_recibo_cobro_antiguo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -640,6 +655,9 @@ namespace ImporteVehiculos {
                 }
                 if ((ds.Tables["reporte_vehiculos_vendidos"] != null)) {
                     base.Tables.Add(new reporte_vehiculos_vendidosDataTable(ds.Tables["reporte_vehiculos_vendidos"]));
+                }
+                if ((ds.Tables["reporte_datos_recibo_cobro_antiguo"] != null)) {
+                    base.Tables.Add(new reporte_datos_recibo_cobro_antiguoDataTable(ds.Tables["reporte_datos_recibo_cobro_antiguo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -842,6 +860,12 @@ namespace ImporteVehiculos {
                     this.tablereporte_vehiculos_vendidos.InitVars();
                 }
             }
+            this.tablereporte_datos_recibo_cobro_antiguo = ((reporte_datos_recibo_cobro_antiguoDataTable)(base.Tables["reporte_datos_recibo_cobro_antiguo"]));
+            if ((initTable == true)) {
+                if ((this.tablereporte_datos_recibo_cobro_antiguo != null)) {
+                    this.tablereporte_datos_recibo_cobro_antiguo.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -908,6 +932,8 @@ namespace ImporteVehiculos {
             base.Tables.Add(this.tablereporte_vehiculos_inventario);
             this.tablereporte_vehiculos_vendidos = new reporte_vehiculos_vendidosDataTable();
             base.Tables.Add(this.tablereporte_vehiculos_vendidos);
+            this.tablereporte_datos_recibo_cobro_antiguo = new reporte_datos_recibo_cobro_antiguoDataTable();
+            base.Tables.Add(this.tablereporte_datos_recibo_cobro_antiguo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1080,6 +1106,12 @@ namespace ImporteVehiculos {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializereporte_datos_recibo_cobro_antiguo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1216,6 +1248,9 @@ namespace ImporteVehiculos {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void reporte_vehiculos_vendidosRowChangeEventHandler(object sender, reporte_vehiculos_vendidosRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void reporte_datos_recibo_cobro_antiguoRowChangeEventHandler(object sender, reporte_datos_recibo_cobro_antiguoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -10594,6 +10629,389 @@ namespace ImporteVehiculos {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class reporte_datos_recibo_cobro_antiguoDataTable : global::System.Data.TypedTableBase<reporte_datos_recibo_cobro_antiguoRow> {
+            
+            private global::System.Data.DataColumn columnCLIENTE;
+            
+            private global::System.Data.DataColumn columnCEDULA;
+            
+            private global::System.Data.DataColumn columnVEHICULO;
+            
+            private global::System.Data.DataColumn columnSEGURO;
+            
+            private global::System.Data.DataColumn columnDURACION;
+            
+            private global::System.Data.DataColumn columnTOTALRD;
+            
+            private global::System.Data.DataColumn columnTOTALUSD;
+            
+            private global::System.Data.DataColumn columnNOTA;
+            
+            private global::System.Data.DataColumn columnCHASIS;
+            
+            private global::System.Data.DataColumn columnFECHA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoDataTable() {
+                this.TableName = "reporte_datos_recibo_cobro_antiguo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal reporte_datos_recibo_cobro_antiguoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected reporte_datos_recibo_cobro_antiguoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CLIENTEColumn {
+                get {
+                    return this.columnCLIENTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CEDULAColumn {
+                get {
+                    return this.columnCEDULA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VEHICULOColumn {
+                get {
+                    return this.columnVEHICULO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SEGUROColumn {
+                get {
+                    return this.columnSEGURO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DURACIONColumn {
+                get {
+                    return this.columnDURACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOTALRDColumn {
+                get {
+                    return this.columnTOTALRD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOTALUSDColumn {
+                get {
+                    return this.columnTOTALUSD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOTAColumn {
+                get {
+                    return this.columnNOTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CHASISColumn {
+                get {
+                    return this.columnCHASIS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHAColumn {
+                get {
+                    return this.columnFECHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoRow this[int index] {
+                get {
+                    return ((reporte_datos_recibo_cobro_antiguoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event reporte_datos_recibo_cobro_antiguoRowChangeEventHandler reporte_datos_recibo_cobro_antiguoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event reporte_datos_recibo_cobro_antiguoRowChangeEventHandler reporte_datos_recibo_cobro_antiguoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event reporte_datos_recibo_cobro_antiguoRowChangeEventHandler reporte_datos_recibo_cobro_antiguoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event reporte_datos_recibo_cobro_antiguoRowChangeEventHandler reporte_datos_recibo_cobro_antiguoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addreporte_datos_recibo_cobro_antiguoRow(reporte_datos_recibo_cobro_antiguoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoRow Addreporte_datos_recibo_cobro_antiguoRow(string CLIENTE, string CEDULA, string VEHICULO, string SEGURO, int DURACION, decimal TOTALRD, decimal TOTALUSD, string NOTA, string CHASIS, System.DateTime FECHA) {
+                reporte_datos_recibo_cobro_antiguoRow rowreporte_datos_recibo_cobro_antiguoRow = ((reporte_datos_recibo_cobro_antiguoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        CLIENTE,
+                        CEDULA,
+                        VEHICULO,
+                        SEGURO,
+                        DURACION,
+                        TOTALRD,
+                        TOTALUSD,
+                        NOTA,
+                        CHASIS,
+                        FECHA};
+                rowreporte_datos_recibo_cobro_antiguoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowreporte_datos_recibo_cobro_antiguoRow);
+                return rowreporte_datos_recibo_cobro_antiguoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                reporte_datos_recibo_cobro_antiguoDataTable cln = ((reporte_datos_recibo_cobro_antiguoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new reporte_datos_recibo_cobro_antiguoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnCLIENTE = base.Columns["CLIENTE"];
+                this.columnCEDULA = base.Columns["CEDULA"];
+                this.columnVEHICULO = base.Columns["VEHICULO"];
+                this.columnSEGURO = base.Columns["SEGURO"];
+                this.columnDURACION = base.Columns["DURACION"];
+                this.columnTOTALRD = base.Columns["TOTALRD"];
+                this.columnTOTALUSD = base.Columns["TOTALUSD"];
+                this.columnNOTA = base.Columns["NOTA"];
+                this.columnCHASIS = base.Columns["CHASIS"];
+                this.columnFECHA = base.Columns["FECHA"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnCLIENTE = new global::System.Data.DataColumn("CLIENTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCLIENTE);
+                this.columnCEDULA = new global::System.Data.DataColumn("CEDULA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCEDULA);
+                this.columnVEHICULO = new global::System.Data.DataColumn("VEHICULO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVEHICULO);
+                this.columnSEGURO = new global::System.Data.DataColumn("SEGURO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSEGURO);
+                this.columnDURACION = new global::System.Data.DataColumn("DURACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACION);
+                this.columnTOTALRD = new global::System.Data.DataColumn("TOTALRD", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTALRD);
+                this.columnTOTALUSD = new global::System.Data.DataColumn("TOTALUSD", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTALUSD);
+                this.columnNOTA = new global::System.Data.DataColumn("NOTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOTA);
+                this.columnCHASIS = new global::System.Data.DataColumn("CHASIS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCHASIS);
+                this.columnFECHA = new global::System.Data.DataColumn("FECHA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA);
+                this.columnCLIENTE.AllowDBNull = false;
+                this.columnCLIENTE.MaxLength = 200;
+                this.columnCEDULA.AllowDBNull = false;
+                this.columnCEDULA.MaxLength = 50;
+                this.columnVEHICULO.ReadOnly = true;
+                this.columnVEHICULO.MaxLength = 200;
+                this.columnSEGURO.MaxLength = 100;
+                this.columnNOTA.AllowDBNull = false;
+                this.columnNOTA.MaxLength = 300;
+                this.columnCHASIS.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoRow Newreporte_datos_recibo_cobro_antiguoRow() {
+                return ((reporte_datos_recibo_cobro_antiguoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new reporte_datos_recibo_cobro_antiguoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(reporte_datos_recibo_cobro_antiguoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.reporte_datos_recibo_cobro_antiguoRowChanged != null)) {
+                    this.reporte_datos_recibo_cobro_antiguoRowChanged(this, new reporte_datos_recibo_cobro_antiguoRowChangeEvent(((reporte_datos_recibo_cobro_antiguoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.reporte_datos_recibo_cobro_antiguoRowChanging != null)) {
+                    this.reporte_datos_recibo_cobro_antiguoRowChanging(this, new reporte_datos_recibo_cobro_antiguoRowChangeEvent(((reporte_datos_recibo_cobro_antiguoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.reporte_datos_recibo_cobro_antiguoRowDeleted != null)) {
+                    this.reporte_datos_recibo_cobro_antiguoRowDeleted(this, new reporte_datos_recibo_cobro_antiguoRowChangeEvent(((reporte_datos_recibo_cobro_antiguoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.reporte_datos_recibo_cobro_antiguoRowDeleting != null)) {
+                    this.reporte_datos_recibo_cobro_antiguoRowDeleting(this, new reporte_datos_recibo_cobro_antiguoRowChangeEvent(((reporte_datos_recibo_cobro_antiguoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removereporte_datos_recibo_cobro_antiguoRow(reporte_datos_recibo_cobro_antiguoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CarsImportDataSet ds = new CarsImportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "reporte_datos_recibo_cobro_antiguoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class reporte_cuentas_cobrarRow : global::System.Data.DataRow {
@@ -15453,6 +15871,257 @@ namespace ImporteVehiculos {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class reporte_datos_recibo_cobro_antiguoRow : global::System.Data.DataRow {
+            
+            private reporte_datos_recibo_cobro_antiguoDataTable tablereporte_datos_recibo_cobro_antiguo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal reporte_datos_recibo_cobro_antiguoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablereporte_datos_recibo_cobro_antiguo = ((reporte_datos_recibo_cobro_antiguoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CLIENTE {
+                get {
+                    return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.CLIENTEColumn]));
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.CLIENTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CEDULA {
+                get {
+                    return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.CEDULAColumn]));
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.CEDULAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string VEHICULO {
+                get {
+                    try {
+                        return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.VEHICULOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VEHICULO\' in table \'reporte_datos_recibo_cobro_antiguo\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.VEHICULOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SEGURO {
+                get {
+                    try {
+                        return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.SEGUROColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SEGURO\' in table \'reporte_datos_recibo_cobro_antiguo\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.SEGUROColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DURACION {
+                get {
+                    try {
+                        return ((int)(this[this.tablereporte_datos_recibo_cobro_antiguo.DURACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DURACION\' in table \'reporte_datos_recibo_cobro_antiguo\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.DURACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TOTALRD {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALRDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TOTALRD\' in table \'reporte_datos_recibo_cobro_antiguo\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALRDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TOTALUSD {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALUSDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TOTALUSD\' in table \'reporte_datos_recibo_cobro_antiguo\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALUSDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOTA {
+                get {
+                    return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.NOTAColumn]));
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.NOTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CHASIS {
+                get {
+                    try {
+                        return ((string)(this[this.tablereporte_datos_recibo_cobro_antiguo.CHASISColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CHASIS\' in table \'reporte_datos_recibo_cobro_antiguo\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.CHASISColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FECHA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablereporte_datos_recibo_cobro_antiguo.FECHAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FECHA\' in table \'reporte_datos_recibo_cobro_antiguo\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_datos_recibo_cobro_antiguo.FECHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVEHICULONull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.VEHICULOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVEHICULONull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.VEHICULOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSEGURONull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.SEGUROColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSEGURONull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.SEGUROColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDURACIONNull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.DURACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDURACIONNull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.DURACIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTOTALRDNull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.TOTALRDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTOTALRDNull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALRDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTOTALUSDNull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.TOTALUSDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTOTALUSDNull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.TOTALUSDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCHASISNull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.CHASISColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCHASISNull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.CHASISColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHANull() {
+                return this.IsNull(this.tablereporte_datos_recibo_cobro_antiguo.FECHAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHANull() {
+                this[this.tablereporte_datos_recibo_cobro_antiguo.FECHAColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -16390,6 +17059,40 @@ namespace ImporteVehiculos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public reporte_vehiculos_vendidosRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class reporte_datos_recibo_cobro_antiguoRowChangeEvent : global::System.EventArgs {
+            
+            private reporte_datos_recibo_cobro_antiguoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoRowChangeEvent(reporte_datos_recibo_cobro_antiguoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public reporte_datos_recibo_cobro_antiguoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -21874,6 +22577,196 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             CarsImportDataSet.reporte_vehiculos_vendidosDataTable dataTable = new CarsImportDataSet.reporte_vehiculos_vendidosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class reporte_datos_recibo_cobro_antiguoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public reporte_datos_recibo_cobro_antiguoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "reporte_datos_recibo_cobro_antiguo";
+            tableMapping.ColumnMappings.Add("CLIENTE", "CLIENTE");
+            tableMapping.ColumnMappings.Add("CEDULA", "CEDULA");
+            tableMapping.ColumnMappings.Add("VEHICULO", "VEHICULO");
+            tableMapping.ColumnMappings.Add("SEGURO", "SEGURO");
+            tableMapping.ColumnMappings.Add("DURACION", "DURACION");
+            tableMapping.ColumnMappings.Add("TOTALRD", "TOTALRD");
+            tableMapping.ColumnMappings.Add("TOTALUSD", "TOTALUSD");
+            tableMapping.ColumnMappings.Add("NOTA", "NOTA");
+            tableMapping.ColumnMappings.Add("CHASIS", "CHASIS");
+            tableMapping.ColumnMappings.Add("FECHA", "FECHA");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ImporteVehiculos.Properties.Settings.Default.CarsImportConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.reporte_datos_recibo_cobro_antiguo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idCC", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CarsImportDataSet.reporte_datos_recibo_cobro_antiguoDataTable dataTable, global::System.Nullable<int> idCC) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((idCC.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idCC.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual CarsImportDataSet.reporte_datos_recibo_cobro_antiguoDataTable GetData(global::System.Nullable<int> idCC) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((idCC.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idCC.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            CarsImportDataSet.reporte_datos_recibo_cobro_antiguoDataTable dataTable = new CarsImportDataSet.reporte_datos_recibo_cobro_antiguoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

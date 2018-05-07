@@ -153,6 +153,12 @@
     <Compile Include="Formularios\AgregarFabricantesModelosForm.Designer.cs">
       <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\CcCpAntiguasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CcCpAntiguasForm.designer.cs">
+      <DependentUpon>CcCpAntiguasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\CiudadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     <EmbeddedResource Include="Formularios\AgregarFabricantesModelosForm.resx">
       <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CcCpAntiguasForm.resx">
+      <DependentUpon>CcCpAntiguasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\CiudadForm.resx">
       <DependentUpon>CiudadForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +459,9 @@
     <EmbeddedResource Include="Reportes\ReciboCobro.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCobroAntiguo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteComprados.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -469,6 +481,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteReciboTraspaso.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteReciboTraspasoAntiguo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteResultadosRD.rdlc">
@@ -721,6 +736,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\accounting-book.png" />
     <None Include="Resources\bill.png" />
     <None Include="Resources\insurance.png" />
     <None Include="Resources\browsing.png" />

@@ -442,9 +442,26 @@ namespace ImporteVehiculos.Formularios
             {
                 if (vehiculos_dtg.Rows.Count > 0)
                 {
+                    DataTable dt = new DataTable();
                     Program.GidCCRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[5].Value);
+                    P.Id = Program.GidCCRpt;
+                    dt = P.ObtenerTipoCC();
+                    if (dt.Rows[0][0].ToString() == "VENTA")
+                    {
+                        Program.Greporte = "Recibo de Pago";
+                    }
+
+                    else if (dt.Rows[0][0].ToString() == "TRASPASO")
+                    {
+                        Program.Greporte = "Recibo de Pago Traspaso";
+                    }
+
+                    else if (dt.Rows[0][0].ToString() == "TRASPASO")
+                    {
+                        Program.Greporte = "Recibo de Pago Seguro";
+                    }
+
                     Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
-                    Program.Greporte = "Recibo de Pago";
                     Program.GtipoRecibo = "Historial Recibo";
                     Program.GnumeroRecibo = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[1].Value);
                     ReportesForm form1 = new ReportesForm();

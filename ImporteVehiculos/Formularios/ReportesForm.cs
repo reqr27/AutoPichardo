@@ -65,14 +65,30 @@ namespace ImporteVehiculos.Formularios
                 ReporteResultadosUSD();
             }
 
-            else if (Program.Greporte == "Recibo de Pago") 
+            else if (Program.Greporte == "Recibo de Pago")
             {
-                ReporteReciboDeCobro();
+                if (Program.GnuevaCC)
+                {
+                    ReporteReciboDeCobro();
+                }
+                else
+                {
+                    ReporteReciboDeCobroAntiguo();
+                }
             }
+
 
             else if (Program.Greporte == "Recibo de Pago Traspaso")
             {
-                ReporteReciboDeCobroTraspaso();
+                if (Program.GnuevaCC)
+                {
+                    ReporteReciboDeCobroTraspaso();
+                }
+                else
+                {
+                    ReporteReciboDeCobroTraspasoAntiguo();
+                }
+
             }
 
             else if (Program.Greporte == "Recibo de Pago Seguro")
@@ -86,6 +102,7 @@ namespace ImporteVehiculos.Formularios
             }
 
         }
+
 
         public void FacturaVehiculo()
         {
@@ -403,6 +420,56 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void ReporteReciboDeCobroAntiguo()
+        {
+            ReportParameter[] parametros = new ReportParameter[2];
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+            lc = reportViewer1.LocalReport;
+            lc.ReportPath = "Reportes\\ReporteCobroAntiguo.rdlc";
+
+            CarsImportDataSet ds = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_datos_recibo_cobro_antiguoTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_datos_recibo_cobro_antiguoTableAdapter();
+            rds.Fill(ds.reporte_datos_recibo_cobro_antiguo, Program.GidCCRpt);  //llenar reporte
+            ReportDataSource rd = new ReportDataSource();
+            rd.Name = "DataSet1";
+            rd.Value = ds.Tables["reporte_datos_recibo_cobro_antiguo"];
+
+            CarsImportDataSet ds2 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_individual_vehiculo_pagosTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_individual_vehiculo_pagosTableAdapter();
+            rds2.Fill(ds2.reporte_individual_vehiculo_pagos, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd2 = new ReportDataSource();
+            rd2.Name = "DataSet2";
+            rd2.Value = ds2.Tables["reporte_individual_vehiculo_pagos"];
+
+            CarsImportDataSet ds3 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_recibo_de_cobroTableAdapter rds3 = new CarsImportDataSetTableAdapters.reporte_recibo_de_cobroTableAdapter();
+            rds3.Fill(ds3.reporte_recibo_de_cobro, Program.GidCCRpt, Program.GtipoRecibo, Program.GnumeroRecibo);  //llenar reporte
+            ReportDataSource rd3 = new ReportDataSource();
+            rd3.Name = "DataSet3";
+            rd3.Value = ds3.Tables["reporte_recibo_de_cobro"];
+
+            CarsImportDataSet ds4 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_obtener_detalle_cobrosTableAdapter rds4 = new CarsImportDataSetTableAdapters.reporte_obtener_detalle_cobrosTableAdapter();
+            rds4.Fill(ds4.reporte_obtener_detalle_cobros, Program.GidCCRpt, Program.GtipoRecibo, Program.GnumeroRecibo);  //llenar reporte
+            ReportDataSource rd4 = new ReportDataSource();
+            rd4.Name = "DataSet4";
+            rd4.Value = ds4.Tables["reporte_obtener_detalle_cobros"];
+
+            parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
+            parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
+
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.SetParameters(parametros);
+            lc.DataSources.Add(rd);
+            lc.DataSources.Add(rd2);
+            lc.DataSources.Add(rd4);
+            lc.DataSources.Add(rd3);
+            this.reportViewer1.RefreshReport();
+
+
+        }
+
         public void ReporteReciboDeCobroTraspaso()
         {
             ReportParameter[] parametros = new ReportParameter[2];
@@ -443,7 +510,7 @@ namespace ImporteVehiculos.Formularios
             rds5.Fill(ds5.reporte_precio_total_traspaso, Program.GidVehiculoRpt);  //llenar reporte
             ReportDataSource rd5 = new ReportDataSource();
             rd5.Name = "DataSet5";
-            rd5.Value = ds4.Tables["reporte_precio_total_traspaso"];
+            rd5.Value = ds5.Tables["reporte_precio_total_traspaso"];
 
 
 
@@ -458,6 +525,66 @@ namespace ImporteVehiculos.Formularios
             lc.DataSources.Add(rd4);
             lc.DataSources.Add(rd3);
             lc.DataSources.Add(rd5);
+            this.reportViewer1.RefreshReport();
+
+
+        }
+
+        public void ReporteReciboDeCobroTraspasoAntiguo()
+        {
+            ReportParameter[] parametros = new ReportParameter[2];
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+            lc = reportViewer1.LocalReport;
+            lc.ReportPath = "Reportes\\ReporteReciboTraspasoAntiguo.rdlc";
+
+            CarsImportDataSet ds = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_datos_recibo_cobro_antiguoTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_datos_recibo_cobro_antiguoTableAdapter();
+            rds.Fill(ds.reporte_datos_recibo_cobro_antiguo, Program.GidCCRpt);  //llenar reporte
+            ReportDataSource rd = new ReportDataSource();
+            rd.Name = "DataSet1";
+            rd.Value = ds.Tables["reporte_datos_recibo_cobro_antiguo"];
+
+            //CarsImportDataSet ds2 = new CarsImportDataSet();
+            //CarsImportDataSetTableAdapters.reporte_detalle_traspasoTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_detalle_traspasoTableAdapter();
+            //rds2.Fill(ds2.reporte_detalle_traspaso, Program.GidVehiculoRpt);  //llenar reporte
+            //ReportDataSource rd2 = new ReportDataSource();
+            //rd2.Name = "DataSet2";
+            //rd2.Value = ds2.Tables["reporte_detalle_traspaso"];
+
+            CarsImportDataSet ds3 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_recibo_de_cobro_traspasoTableAdapter rds3 = new CarsImportDataSetTableAdapters.reporte_recibo_de_cobro_traspasoTableAdapter();
+            rds3.Fill(ds3.reporte_recibo_de_cobro_traspaso, Program.GidCCRpt, Program.GtipoRecibo, Program.GnumeroRecibo);  //llenar reporte
+            ReportDataSource rd3 = new ReportDataSource();
+            rd3.Name = "DataSet3";
+            rd3.Value = ds3.Tables["reporte_recibo_de_cobro_traspaso"];
+
+            CarsImportDataSet ds4 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_obtener_detalle_cobros_traspasoTableAdapter rds4 = new CarsImportDataSetTableAdapters.reporte_obtener_detalle_cobros_traspasoTableAdapter();
+            rds4.Fill(ds4.reporte_obtener_detalle_cobros_traspaso, Program.GidCCRpt, Program.GtipoRecibo, Program.GnumeroRecibo);  //llenar reporte
+            ReportDataSource rd4 = new ReportDataSource();
+            rd4.Name = "DataSet4";
+            rd4.Value = ds4.Tables["reporte_obtener_detalle_cobros_traspaso"];
+
+            //CarsImportDataSet ds5 = new CarsImportDataSet();
+            //CarsImportDataSetTableAdapters.reporte_precio_total_traspasoTableAdapter rds5 = new CarsImportDataSetTableAdapters.reporte_precio_total_traspasoTableAdapter();
+            //rds5.Fill(ds5.reporte_precio_total_traspaso, Program.GidVehiculoRpt);  //llenar reporte
+            //ReportDataSource rd5 = new ReportDataSource();
+            //rd5.Name = "DataSet5";
+            //rd5.Value = ds5.Tables["reporte_precio_total_traspaso"];
+
+
+
+            parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
+            parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
+
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.SetParameters(parametros);
+            lc.DataSources.Add(rd);
+            //lc.DataSources.Add(rd2);
+            lc.DataSources.Add(rd4);
+            lc.DataSources.Add(rd3);
+            //lc.DataSources.Add(rd5);
             this.reportViewer1.RefreshReport();
 
 

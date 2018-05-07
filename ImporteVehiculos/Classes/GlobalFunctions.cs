@@ -134,7 +134,7 @@ namespace ImporteVehiculos.Classes
 
                 else if (transaccion == "COMPRAS")
                 {
-                    acceso = Convert.ToBoolean(dt.Rows[0]["DESHABILITAR VEHICULOS"]);
+                    acceso = Convert.ToBoolean(dt.Rows[0]["COMPRAS"]);
                 }
 
                 else if (transaccion == "CAMBIAR ESTADO VEHICULOS")
@@ -210,6 +210,11 @@ namespace ImporteVehiculos.Classes
                 else if ((transaccion == "AGREGAR SEGUROS"))
                 {
                     acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR SEGUROS"]);
+                }
+
+                else if ((transaccion == "AGREGAR CUENTAS ANTIGUAS"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR CUENTAS ANTIGUAS"]);
                 }
             }
 

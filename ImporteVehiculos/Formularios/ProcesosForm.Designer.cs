@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcesosForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.servicios_btn = new System.Windows.Forms.Button();
             this.cuentasCobrar_btn = new System.Windows.Forms.Button();
             this.cuentasPagar_btn = new System.Windows.Forms.Button();
@@ -65,6 +66,22 @@
             this.label27.Size = new System.Drawing.Size(134, 24);
             this.label27.TabIndex = 36;
             this.label27.Text = "PROCESOS";
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::ImporteVehiculos.Properties.Resources.accounting_book;
+            this.button1.Location = new System.Drawing.Point(63, 357);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(149, 139);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "AGREGAR CC/CP";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // servicios_btn
             // 
@@ -195,7 +212,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(726, 403);
+            this.ClientSize = new System.Drawing.Size(726, 508);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.servicios_btn);
             this.Controls.Add(this.cuentasCobrar_btn);
             this.Controls.Add(this.cuentasPagar_btn);
@@ -228,5 +246,6 @@
         private System.Windows.Forms.Button cuentasPagar_btn;
         private System.Windows.Forms.Button cuentasCobrar_btn;
         private System.Windows.Forms.Button servicios_btn;
+        private System.Windows.Forms.Button button1;
     }
 }

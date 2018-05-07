@@ -337,6 +337,8 @@ namespace ImporteVehiculos.Formularios
 
         public void AgregarPagosDtg()
         {
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
             bool add = true;
             double cantidadAgregar;
             double precioTotal;
@@ -352,7 +354,7 @@ namespace ImporteVehiculos.Formularios
                         if (row1.Cells[0].Value.ToString() == tipoPago_cb.Text)
                         {
                             row1.Cells[1].Value = cantidadAgregar + Convert.ToDouble(row1.Cells[1].Value);
-                            row1.Cells[2].Value = (cantidadAgregar / Convert.ToDouble(Properties.Settings.Default.tasaDolar)) + Convert.ToDouble(row1.Cells[2].Value);
+                            row1.Cells[2].Value = (cantidadAgregar / Convert.ToDouble(dt1.Rows[0]["TASA"])) + Convert.ToDouble(row1.Cells[2].Value);
                             add = false;
                         }
 
@@ -365,7 +367,7 @@ namespace ImporteVehiculos.Formularios
                         int row = pagos_dtg.Rows.Count;
                         pagos_dtg.Rows[row - 1].Cells[0].Value = tipoPago_cb.Text;
                         pagos_dtg.Rows[row - 1].Cells[1].Value = cantidadAgregar;
-                        pagos_dtg.Rows[row - 1].Cells[2].Value = cantidadAgregar / Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                        pagos_dtg.Rows[row - 1].Cells[2].Value = cantidadAgregar / Convert.ToDouble(dt1.Rows[0]["TASA"]);
                         pagos_dtg.Rows[row - 1].Cells[3].Value = detalle_pago_txt.Text;
 
                         pagos_dtg.Rows[row - 1].Cells[5].Value = tipoPago_cb.SelectedValue;
@@ -392,7 +394,7 @@ namespace ImporteVehiculos.Formularios
                     {
                         if (row1.Cells[0].Value.ToString() == tipoPago_cb.Text)
                         {
-                            row1.Cells[1].Value = (cantidadAgregar * Convert.ToDouble(Properties.Settings.Default.tasaDolar)) + Convert.ToDouble(row1.Cells[1].Value);
+                            row1.Cells[1].Value = (cantidadAgregar * Convert.ToDouble(dt1.Rows[0]["TASA"])) + Convert.ToDouble(row1.Cells[1].Value);
                             row1.Cells[2].Value = (cantidadAgregar) + Convert.ToDouble(row1.Cells[2].Value);
                             add = false;
                         }
@@ -405,7 +407,7 @@ namespace ImporteVehiculos.Formularios
                         pagos_dtg.Rows.Add();
                         int row = pagos_dtg.Rows.Count;
                         pagos_dtg.Rows[row - 1].Cells[0].Value = tipoPago_cb.Text;
-                        pagos_dtg.Rows[row - 1].Cells[1].Value = cantidadAgregar * Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                        pagos_dtg.Rows[row - 1].Cells[1].Value = cantidadAgregar * Convert.ToDouble(dt1.Rows[0]["TASA"]);
                         pagos_dtg.Rows[row - 1].Cells[2].Value = cantidadAgregar;
                         pagos_dtg.Rows[row - 1].Cells[3].Value = detalle_pago_txt.Text;
 
@@ -483,19 +485,21 @@ namespace ImporteVehiculos.Formularios
         }
         public void CalcularPrecio()
         {
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
             try
             {
                  if (rdDinero_radiobtn.Checked)
             {
                 precioCompraRd = Convert.ToDouble(precio_txt.Text);
-                precioCompraUsd = Convert.ToDouble(precio_txt.Text) / Properties.Settings.Default.tasaDolar;
+                precioCompraUsd = Convert.ToDouble(precio_txt.Text) / Convert.ToDouble(dt1.Rows[0]["TASA"]);
                 precioCompraRd_lbl.Text = precioCompraRd.ToString("N2");
                 precioCompraUSD_lbl.Text = precioCompraUsd.ToString("N2");
                 CalcularTotal();
             }
             else if(usdDinero_radiobtn.Checked)
             {
-                precioCompraRd = Convert.ToDouble(precio_txt.Text) * Properties.Settings.Default.tasaDolar;
+                precioCompraRd = Convert.ToDouble(precio_txt.Text) * Convert.ToDouble(dt1.Rows[0]["TASA"]);
                 precioCompraUsd = Convert.ToDouble(precio_txt.Text);
                 precioCompraRd_lbl.Text = precioCompraRd.ToString("N2");
                 precioCompraUSD_lbl.Text = precioCompraUsd.ToString("N2");
@@ -560,6 +564,7 @@ namespace ImporteVehiculos.Formularios
 
         private void agregar_btn_Click(object sender, EventArgs e)
         {
+            
             string[] valores = { tipoPago_cb.Text };
             string[] numeros = { pago_txt.Text };
             string msj = GF.ValidarCampoString(valores);

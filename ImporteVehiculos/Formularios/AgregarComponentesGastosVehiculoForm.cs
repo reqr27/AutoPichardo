@@ -98,7 +98,7 @@ namespace ImporteVehiculos.Formularios
             vehiculos_cb.DataSource = dt;
             vehiculos_cb.DisplayMember = "VEHICULO";
             vehiculos_cb.ValueMember = "ID";
-            vehiculos_cb.SelectedIndex = 0;
+           vehiculos_cb.SelectedIndex = -1;
 
             if(dt.Rows.Count == 0)
             {

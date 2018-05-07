@@ -113,6 +113,7 @@ namespace ImporteVehiculos.Classes
         bool McrearUbicacion;
         bool McrearColor;
         bool McrearSeguro;
+        bool MagregarCCCPAntiguas;
         int Mcantidad;
 
         //double Msubtotal;
@@ -208,7 +209,11 @@ namespace ImporteVehiculos.Classes
             set { MestadoColor = value; }
         }
 
-
+        public bool AgregarCCCPAntigua
+        {
+            get { return MagregarCCCPAntiguas; }
+            set {MagregarCCCPAntiguas = value; }
+        }
 
         public bool EstadoUbicacion
         {
@@ -1066,7 +1071,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
 
             lst.Add(new clsParametros("@crearSeguros", McrearSeguro));
-
+            lst.Add(new clsParametros("@agregarCuentasAntiguas", MagregarCCCPAntiguas));
 
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
@@ -1344,6 +1349,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@crearColor", McrearColor));
             lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
             lst.Add(new clsParametros("@crearSeguros", McrearSeguro));
+            lst.Add(new clsParametros("@agregarCuentasAntiguas", MagregarCCCPAntiguas));
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
             C.EjecutarSP("actualizar_usuarios", ref lst);
@@ -2410,6 +2416,71 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idFactura", Mid));
             return dt = C.Listado("obtener_detalles_factura_servicio", lst);
+        }
+
+        public DataTable ObtenerDiasActivo()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            //lst.Add(new clsParametros("@idFactura", Mid));
+            return dt = C.Listado("obtener_dias_activo", lst);
+        }
+
+        public DataTable ObtenerTipoCC()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idCC", Mid));
+            return dt = C.Listado("obtener_tipo_cuenta_cobrar", lst);
+        }
+
+        public string RegistrarCPCCAntigua()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@tipoCuenta", Mtipo));
+            lst.Add(new clsParametros("@idClienteSuplidor", MidCliente)); // cliente para CC, suplidor para CP
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@idGastoPieza", Mid)); // gasto pieza
+
+            lst.Add(new clsParametros("@montoRD", MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+
+            C.EjecutarSP("registrar_cc_cp_antigua", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string RegistrarDetallesCPCCAntigua()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@tipoCuenta", Mtipo));
+            lst.Add(new clsParametros("@idFabricante", MidFabricante));
+            lst.Add(new clsParametros("@idModelo", MidModelo));
+            lst.Add(new clsParametros("@año", Maño));
+            lst.Add(new clsParametros("@color", Mcolor));
+            lst.Add(new clsParametros("@idSeguro", MidSeguro));
+            lst.Add(new clsParametros("@duracion", Mduracion));
+            lst.Add(new clsParametros("@chasis", Mvin));
+
+            C.EjecutarSP("registrar_detalle_cc_cp_antigua", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerDetallesCuentaCobrarAntigua()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idCC", Mid));
+            return dt = C.Listado("obtener_detalle_cuenta_cobrar_antigua", lst);
         }
 
     }

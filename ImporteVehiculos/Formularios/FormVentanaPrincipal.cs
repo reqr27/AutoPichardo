@@ -35,6 +35,7 @@ namespace ImporteVehiculos.Formularios
             label1.Text = Program.Gtitulo;
             Permisos();
             timer1.Start();
+            timer3.Start();
             usuario_lbl.Text = "Usuario: " + Program.Gusuario + "       ID:" + Program.GidUsuario.ToString();
             ActualizarHoraFecha();
             
@@ -69,6 +70,7 @@ namespace ImporteVehiculos.Formularios
         {
             timer1.Stop();
             ActualizarHoraFecha();
+            validarActivado();
             timer1.Start();
         }
         public void ActualizarHoraFecha()
@@ -197,11 +199,20 @@ namespace ImporteVehiculos.Formularios
 
         public void validarActivado()
         {
+            DataTable dt = new DataTable();
+            dt = P.ObtenerDiasActivo();
+           
+            string dias = dt.Rows[0]["DIAS"].ToString();
+            
+           
+
             string mensaje = P.RevisarSoftwareActivado();
             if(mensaje == "1")
             {
                 activar_btn.Visible = false;
-                activado_lbl.Visible = false;
+                
+                activado_lbl.Visible = true;
+                activado_lbl.Text = "VERSION DE PRUEBA - DIAS RESTANTES: " + dias;
                 button1.Enabled = true;
                 button4.Enabled = true;
                 reportes_btn.Enabled = true;
@@ -209,11 +220,27 @@ namespace ImporteVehiculos.Formularios
 
             else
             {
+                if(dias == "1")
+                {
+                    activado_lbl.Text = "VERSION DE PRUEBA - DIAS RESTANTES: 0";
+                }
                 activar_btn.Visible = true;
                 activado_lbl.Visible = true;
                 button1.Enabled = false;
                 button4.Enabled = false;
                 reportes_btn.Enabled = false;
+
+                List<Form> openForms = new List<Form>();
+
+                foreach (Form f in Application.OpenForms)
+                    openForms.Add(f);
+
+                foreach (Form f in openForms)
+                {
+                    
+                    if (f.Name != "FormVentanaPrincipal" && f.Name != "Form1" && f.Name != "ActivationForm")
+                        f.Close();
+                }
             }
         }
 
@@ -222,6 +249,13 @@ namespace ImporteVehiculos.Formularios
             ActivationForm frm = new ActivationForm();
             frm.ShowDialog();
             validarActivado();
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            timer3.Stop();
+            validarActivado();
+            timer3.Start();
         }
     }
 }

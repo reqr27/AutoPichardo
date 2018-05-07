@@ -93,6 +93,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.creditoRd_lbl = new System.Windows.Forms.Label();
             this.guardar_btn = new System.Windows.Forms.Button();
+            this.notaVenta_txt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
@@ -634,7 +635,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.detalleVenta_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.detalleVenta_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.detalleVenta_dtg.Location = new System.Drawing.Point(13, 250);
+            this.detalleVenta_dtg.Location = new System.Drawing.Point(11, 249);
             this.detalleVenta_dtg.MultiSelect = false;
             this.detalleVenta_dtg.Name = "detalleVenta_dtg";
             this.detalleVenta_dtg.ReadOnly = true;
@@ -860,6 +861,16 @@
             this.guardar_btn.UseVisualStyleBackColor = true;
             this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
             // 
+            // notaVenta_txt
+            // 
+            this.notaVenta_txt.Enabled = false;
+            this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaVenta_txt.Location = new System.Drawing.Point(11, 250);
+            this.notaVenta_txt.Multiline = true;
+            this.notaVenta_txt.Name = "notaVenta_txt";
+            this.notaVenta_txt.Size = new System.Drawing.Size(301, 227);
+            this.notaVenta_txt.TabIndex = 121;
+            // 
             // CobrosCuentasCobrarForm
             // 
             this.AcceptButton = this.guardar_btn;
@@ -881,8 +892,9 @@
             this.Controls.Add(this.rdDinero_radiobtn);
             this.Controls.Add(this.pago_txt);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.detalleVenta_dtg);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.detalleVenta_dtg);
+            this.Controls.Add(this.notaVenta_txt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CobrosCuentasCobrarForm";
@@ -966,5 +978,6 @@
         private System.Windows.Forms.Label cc_lbl;
         private System.Windows.Forms.LinkLabel traspasoImg_btn;
         private System.Windows.Forms.LinkLabel clienteImg_btn;
+        private System.Windows.Forms.TextBox notaVenta_txt;
     }
 }

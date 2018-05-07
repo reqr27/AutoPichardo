@@ -36,10 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.activar_btn = new System.Windows.Forms.Button();
+            this.full_radiobtn = new System.Windows.Forms.RadioButton();
+            this.trial_radiobtn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(199, 70);
+            this.label5.Location = new System.Drawing.Point(200, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 24);
             this.label5.TabIndex = 61;
@@ -56,7 +58,7 @@
             // txt1
             // 
             this.txt1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt1.Location = new System.Drawing.Point(146, 72);
+            this.txt1.Location = new System.Drawing.Point(147, 88);
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(48, 20);
             this.txt1.TabIndex = 60;
@@ -64,7 +66,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(300, 72);
+            this.textBox2.Location = new System.Drawing.Point(301, 88);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(48, 20);
             this.textBox2.TabIndex = 59;
@@ -73,7 +75,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(276, 70);
+            this.label3.Location = new System.Drawing.Point(277, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 24);
             this.label3.TabIndex = 58;
@@ -82,7 +84,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(222, 72);
+            this.textBox1.Location = new System.Drawing.Point(223, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(48, 20);
             this.textBox1.TabIndex = 57;
@@ -91,7 +93,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(199, 70);
+            this.label2.Location = new System.Drawing.Point(200, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 24);
             this.label2.TabIndex = 56;
@@ -101,7 +103,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(27, 75);
+            this.label10.Location = new System.Drawing.Point(28, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 15);
             this.label10.TabIndex = 55;
@@ -118,6 +120,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(390, 52);
             this.panel1.TabIndex = 54;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::SerialKeyGenerator.Properties.Resources.borrar;
+            this.button1.Location = new System.Drawing.Point(358, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(29, 23);
+            this.button1.TabIndex = 35;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -143,38 +157,49 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::SerialKeyGenerator.Properties.Resources.borrar;
-            this.button1.Location = new System.Drawing.Point(358, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(29, 23);
-            this.button1.TabIndex = 35;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // activar_btn
             // 
             this.activar_btn.FlatAppearance.BorderSize = 0;
             this.activar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.activar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.activar_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.activar_btn.Location = new System.Drawing.Point(167, 100);
+            this.activar_btn.Location = new System.Drawing.Point(167, 118);
             this.activar_btn.Name = "activar_btn";
-            this.activar_btn.Size = new System.Drawing.Size(75, 49);
+            this.activar_btn.Size = new System.Drawing.Size(75, 34);
             this.activar_btn.TabIndex = 62;
             this.activar_btn.Text = "Generar ";
             this.activar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.activar_btn.UseVisualStyleBackColor = true;
             this.activar_btn.Click += new System.EventHandler(this.activar_btn_Click);
             // 
+            // full_radiobtn
+            // 
+            this.full_radiobtn.AutoSize = true;
+            this.full_radiobtn.Location = new System.Drawing.Point(241, 58);
+            this.full_radiobtn.Name = "full_radiobtn";
+            this.full_radiobtn.Size = new System.Drawing.Size(41, 17);
+            this.full_radiobtn.TabIndex = 64;
+            this.full_radiobtn.Text = "Full";
+            this.full_radiobtn.UseVisualStyleBackColor = true;
+            // 
+            // trial_radiobtn
+            // 
+            this.trial_radiobtn.AutoSize = true;
+            this.trial_radiobtn.Checked = true;
+            this.trial_radiobtn.Location = new System.Drawing.Point(108, 58);
+            this.trial_radiobtn.Name = "trial_radiobtn";
+            this.trial_radiobtn.Size = new System.Drawing.Size(45, 17);
+            this.trial_radiobtn.TabIndex = 63;
+            this.trial_radiobtn.Text = "Trial";
+            this.trial_radiobtn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 161);
+            this.Controls.Add(this.full_radiobtn);
+            this.Controls.Add(this.trial_radiobtn);
             this.Controls.Add(this.activar_btn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt1);
@@ -208,6 +233,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button activar_btn;
+        private System.Windows.Forms.RadioButton full_radiobtn;
+        private System.Windows.Forms.RadioButton trial_radiobtn;
     }
 }
 

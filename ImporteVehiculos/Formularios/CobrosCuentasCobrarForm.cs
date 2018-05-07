@@ -54,34 +54,68 @@ namespace ImporteVehiculos.Formularios
 
         private void CobrosCuentasCobrarForm_Load(object sender, EventArgs e)
         {
-            guardar_btn.NotifyDefault(false);
-            if(transaccion == "VENTA")
+            if (Program.GnuevaCC) // cuenta nueva
             {
-                idTransaccion = 1;
-                traspasoImg_btn.Visible = false;
-            }
-            else if(transaccion == "TRASPASO")
-            {
-                idTransaccion = 3;
-            }
+                if (transaccion == "VENTA")
+                {
+                    idTransaccion = 1;
+                    traspasoImg_btn.Visible = false;
+                }
+                else if (transaccion == "TRASPASO")
+                {
+                    idTransaccion = 3;
+                }
 
-            else if (transaccion == "SEGURO")
-            {
-                idTransaccion = 4;
-                traspasoImg_btn.Visible = false;
-                
+                else if (transaccion == "SEGURO")
+                {
+                    idTransaccion = 4;
+                    traspasoImg_btn.Visible = false;
+
+                }
+
+
+
+                ObtenerDetalleCuentaCobrar();
+                LlenarDtgDetallesVenta();
+
             }
-            
+            else // Cuenta antigua
+            {
+                detalleVenta_dtg.Visible = false;
+                label19.Visible = false;
+                label21.Visible = false;
+                precioVentaRD_lbl.Visible = false;
+                precioVentaUSD_lbl.Visible = false;
+                if (transaccion == "VENTA")
+                {
+                    idTransaccion = 1;
+                    traspasoImg_btn.Visible = false;
+                }
+                else if (transaccion == "TRASPASO")
+                {
+                    idTransaccion = 3;
+                    traspasoImg_btn.Visible = false;
+                }
+
+                else if (transaccion == "SEGURO")
+                {
+                    idTransaccion = 4;
+                    traspasoImg_btn.Visible = false;
+
+                }
+                ObtenerDetalleCuentaCobrarAntigua();
+
+            }
 
             cc_lbl.Text = "# CC: " + idCC.ToString("0000000");
             LLenarTipoPagoCb();
             LlenarDtgCobrosCredito();
-            ObtenerDetalleCuentaCobrar();
-            LlenarDtgDetallesVenta();
             CalcularTotales();
 
             Permisos();
+            guardar_btn.NotifyDefault(false);
             pago_txt.Focus();
+
         }
 
         public void clearFields()
@@ -89,6 +123,61 @@ namespace ImporteVehiculos.Formularios
             pago_txt.Text = "";
             nota_txt.Text = "";
             pago_txt.Focus();
+        }
+
+        public void ObtenerDetalleCuentaCobrarAntigua()
+        {
+            DataTable dt = new DataTable();
+
+            P.Id = idCC;
+            dt = P.ObtenerDetallesCuentaCobrarAntigua();
+            notaVenta_txt.Text = dt.Rows[0]["NOTA"].ToString();
+            idCliente = Convert.ToInt32(dt.Rows[0]["IDCLIENTE"].ToString());
+            vehiculo_lbl.Text = dt.Rows[0]["VEHICULO"].ToString();
+            chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
+            fechaCompra_lbl.Text = dt.Rows[0]["FECHA"].ToString();
+            cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+            cliente_lbl.Text = dt.Rows[0]["CLIENTE"].ToString();
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            if (transaccion == "VENTA")
+            {
+
+                transaccion_lbl.Text = "VENTA";
+                //precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+                //precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+
+            }
+            else if (transaccion == "TRASPASO")
+            {
+
+                transaccion_lbl.Text = "TRASPASO";
+                //precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO RD"])).ToString("#,###.00");
+                //precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO USD"])).ToString("#,###.00");
+
+            }
+
+            else if (transaccion == "SEGURO")
+            {
+                transaccion_lbl.Text = "SEGURO";
+                label19.Visible = true;
+                label21.Visible = true;
+                label19.Text = dt.Rows[0]["SEGURO"].ToString();
+                label21.Text = "Duración(dias): " + dt.Rows[0]["DURACION"].ToString();
+                //precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
+                //precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
+
+            }
+
+            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+
+            creditoRd_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO RD"]).ToString("N2");
+            creditoUSD_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO USD"]).ToString("N2");
+
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
+
         }
 
         public void ObtenerDetalleCuentaCobrar()

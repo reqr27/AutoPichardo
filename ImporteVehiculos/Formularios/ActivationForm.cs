@@ -74,38 +74,7 @@ namespace ImporteVehiculos.Formularios
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                Convert.ToInt16(textBox1.Text);
-                if (textBox1.Text.Length == 4)
-                {
-                    textBox2.Focus();
-                }
-            
-            }
-            catch
-            {
 
-                if (textBox1.Text.Length > 1)
-                {
-                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
-                    textBox1.SelectionStart = textBox1.Text.Length;
-                }
-                else
-                {
-                    textBox1.Text = "";
-                }
-
-            }
-
-            if (textBox1.Text.Length + txt1.Text.Length + textBox2.Text.Length == 12)
-            {
-                activar_btn.Enabled = true;
-            }
-            else
-            {
-                activar_btn.Enabled = false;
-            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

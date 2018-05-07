@@ -73,6 +73,16 @@ namespace ImporteVehiculos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accounting_book {
+            get {
+                object obj = ResourceManager.GetObject("accounting-book", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agregar_notas {
             get {
                 object obj = ResourceManager.GetObject("agregar-notas", resourceCulture);

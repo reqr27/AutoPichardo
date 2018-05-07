@@ -74,6 +74,7 @@
             this.suplidores_chbox = new System.Windows.Forms.CheckBox();
             this.seguros_chbox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.agregarCCCP_chbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -544,6 +545,7 @@
             this.flowLayoutPanel1.Controls.Add(this.colores_chbox);
             this.flowLayoutPanel1.Controls.Add(this.suplidores_chbox);
             this.flowLayoutPanel1.Controls.Add(this.seguros_chbox);
+            this.flowLayoutPanel1.Controls.Add(this.agregarCCCP_chbox);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(424, 94);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -621,6 +623,7 @@
             this.seguros_chbox.TabIndex = 31;
             this.seguros_chbox.Text = "Agregar Seguros";
             this.seguros_chbox.UseVisualStyleBackColor = true;
+            this.seguros_chbox.Visible = false;
             // 
             // label7
             // 
@@ -631,6 +634,18 @@
             this.label7.Size = new System.Drawing.Size(171, 18);
             this.label7.TabIndex = 49;
             this.label7.Text = "Permisos del Usuario";
+            // 
+            // agregarCCCP_chbox
+            // 
+            this.agregarCCCP_chbox.AutoSize = true;
+            this.agregarCCCP_chbox.Checked = true;
+            this.agregarCCCP_chbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.agregarCCCP_chbox.Location = new System.Drawing.Point(490, 49);
+            this.agregarCCCP_chbox.Name = "agregarCCCP_chbox";
+            this.agregarCCCP_chbox.Size = new System.Drawing.Size(183, 17);
+            this.agregarCCCP_chbox.TabIndex = 33;
+            this.agregarCCCP_chbox.Text = "Agregar Cuentas Cobrar Antiguas";
+            this.agregarCCCP_chbox.UseVisualStyleBackColor = true;
             // 
             // UsuariosForm
             // 
@@ -718,5 +733,6 @@
         private System.Windows.Forms.CheckBox suplidores_chbox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox seguros_chbox;
+        private System.Windows.Forms.CheckBox agregarCCCP_chbox;
     }
 }
