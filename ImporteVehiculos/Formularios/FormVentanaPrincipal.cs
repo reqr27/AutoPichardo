@@ -31,7 +31,7 @@ namespace ImporteVehiculos.Formularios
 
         private void FormVentanaPrincipal_Load(object sender, EventArgs e)
         {
-            validarActivado();
+            RevisarActivado();
             label1.Text = Program.Gtitulo;
             Permisos();
             timer1.Start();
@@ -70,7 +70,7 @@ namespace ImporteVehiculos.Formularios
         {
             timer1.Stop();
             ActualizarHoraFecha();
-            validarActivado();
+            RevisarActivado();
             timer1.Start();
         }
         public void ActualizarHoraFecha()
@@ -197,64 +197,98 @@ namespace ImporteVehiculos.Formularios
            
         }
 
-        public void validarActivado()
-        {
-            DataTable dt = new DataTable();
-            dt = P.ObtenerDiasActivo();
-           
-            string dias = dt.Rows[0]["DIAS"].ToString();
-            
-           
 
+        public void RevisarActivado()
+        {
             string mensaje = P.RevisarSoftwareActivado();
-            if(mensaje == "1")
+            if (mensaje == "0")
             {
-                activar_btn.Visible = false;
-                
+                timer3.Stop();
+                button1.Enabled = false; //conf
+                button4.Enabled = false; //proc
+                reportes_btn.Enabled = false;
                 activado_lbl.Visible = true;
-                activado_lbl.Text = "VERSION DE PRUEBA - DIAS RESTANTES: " + dias;
+                activar_btn.Visible = true;
+            }
+            else if (mensaje == "Trial")
+            {
+                DataTable dt = new DataTable();
+                dt = P.ObtenerDiasActivo();
+
+                string dias = dt.Rows[0]["DIAS"].ToString();
+                if (dias == "0")
+                {
+                    timer3.Stop();
+                    button1.Enabled = false; //conf
+                    button4.Enabled = false; //proc
+                    reportes_btn.Enabled = false;
+
+                    
+                    activado_lbl.Text = "Version De Prueba ha vencido";
+                    activado_lbl.Visible = true;
+                    activar_btn.Visible = true;
+                    CerrarForms();
+                }
+                else
+                {
+                    timer3.Start();
+                    
+                    button1.Enabled = true;
+                    button4.Enabled = true;
+                    reportes_btn.Enabled = true;
+                    activado_lbl.Visible = true;
+                    activado_lbl.Text = "Version De Prueba - Vence en: " + dias + " días";
+                    activar_btn.Visible = true;
+                }
+
+
+
+            }
+
+            else if (mensaje == "Full")
+            {
+                timer3.Stop();
+
                 button1.Enabled = true;
                 button4.Enabled = true;
                 reportes_btn.Enabled = true;
-            }
 
-            else
-            {
-                if(dias == "1")
-                {
-                    activado_lbl.Text = "VERSION DE PRUEBA - DIAS RESTANTES: 0";
-                }
-                activar_btn.Visible = true;
-                activado_lbl.Visible = true;
-                button1.Enabled = false;
-                button4.Enabled = false;
-                reportes_btn.Enabled = false;
+                activado_lbl.Visible = false;
 
-                List<Form> openForms = new List<Form>();
+                activar_btn.Visible = false;
 
-                foreach (Form f in Application.OpenForms)
-                    openForms.Add(f);
 
-                foreach (Form f in openForms)
-                {
-                    
-                    if (f.Name != "FormVentanaPrincipal" && f.Name != "Form1" && f.Name != "ActivationForm")
-                        f.Close();
-                }
             }
         }
+
+        public void CerrarForms()
+        {
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+
+                if (f.Name != "Form1" && f.Name != "FormVentanaPrincipal" && f.Name != "ActivationForm")
+                    f.Close();
+            }
+        }
+
+      
 
         private void activar_btn_Click(object sender, EventArgs e)
         {
             ActivationForm frm = new ActivationForm();
             frm.ShowDialog();
-            validarActivado();
+            RevisarActivado();
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
             timer3.Stop();
-            validarActivado();
+            RevisarActivado();
             timer3.Start();
         }
     }

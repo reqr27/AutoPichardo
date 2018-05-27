@@ -58,6 +58,11 @@ namespace ImporteVehiculos.Formularios
                 idTransaccion = 2;
             }
 
+            else if (transaccion == "FACTURA SERVICIOS")
+            {
+                idTransaccion = 8;
+            }
+
             else if (transaccion == "SEGURO")
             {
                 idTransaccion = 4;
@@ -270,6 +275,7 @@ namespace ImporteVehiculos.Formularios
             detalleCompra_dtg.DataSource = null;
             P.IdVehiculo = idVehiculo;
             P.Id = idTransaccion;
+            P.IdCP = idCP;
             dt = P.ObtenerPagosVehiculo();
             detalleCompra_dtg.DataSource = dt;
             //detalleCompra_dtg.Columns[0].Visible = false;

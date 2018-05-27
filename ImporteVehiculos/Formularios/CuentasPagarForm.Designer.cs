@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 129);
+            this.panel1.Size = new System.Drawing.Size(881, 129);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -85,7 +85,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(665, 84);
+            this.panel3.Size = new System.Drawing.Size(881, 84);
             this.panel3.TabIndex = 60;
             // 
             // label4
@@ -191,7 +191,7 @@
             this.verDetalles_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.verDetalles_btn.Image = global::ImporteVehiculos.Properties.Resources.portapapeles;
             this.verDetalles_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.verDetalles_btn.Location = new System.Drawing.Point(570, 3);
+            this.verDetalles_btn.Location = new System.Drawing.Point(777, 17);
             this.verDetalles_btn.Name = "verDetalles_btn";
             this.verDetalles_btn.Size = new System.Drawing.Size(92, 53);
             this.verDetalles_btn.TabIndex = 50;
@@ -218,7 +218,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(602, 3);
+            this.button3.Location = new System.Drawing.Point(811, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(26, 26);
             this.button3.TabIndex = 37;
@@ -232,7 +232,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(634, 3);
+            this.button2.Location = new System.Drawing.Point(843, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 26);
             this.button2.TabIndex = 36;
@@ -260,7 +260,7 @@
             this.cuentasPagar_dtg.Name = "cuentasPagar_dtg";
             this.cuentasPagar_dtg.ReadOnly = true;
             this.cuentasPagar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuentasPagar_dtg.Size = new System.Drawing.Size(629, 255);
+            this.cuentasPagar_dtg.Size = new System.Drawing.Size(854, 255);
             this.cuentasPagar_dtg.TabIndex = 41;
             this.cuentasPagar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasPagar_dtg_CellDoubleClick);
             // 
@@ -274,7 +274,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 438);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(665, 41);
+            this.panel2.Size = new System.Drawing.Size(881, 41);
             this.panel2.TabIndex = 61;
             // 
             // label18
@@ -282,7 +282,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label18.Location = new System.Drawing.Point(407, 13);
+            this.label18.Location = new System.Drawing.Point(651, 13);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(123, 13);
             this.label18.TabIndex = 123;
@@ -293,7 +293,7 @@
             this.restante_USD_lbl.AutoSize = true;
             this.restante_USD_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restante_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_USD_lbl.Location = new System.Drawing.Point(536, 13);
+            this.restante_USD_lbl.Location = new System.Drawing.Point(780, 13);
             this.restante_USD_lbl.Name = "restante_USD_lbl";
             this.restante_USD_lbl.Size = new System.Drawing.Size(21, 13);
             this.restante_USD_lbl.TabIndex = 124;
@@ -304,7 +304,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label21.Location = new System.Drawing.Point(56, 13);
+            this.label21.Location = new System.Drawing.Point(26, 13);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(115, 13);
             this.label21.TabIndex = 118;
@@ -315,7 +315,7 @@
             this.restante_RD_lbl.AutoSize = true;
             this.restante_RD_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restante_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_RD_lbl.Location = new System.Drawing.Point(177, 13);
+            this.restante_RD_lbl.Location = new System.Drawing.Point(147, 13);
             this.restante_RD_lbl.Name = "restante_RD_lbl";
             this.restante_RD_lbl.Size = new System.Drawing.Size(21, 13);
             this.restante_RD_lbl.TabIndex = 119;
@@ -326,7 +326,7 @@
             this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 479);
+            this.ClientSize = new System.Drawing.Size(881, 479);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cuentasPagar_dtg);
             this.Controls.Add(this.panel1);

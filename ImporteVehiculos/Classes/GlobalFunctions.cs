@@ -222,15 +222,22 @@ namespace ImporteVehiculos.Classes
             return acceso;
         }
 
-        public bool serialKeyActivation(int total)
+        public string serialKeyActivation(int total)
         {
-            bool activated = false;
+            string result = "none";
+
             int totalSumSerial = 10000 + Convert.ToInt16(DateTime.Now.Day) + Convert.ToInt16(DateTime.Now.Month) + Convert.ToInt16(DateTime.Now.Year);
-            if(totalSumSerial == total)
+            int totalSumSerial2 = 5000 + Convert.ToInt16(DateTime.Now.Day) + Convert.ToInt16(DateTime.Now.Month) + Convert.ToInt16(DateTime.Now.Year);
+
+            if (totalSumSerial == total)
             {
-                activated = true;
+                result = "Full";
             }
-            return activated;
+            else if (totalSumSerial2 == total)
+            {
+                result = "Trial";
+            }
+            return result;
         }
     }
 

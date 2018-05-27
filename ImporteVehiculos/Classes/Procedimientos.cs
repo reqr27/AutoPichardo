@@ -115,6 +115,8 @@ namespace ImporteVehiculos.Classes
         bool McrearSeguro;
         bool MagregarCCCPAntiguas;
         int Mcantidad;
+        int MidCp;
+        string MtipoActivacion;
 
         //double Msubtotal;
         //double Mtotal;
@@ -124,6 +126,18 @@ namespace ImporteVehiculos.Classes
         //string Mmantenimiento;
         //DateTime Mdesde;
         //DateTime Mhasta;
+
+        public string TipoActivacion
+        {
+            get { return MtipoActivacion; }
+            set { MtipoActivacion = value; }
+        }
+
+        public int IdCP
+        {
+            get { return MidCp; }
+            set { MidCp = value; }
+        }
 
         public byte[] Img
         {
@@ -1646,6 +1660,7 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             lst.Add(new clsParametros("@idTransaccion", Mid));
+            lst.Add(new clsParametros("@idCP", MidCp));
             return dt = C.Listado("obtener_pagos_vehiculo", lst);
         }
 
@@ -1888,10 +1903,11 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
-            C.EjecutarSP("validar_software_activado", ref lst);
-            mensaje = lst[0].Valor.ToString();
-            return mensaje;
 
+            C.EjecutarSP("revisarSoftwareActivado", ref lst);
+            mensaje = lst[0].Valor.ToString();
+
+            return mensaje;
         }
 
         public string ActivarSoftware()
@@ -1900,6 +1916,7 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@tipo", MtipoActivacion));
             C.EjecutarSP("activar_software", ref lst);
             mensaje = lst[0].Valor.ToString();
             return mensaje;

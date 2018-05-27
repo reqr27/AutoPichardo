@@ -30,6 +30,7 @@ namespace ImporteVehiculos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            label2.Text = Program.Gtitulo;
             try
             {
                 usuario_txt.Text = Properties.Settings.Default.usuario;

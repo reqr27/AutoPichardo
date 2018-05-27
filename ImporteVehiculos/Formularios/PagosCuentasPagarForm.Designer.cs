@@ -334,7 +334,7 @@
             this.fechaCompra_lbl.AutoSize = true;
             this.fechaCompra_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCompra_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.fechaCompra_lbl.Location = new System.Drawing.Point(846, 42);
+            this.fechaCompra_lbl.Location = new System.Drawing.Point(846, 57);
             this.fechaCompra_lbl.Name = "fechaCompra_lbl";
             this.fechaCompra_lbl.Size = new System.Drawing.Size(37, 15);
             this.fechaCompra_lbl.TabIndex = 122;
@@ -345,7 +345,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label24.Location = new System.Drawing.Point(786, 42);
+            this.label24.Location = new System.Drawing.Point(786, 57);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(54, 15);
             this.label24.TabIndex = 121;

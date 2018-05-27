@@ -110,25 +110,26 @@ namespace ImporteVehiculos.Formularios
 
         private void activar_btn_Click(object sender, EventArgs e)
         {
-           int total = Convert.ToInt32(textBox1.Text) + Convert.ToInt32(txt1.Text) + Convert.ToInt32(textBox2.Text);
-           if (GF.serialKeyActivation(total))
+            int total = Convert.ToInt32(textBox1.Text) + Convert.ToInt32(txt1.Text) + Convert.ToInt32(textBox2.Text);
+            if (GF.serialKeyActivation(total) != "none")
             {
+                P.TipoActivacion = GF.serialKeyActivation(total);
                 string msj = P.ActivarSoftware();
                 if (msj == "1")
                 {
-                    MessageBox.Show("Software Activado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Software Activado", "Sistema Facturación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
 
                 else
                 {
-                    MessageBox.Show("Software no pudo ser activado, intente nuevamente más tarde", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Software no pudo ser activado, intente nuevamente más tarde", "Sistema Facturación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else
             {
-                MessageBox.Show("Código incorrecto", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Código incorrecto", "Sistema Facturación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

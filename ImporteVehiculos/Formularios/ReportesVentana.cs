@@ -119,7 +119,7 @@ namespace ImporteVehiculos.Formularios
                 P.Hasta = Convert.ToDateTime(hasta_dtp.Value);
                 dt = P.ObtenerFacturas();
                 vehiculos_dtg.DataSource = dt;
-                //facturas_dtg.Columns[0].Visible = false;
+                //vehiculos_dtg.Columns[0].Visible = false;
                 vehiculos_dtg.Columns[1].DefaultCellStyle.Format = "D7";
                 vehiculos_dtg.Columns[4].DefaultCellStyle.Format = "N2";
                 vehiculos_dtg.Columns[5].DefaultCellStyle.Format = "N2";
@@ -375,7 +375,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if(vehiculos_dtg.Rows.Count > 0)
                 {
-                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
+                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[6].Value);
                     Program.Greporte = "Factura Venta Vehículo";
                     ReportesForm form1 = new ReportesForm();
                     form1.Show();
@@ -460,7 +460,7 @@ namespace ImporteVehiculos.Formularios
                     {
                         Program.Greporte = "Recibo de Pago Seguro";
                     }
-
+                    Program.GnuevaCC = Convert.ToBoolean(vehiculos_dtg.CurrentRow.Cells[6].Value);
                     Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
                     Program.GtipoRecibo = "Historial Recibo";
                     Program.GnumeroRecibo = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[1].Value);
